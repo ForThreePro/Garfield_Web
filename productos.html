@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIENDA CYBER - GS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grid-bg"></div>
+<header><div class="logo-cyber">GARFIELD<span>.STORE</span></div><div class="menu-btn-cyber" onclick="toggleMenu()">☰</div></header>
+<nav id="menu"><a href="index.html">INICIO</a><a href="productos.html">TIENDA</a><a href="videos.html">MEDIA</a><a href="carrito.html">CARRITO [<span id="menuTotal">0</span>]</a><a href="https://wa.me/51920726588" target="_blank">SOPORTE 24/7</a></nav>
+<div class="top-bar-cyber">
+  <select id="pais" onchange="cambiarPrecios()"><option value="PE">🇵🇪 PE</option><option value="CL">🇨🇱 CL</option><option value="AR">🇦🇷 AR</option><option value="MX">🇲🇽 MX</option><option value="BO">🇧🇴 BO</option><option value="UY">🇺🇾 UY</option></select>
+  <input type="text" id="buscador" placeholder="[BUSCAR...]" onkeyup="buscarProducto()">
+</div>
+<main id="productos"></main>
+<div id="popupOpciones" class="popup"></div>
+<script src="script.js"></script>
+</body>
+</html>
