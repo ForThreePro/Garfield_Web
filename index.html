@@ -24,9 +24,11 @@
 </header>
 
 <section class="hero">
+  <div class="particulas"></div>
   <img src="https://files.evogb.win/2gepcp.jpg" class="hero-img">
   <h1>GARFIELD <span>STORE</span></h1>
   <p>DIAMANTES Y DISEÑOS FREE FIRE AL INSTANTE</p>
+  <div class="contador" id="contador">OFERTA TERMINA EN: 02:14:33</div>
   <button onclick="window.location='productos.html'" class="btn-primario">IR A LA TIENDA</button>
   <a href="https://wa.me/51920726588" target="_blank" class="btn-whats">WHATSAPP 24/7</a>
 </section>
@@ -50,12 +52,33 @@
   <p>Hoy somos +5000 clientes y la tienda #1 en diseños FF. Gracias por confiar 🔥</p>
 </section>
 
+<section class="testimonios">
+  <h2>QUE DICEN NUESTROS CLIENTES</h2>
+  <div class="testi-card">"Llegó en 3 minutos. 100% real. Garfield es el mejor" - <b>@ProPlayer123</b></div>
+  <div class="testi-card">"Primera vez que compro y no me estafaron. Recomendado" - <b>@LuuGamer</b></div>
+  <div class="testi-card">"Los diseños están rotísimos. Mi clan quedó loco" - <b>@TeamDestroy</b></div>
+</section>
+
+<section class="faq">
+  <h2>PREGUNTAS FRECUENTES</h2>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>¿Es seguro comprar aquí? +</h3><p>+5000 clientes nos respaldan. Entrega inmediata o te devolvemos.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>¿Cuánto demora la entrega? +</h3><p>CON STOCK: 2-5 minutos. SIN STOCK: 1 hora max.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <h3>¿Puedo pagar después? +</h3><p>No bro. Primero el pago, luego la entrega. Así trabajamos.</p>
+  </div>
+</section>
+
 <div class="oferta">
   <h2>OFERTA DE HOY</h2>
   <p>6160 DIAMANTES CON STOCK</p>
   <s>S/120</s> <b>S/92.00</b>
 </div>
 
+<a href="https://wa.me/51920726588" target="_blank" class="btn-flotante">💬</a>
 <audio id="musicaFondo" loop><source src="garfield.mp3" type="audio/mpeg"></audio>
 <script src="app.js"></script>
 </body>
