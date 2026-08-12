@@ -7,14 +7,11 @@ header{position:sticky; top:0; background:#050005; border-bottom:1px solid var(-
 .nav{display:flex; justify-content:space-between; align-items:center; padding:14px 0; position:relative;}
 .logo{font-size:18px; font-weight:900;}
 .logo span{color:var(--neon);}
-
-/* MENU ARREGLADO */
 .menu{max-height:0; overflow:hidden; transition:0.3s; position:absolute; top:100%; left:0; width:100%; background:#0A0A1A; flex-direction:column; border-top:1px solid var(--neon);}
 .menu.active{max-height:500px; padding:10px 16px;}
 .menu a{display:block; color:var(--text); text-decoration:none; font-weight:700; font-size:15px; padding:14px 0; border-bottom:1px solid var(--border);}
 .btn-menu{display:block; background:transparent; border:1px solid var(--neon); color:var(--neon); font-size:22px; cursor:pointer; padding:5px 10px; border-radius:8px;}
 .btn-icon{background:var(--card); border:1px solid var(--neon); color:var(--neon); padding:8px 10px; border-radius:10px; cursor:pointer; font-size:16px;}
-
 .hero{padding:40px 0 30px; text-align:center;}
 .hero-img{width:100px; height:100px; border-radius:50%; border:2px solid var(--neon); margin-bottom:15px; box-shadow:0 0 20px var(--neon);}
 .hero h1{font-size:28px; font-weight:900;}
@@ -22,22 +19,31 @@ header{position:sticky; top:0; background:#050005; border-bottom:1px solid var(-
 .hero p{color:var(--neon2); font-size:13px; margin:10px 0 20px;}
 .btn-primario{background:var(--neon); color:#000; border:none; padding:14px; border-radius:10px; font-weight:900; font-size:14px; cursor:pointer; width:100%;}
 .btn-secundario{background:transparent; border:2px solid var(--neon2); color:var(--neon2); padding:14px; border-radius:10px; font-weight:900; font-size:14px; cursor:pointer; text-decoration:none; display:block; margin-top:10px; text-align:center;}
-
 .features{padding:30px 0;}
 .grid-3{display:grid; grid-template-columns:1fr; gap:12px;}
 .feature-card{background:var(--card); border:1px solid var(--neon); padding:20px; border-radius:12px; text-align:center;}
+.feature-card h3{color:var(--neon); margin-bottom:8px; font-size:15px;}
+.perfil{display:flex; gap:15px; align-items:center; background:var(--card); border:1px solid var(--neon2); padding:20px; border-radius:12px; margin:30px 16px;}
+.perfil img{width:60px; height:60px; border-radius:50%; border:2px solid var(--neon);}
+.oferta{text-align:center; background:linear-gradient(90deg, var(--neon), var(--neon2)); color:#000; padding:20px; border-radius:12px; margin:30px 16px; font-weight:900;}
 .filtros{display:flex; flex-direction:column; gap:10px; padding:70px 16px 15px;}
 #pais, #buscador{width:100%; padding:14px; background:var(--card); border:1px solid var(--neon); color:var(--text); border-radius:10px; font-size:14px;}
 #productos{padding:0 16px 80px;}
 .prod-card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin:10px 0;}
+.prod-card h3{font-size:15px; margin-bottom:8px; color:var(--neon);}
 .prod-precio{color:var(--neon2); font-size:16px; font-weight:900;}
 .btn-add{width:100%; margin-top:10px; padding:14px; background:var(--neon); border:none; border-radius:10px; color:#000; font-weight:900; cursor:pointer;}
 .videos,.carrito{padding:70px 16px;}
+.videos h2,.carrito h2{margin-bottom:20px; color:var(--neon); font-size:20px;}
+.videos video{width:100%; border-radius:12px; border:1px solid var(--neon); margin-bottom:15px;}
+.btn-full{width:100%; margin-top:20px;}
 .popup{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000dd; justify-content:center; align-items:flex-end; z-index:9999;}
 .popup-content{background:var(--card); padding:20px 16px; border-radius:15px 15px 0 0; width:100%; border-top:2px solid var(--neon);}
-
+.popup-content h3{color:var(--neon); margin-bottom:15px;}
+.popup-content input{width:100%; padding:14px; margin:12px 0; background:#000; border:1px solid var(--neon); color:var(--text); border-radius:10px; font-size:16px;}
 @media(min-width:768px){
 .btn-menu{display:none;}
-.menu{max-height:none; position:static; display:flex !important; flex-direction:row; width:auto; background:transparent; padding:0; border:0; gap:20px;}
+.menu{max-height:none; position:static; display:flex!important; flex-direction:row; width:auto; background:transparent; padding:0; border:0; gap:20px;}
 .menu a{border:0; padding:0;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
 }
