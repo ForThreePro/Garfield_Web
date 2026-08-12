@@ -10,14 +10,16 @@
 <header>
   <div class="container nav">
     <div class="logo">GARFIELD<span>STORE</span></div>
-    <button class="btn-menu" onclick="document.querySelector('.menu').classList.toggle('active')">☰</button>
-    <nav class="menu">
-      <a href="index.html" onclick="document.querySelector('.menu').classList.remove('active')">INICIO</a>
-      <a href="productos.html" onclick="document.querySelector('.menu').classList.remove('active')">TIENDA</a>
-      <a href="videos.html" onclick="document.querySelector('.menu').classList.remove('active')">MEDIA</a>
-      <a href="carrito.html" onclick="document.querySelector('.menu').classList.remove('active')">CARRITO(<span id="menuTotal">0</span>)</a>
+    <div style="display:flex; gap:10px;">
+      <button id="btnMusica" onclick="toggleMusica()" class="btn-icon">🔊</button>
+      <button class="btn-menu" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="index.html">INICIO</a>
+      <a href="productos.html">TIENDA</a>
+      <a href="videos.html">MEDIA</a>
+      <a href="carrito.html">CARRITO(<span id="menuTotal">0</span>)</a>
     </nav>
-    <button id="btnMusica" onclick="toggleMusica()" class="btn-icon">🔊</button>
   </div>
 </header>
 
@@ -26,10 +28,8 @@
     <img src="https://files.evogb.win/2gepcp.jpg" class="hero-img">
     <h1>GARFIELD <span>STORE</span></h1>
     <p>LA TIENDA GAMER #1 DE FREE FIRE. DIAMANTES Y DISEÑOS AL INSTANTE</p>
-    <div class="hero-btns">
-      <button onclick="window.location='productos.html'" class="btn-primario">ENTRAR A LA TIENDA</button>
-      <a href="https://wa.me/51920726588" target="_blank" class="btn-secundario">SOPORTE WHATSAPP</a>
-    </div>
+    <button onclick="window.location='productos.html'" class="btn-primario">ENTRAR A LA TIENDA</button>
+    <a href="https://wa.me/51920726588" target="_blank" class="btn-secundario">SOPORTE WHATSAPP</a>
   </div>
 </section>
 
