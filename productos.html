@@ -29,6 +29,9 @@
     <option value="MX">🇲🇽 MEX $</option><option value="BO">🇧🇴 BOL Bs</option><option value="UY">🇺🇾 URU $</option>
     <option value="CO">🇨🇴 COL $</option><option value="EC">🇪🇨 ECU $</option>
   </select>
+  <select id="filtroStock" onchange="filtrarStock()">
+    <option value="todos">TODOS</option><option value="con">SOLO CON STOCK</option><option value="sin">SOLO SIN STOCK</option>
+  </select>
   <input type="text" id="buscador" placeholder="BUSCAR PRODUCTO..." onkeyup="buscarProducto()">
 </div>
 
