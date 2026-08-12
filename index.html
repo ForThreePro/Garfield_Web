@@ -2,53 +2,50 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GARFIELD STORE | GAMER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>GARFIELD STORE</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="container nav">
+  <div class="nav">
     <div class="logo">GARFIELD<span>STORE</span></div>
-    <div style="display:flex; gap:10px;">
-      <button id="btnMusica" onclick="toggleMusica()" class="btn-icon">🔊</button>
+    <div class="nav-right">
+      <button id="btnMusica" onclick="toggleMusica()">🔊</button>
       <button class="btn-menu" onclick="toggleMenu()">☰</button>
     </div>
     <nav class="menu" id="menu">
       <a href="index.html">INICIO</a>
       <a href="productos.html">TIENDA</a>
       <a href="videos.html">MEDIA</a>
-      <a href="carrito.html">CARRITO(<span id="menuTotal">0</span>)</a>
+      <a href="carrito.html">CARRITO <span id="menuTotal">0</span></a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container hero-content">
-    <img src="https://files.evogb.win/2gepcp.jpg" class="hero-img">
-    <h1>GARFIELD <span>STORE</span></h1>
-    <p>LA TIENDA GAMER #1 DE FREE FIRE. DIAMANTES Y DISEÑOS AL INSTANTE</p>
-    <button onclick="window.location='productos.html'" class="btn-primario">ENTRAR A LA TIENDA</button>
-    <a href="https://wa.me/51920726588" target="_blank" class="btn-secundario">SOPORTE WHATSAPP</a>
-  </div>
+  <img src="https://files.evogb.win/2gepcp.jpg" class="hero-img">
+  <h1>GARFIELD <span>STORE</span></h1>
+  <p>DIAMANTES Y DISEÑOS FREE FIRE AL INSTANTE</p>
+  <button onclick="window.location='productos.html'" class="btn-primario">IR A LA TIENDA</button>
+  <a href="https://wa.me/51920726588" target="_blank" class="btn-whats">WHATSAPP 24/7</a>
 </section>
 
 <section class="features">
-  <div class="container grid-3">
-    <div class="feature-card"><h3>⚡ ENTREGA RÁPIDA</h3><p>Diamantes en menos de 5 min</p></div>
-    <div class="feature-card"><h3>🛡️ SEGURO 100%</h3><p>+5000 clientes nos respaldan</p></div>
-    <div class="feature-card"><h3>🎮 24/7 GAMER</h3><p>Atención todos los días</p></div>
-  </div>
+  <div class="feature-card">⚡<h3>ENTREGA RÁPIDA</h3><p>En menos de 5 min</p></div>
+  <div class="feature-card">🛡️<h3>100% SEGURO</h3><p>+5000 clientes</p></div>
+  <div class="feature-card">🎮<h3>ATENCIÓN 24/7</h3><p>Todos los días</p></div>
 </section>
 
-<div class="container perfil">
+<div class="perfil">
   <img src="https://files.evogb.win/Q8pffG.jpg">
   <div><h3>GARFIELD OFICIAL</h3><p>CEO & FUNDADOR</p></div>
 </div>
 
-<div class="container oferta">
-  <h2>OFERTA FLASH</h2>
-  <p>6160 DIAMANTES CON STOCK - <s>S/120</s> S/92.00</p>
+<div class="oferta">
+  <h2>OFERTA DE HOY</h2>
+  <p>6160 DIAMANTES CON STOCK</p>
+  <s>S/120</s> <b>S/92.00</b>
 </div>
 
 <audio id="musicaFondo" loop><source src="garfield.mp3" type="audio/mpeg"></audio>
