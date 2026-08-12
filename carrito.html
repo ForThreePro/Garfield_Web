@@ -2,34 +2,34 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CARRITO - Garfield Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>CARRITO</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="container nav">
+  <div class="nav">
     <div class="logo">GARFIELD<span>STORE</span></div>
-    <div style="display:flex; gap:10px;">
-      <button id="btnMusica" onclick="toggleMusica()" class="btn-icon">🔊</button>
+    <div class="nav-right">
+      <button id="btnMusica" onclick="toggleMusica()">🔊</button>
       <button class="btn-menu" onclick="toggleMenu()">☰</button>
     </div>
     <nav class="menu" id="menu">
       <a href="index.html">INICIO</a>
       <a href="productos.html">TIENDA</a>
       <a href="videos.html">MEDIA</a>
-      <a href="carrito.html">CARRITO(<span id="menuTotal">0</span>)</a>
+      <a href="carrito.html">CARRITO <span id="menuTotal">0</span></a>
     </nav>
   </div>
 </header>
 
-<section class="container carrito">
-  <h2>TU PEDIDO (<span id="totalItems">0</span>)</h2>
+<section class="carrito">
+  <h2>TU PEDIDO <span id="totalItems">0</span></h2>
   <div id="listaCarrito"></div>
-  <button onclick="abrirPopUpID()" class="btn-primario btn-full">FINALIZAR POR WHATSAPP</button>
+  <button onclick="abrirPopUpID()" class="btn-primario">FINALIZAR COMPRA</button>
 </section>
 
-<div id="popupID" class="popup"><div class="popup-content"><h3>INGRESA TU ID</h3><input type="text" id="idFinal" placeholder="ID DE FREE FIRE"><button onclick="enviarWhatsApp()" class="btn-primario">ENVIAR PEDIDO</button><button onclick="cerrarPopUpID()" class="btn-secundario">CANCELAR</button></div></div>
+<div id="popupID" class="popup"><div class="popup-content"><h3>TU ID DE FREE FIRE</h3><input type="text" id="idFinal" placeholder="EJ: 123456789"><button onclick="enviarWhatsApp()" class="btn-primario">ENVIAR POR WHATSAPP</button><button onclick="cerrarPopUpID()" class="btn-sec">CANCELAR</button></div></div>
 <script src="app.js"></script>
 </body>
 </html>
