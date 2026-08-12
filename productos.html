@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TIENDA - GS</title>
+<title>Tienda - Garfield Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="bg"></div>
-<nav class="navbar">
-  <div class="logo">GARFIELD<span>.STORE</span></div>
-  <div class="links">
-    <a href="index.html">INICIO</a>
-    <a href="productos.html">TIENDA</a>
-    <a href="videos.html">MEDIA</a>
-    <a href="carrito.html">CARRITO (<span id="menuTotal">0</span>)</a>
+<header>
+  <div class="container nav">
+    <div class="logo">GARFIELD <span>STORE</span></div>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Tienda</a>
+      <a href="videos.html">Media</a>
+      <a href="carrito.html">Carrito (<span id="menuTotal">0</span>)</a>
+    </nav>
   </div>
-</nav>
-<div class="filtros">
+</header>
+
+<div class="container filtros">
   <select id="pais" onchange="cambiarPrecios()">
-    <option value="PE">🇵🇪 PERU - S/</option>
-    <option value="CL">🇨🇱 CHILE - $</option>
-    <option value="AR">🇦🇷 ARG - $</option>
-    <option value="MX">🇲🇽 MEX - $</option>
-    <option value="BO">🇧🇴 BOL - Bs</option>
-    <option value="UY">🇺🇾 URU - $</option>
+    <option value="PE">🇵🇪 Perú - S/</option><option value="CL">🇨🇱 Chile - $</option><option value="AR">🇦🇷 Argentina - $</option>
+    <option value="MX">🇲🇽 México - $</option><option value="BO">🇧🇴 Bolivia - Bs</option><option value="UY">🇺🇾 Uruguay - $</option>
+    <option value="CO">🇨🇴 Colombia - $</option><option value="EC">🇪🇨 Ecuador - $</option>
   </select>
-  <input type="text" id="buscador" placeholder="BUSCAR PRODUCTO..." onkeyup="buscarProducto()">
+  <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()">
 </div>
-<main id="productos"></main>
+
+<main class="container" id="productos"></main>
 <div id="popupOpciones" class="popup"></div>
 <script src="app.js"></script>
 </body>
