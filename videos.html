@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Media - Garfield Store</title>
+<title>MEDIA - Garfield Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="container nav">
-    <div class="logo">GARFIELD <span>STORE</span></div>
+    <div class="logo">GARFIELD<span>STORE</span></div>
+    <button class="btn-menu" onclick="document.querySelector('.menu').classList.toggle('active')">☰</button>
     <nav class="menu">
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Tienda</a>
-      <a href="videos.html">Media</a>
-      <a href="carrito.html">Carrito (<span id="menuTotal">0</span>)</a>
+      <a href="index.html" onclick="document.querySelector('.menu').classList.remove('active')">INICIO</a>
+      <a href="productos.html" onclick="document.querySelector('.menu').classList.remove('active')">TIENDA</a>
+      <a href="videos.html" onclick="document.querySelector('.menu').classList.remove('active')">MEDIA</a>
+      <a href="carrito.html" onclick="document.querySelector('.menu').classList.remove('active')">CARRITO(<span id="menuTotal">0</span>)</a>
     </nav>
   </div>
 </header>
 
 <section class="container videos">
-  <h2>Media Center</h2>
+  <h2>MEDIA CENTER</h2>
   <video src="1.mp4" controls></video>
   <video src="2.mp4" controls></video>
 </section>
