@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrito - Garfield Store</title>
+<title>CARRITO - Garfield Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="container nav">
-    <div class="logo">GARFIELD <span>STORE</span></div>
+    <div class="logo">GARFIELD<span>STORE</span></div>
+    <button class="btn-menu" onclick="document.querySelector('.menu').classList.toggle('active')">☰</button>
     <nav class="menu">
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Tienda</a>
-      <a href="videos.html">Media</a>
-      <a href="carrito.html">Carrito (<span id="menuTotal">0</span>)</a>
+      <a href="index.html" onclick="document.querySelector('.menu').classList.remove('active')">INICIO</a>
+      <a href="productos.html" onclick="document.querySelector('.menu').classList.remove('active')">TIENDA</a>
+      <a href="videos.html" onclick="document.querySelector('.menu').classList.remove('active')">MEDIA</a>
+      <a href="carrito.html" onclick="document.querySelector('.menu').classList.remove('active')">CARRITO(<span id="menuTotal">0</span>)</a>
     </nav>
   </div>
 </header>
 
 <section class="container carrito">
-  <h2>Tu Pedido (<span id="totalItems">0</span>)</h2>
+  <h2>TU PEDIDO (<span id="totalItems">0</span>)</h2>
   <div id="listaCarrito"></div>
-  <button onclick="abrirPopUpID()" class="btn-primario btn-full">Finalizar Compra por WhatsApp</button>
+  <button onclick="abrirPopUpID()" class="btn-primario btn-full">FINALIZAR POR WHATSAPP</button>
 </section>
 
-<div id="popupID" class="popup"><div class="popup-content"><h3>Ingresa tu ID</h3><input type="text" id="idFinal" placeholder="ID de Free Fire"><button onclick="enviarWhatsApp()" class="btn-primario">Enviar Pedido</button><button onclick="cerrarPopUpID()" class="btn-secundario">Cancelar</button></div></div>
+<div id="popupID" class="popup"><div class="popup-content"><h3>INGRESA TU ID</h3><input type="text" id="idFinal" placeholder="ID DE FREE FIRE"><button onclick="enviarWhatsApp()" class="btn-primario">ENVIAR PEDIDO</button><button onclick="cerrarPopUpID()" class="btn-secundario">CANCELAR</button></div></div>
 <script src="app.js"></script>
 </body>
 </html>
