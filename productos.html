@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda - Garfield Store</title>
+<title>TIENDA - Garfield Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="container nav">
-    <div class="logo">GARFIELD <span>STORE</span></div>
+    <div class="logo">GARFIELD<span>STORE</span></div>
+    <button class="btn-menu" onclick="document.querySelector('.menu').classList.toggle('active')">☰</button>
     <nav class="menu">
-      <a href="index.html">Inicio</a>
-      <a href="productos.html">Tienda</a>
-      <a href="videos.html">Media</a>
-      <a href="carrito.html">Carrito (<span id="menuTotal">0</span>)</a>
+      <a href="index.html" onclick="document.querySelector('.menu').classList.remove('active')">INICIO</a>
+      <a href="productos.html" onclick="document.querySelector('.menu').classList.remove('active')">TIENDA</a>
+      <a href="videos.html" onclick="document.querySelector('.menu').classList.remove('active')">MEDIA</a>
+      <a href="carrito.html" onclick="document.querySelector('.menu').classList.remove('active')">CARRITO(<span id="menuTotal">0</span>)</a>
     </nav>
   </div>
 </header>
 
 <div class="container filtros">
   <select id="pais" onchange="cambiarPrecios()">
-    <option value="PE">🇵🇪 Perú - S/</option><option value="CL">🇨🇱 Chile - $</option><option value="AR">🇦🇷 Argentina - $</option>
-    <option value="MX">🇲🇽 México - $</option><option value="BO">🇧🇴 Bolivia - Bs</option><option value="UY">🇺🇾 Uruguay - $</option>
-    <option value="CO">🇨🇴 Colombia - $</option><option value="EC">🇪🇨 Ecuador - $</option>
+    <option value="PE">🇵🇪 PERU - S/</option><option value="CL">🇨🇱 CHILE - $</option><option value="AR">🇦🇷 ARGENTINA - $</option>
+    <option value="MX">🇲🇽 MEXICO - $</option><option value="BO">🇧🇴 BOLIVIA - Bs</option><option value="UY">🇺🇾 URUGUAY - $</option>
+    <option value="CO">🇨🇴 COLOMBIA - $</option><option value="EC">🇪🇨 ECUADOR - $</option>
   </select>
-  <input type="text" id="buscador" placeholder="Buscar producto..." onkeyup="buscarProducto()">
+  <input type="text" id="buscador" placeholder="BUSCAR PRODUCTO..." onkeyup="buscarProducto()">
 </div>
 
 <main class="container" id="productos"></main>
