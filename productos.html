@@ -2,37 +2,37 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TIENDA - Garfield Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>TIENDA</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="container nav">
+  <div class="nav">
     <div class="logo">GARFIELD<span>STORE</span></div>
-    <div style="display:flex; gap:10px;">
-      <button id="btnMusica" onclick="toggleMusica()" class="btn-icon">🔊</button>
+    <div class="nav-right">
+      <button id="btnMusica" onclick="toggleMusica()">🔊</button>
       <button class="btn-menu" onclick="toggleMenu()">☰</button>
     </div>
     <nav class="menu" id="menu">
       <a href="index.html">INICIO</a>
       <a href="productos.html">TIENDA</a>
       <a href="videos.html">MEDIA</a>
-      <a href="carrito.html">CARRITO(<span id="menuTotal">0</span>)</a>
+      <a href="carrito.html">CARRITO <span id="menuTotal">0</span></a>
     </nav>
   </div>
 </header>
 
-<div class="container filtros">
+<div class="filtros">
   <select id="pais" onchange="cambiarPrecios()">
-    <option value="PE">🇵🇪 PERU - S/</option><option value="CL">🇨🇱 CHILE - $</option><option value="AR">🇦🇷 ARGENTINA - $</option>
-    <option value="MX">🇲🇽 MEXICO - $</option><option value="BO">🇧🇴 BOLIVIA - Bs</option><option value="UY">🇺🇾 URUGUAY - $</option>
-    <option value="CO">🇨🇴 COLOMBIA - $</option><option value="EC">🇪🇨 ECUADOR - $</option>
+    <option value="PE">🇵🇪 PERU S/</option><option value="CL">🇨🇱 CHILE $</option><option value="AR">🇦🇷 ARG $</option>
+    <option value="MX">🇲🇽 MEX $</option><option value="BO">🇧🇴 BOL Bs</option><option value="UY">🇺🇾 URU $</option>
+    <option value="CO">🇨🇴 COL $</option><option value="EC">🇪🇨 ECU $</option>
   </select>
-  <input type="text" id="buscador" placeholder="BUSCAR PRODUCTO..." onkeyup="buscarProducto()">
+  <input type="text" id="buscador" placeholder="BUSCAR..." onkeyup="buscarProducto()">
 </div>
 
-<main class="container" id="productos"></main>
+<main id="productos"></main>
 <div id="popupOpciones" class="popup"></div>
 <script src="app.js"></script>
 </body>
