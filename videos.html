@@ -3,18 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MEDIA CYBER - GS</title>
+<title>MEDIA - GS</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="grid-bg"></div>
-<header><div class="logo-cyber">GARFIELD<span>.STORE</span></div><div class="menu-btn-cyber" onclick="toggleMenu()">☰</div></header>
-<nav id="menu"><a href="index.html">INICIO</a><a href="productos.html">TIENDA</a><a href="videos.html">MEDIA</a><a href="carrito.html">CARRITO [<span id="menuTotal">0</span>]</a><a href="https://wa.me/51920726588" target="_blank">SOPORTE 24/7</a></nav>
-<section class="video-cyber">
-  <h2>[MEDIA CENTER]</h2>
+<div class="bg"></div>
+<nav class="navbar">
+  <div class="logo">GARFIELD<span>.STORE</span></div>
+  <div class="links">
+    <a href="index.html">INICIO</a>
+    <a href="productos.html">TIENDA</a>
+    <a href="videos.html">MEDIA</a>
+    <a href="carrito.html">CARRITO (<span id="menuTotal">0</span>)</a>
+  </div>
+</nav>
+<section class="videos-box">
+  <h2>VIDEOS DE GARFIELD</h2>
   <video src="1.mp4" controls></video>
   <video src="2.mp4" controls></video>
 </section>
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
