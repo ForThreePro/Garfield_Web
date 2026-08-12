@@ -3,39 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GARFIELD STORE</title>
+<title>GARFIELD STORE | PREMIUM</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="bg"></div>
-<nav class="navbar">
-  <div class="logo">GARFIELD<span>.STORE</span></div>
-  <div class="links">
-    <a href="index.html">INICIO</a>
-    <a href="productos.html">TIENDA</a>
-    <a href="videos.html">MEDIA</a>
-    <a href="carrito.html">CARRITO (<span id="menuTotal">0</span>)</a>
+<header>
+  <div class="container nav">
+    <div class="logo">GARFIELD <span>STORE</span></div>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="productos.html">Tienda</a>
+      <a href="videos.html">Media</a>
+      <a href="carrito.html">Carrito (<span id="menuTotal">0</span>)</a>
+    </nav>
+    <button id="btnMusica" onclick="toggleMusica()" class="btn-icon">🔊</button>
   </div>
-</nav>
+</header>
+
 <section class="hero">
-  <img src="https://files.evogb.win/2gepcp.jpg" class="hero-logo">
-  <h1>GARFIELD <span>STORE</span></h1>
-  <p>LA MEJOR TIENDA DE FREE FIRE Y DISEÑOS</p>
-  <button onclick="window.location='productos.html'" class="btn">VER TIENDA</button>
-  <button id="btnMusica" onclick="toggleMusica()" class="btn-outline">🔊 AUDIO</button>
+  <div class="container hero-content">
+    <img src="https://files.evogb.win/2gepcp.jpg" class="hero-img">
+    <h1>Garfield <span>Store</span></h1>
+    <p>La tienda premium #1 de Free Fire y Diseños en Latinoamérica. Entrega inmediata y 100% segura.</p>
+    <div class="hero-btns">
+      <button onclick="window.location='productos.html'" class="btn-primario">Explorar Tienda</button>
+      <a href="https://wa.me/51920726588" target="_blank" class="btn-secundario">Hablar por WhatsApp</a>
+    </div>
+  </div>
 </section>
-<div class="perfil-box">
+
+<section class="features">
+  <div class="container grid-3">
+    <div class="feature-card"><h3>⚡ Entrega Inmediata</h3><p>Recibe tus diamantes en menos de 5 minutos</p></div>
+    <div class="feature-card"><h3>🛡️ 100% Seguro</h3><p>Más de 5000 clientes satisfechos nos respaldan</p></div>
+    <div class="feature-card"><h3>💬 Soporte 24/7</h3><p>Atención personalizada por WhatsApp</p></div>
+  </div>
+</section>
+
+<div class="container perfil">
   <img src="https://files.evogb.win/Q8pffG.jpg">
   <div>
-    <h3>GARFIELD OFICIAL</h3>
-    <p>Entrega inmediata 24/7</p>
-    <a href="https://wa.me/51920726588" target="_blank" class="btn-wsp">WHATSAPP</a>
+    <h3>Garfield Oficial</h3>
+    <p>Fundador y CEO. Atención personalizada para ti.</p>
   </div>
 </div>
-<div class="oferta-box">
-  <h2>🔥 OFERTA DE LA SEMANA</h2>
-  <p>6160 DIAMANTES CON STOCK: S/92</p>
+
+<div class="container oferta">
+  <h2>Oferta de la Semana</h2>
+  <p><b>6160 Diamantes Con Stock</b> - <s>S/120</s> S/92.00</p>
 </div>
+
 <audio id="musicaFondo" loop><source src="garfield.mp3" type="audio/mpeg"></audio>
 <script src="app.js"></script>
 </body>
