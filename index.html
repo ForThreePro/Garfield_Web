@@ -11,7 +11,7 @@
 
     <nav class="navbar">
         <button class="menu-btn" id="menu-btn">☰</button>
-        <div class="nav-brand">🐱 GARFIELD</div>
+        <div class="nav-brand">🐱 GARFIELD STORE</div>
         <button class="cart-btn" id="cart-btn">🛒<span id="cart-count">0</span></button>
     </nav>
 
@@ -26,6 +26,7 @@
     <div class="overlay" id="overlay"></div>
 
     <div class="container">
+        <!-- INICIO -->
         <section class="main-section active" id="inicio">
             <div class="inicio-logo">
                 <img src="logo.png" alt="Garfield Store">
@@ -40,50 +41,65 @@
             </div>
         </section>
 
+        <!-- TIENDA ESTILO ARCADIA -->
         <section class="main-section" id="tienda">
-            <h1 class="logo">🛒 TIENDA</h1>
+            <h1 class="section-title">🛒 TIENDA</h1>
 
-            <div class="country-tabs">
-                <button class="tab-btn active" data-country="pe">🇵🇪 PE</button>
-                <button class="tab-btn" data-country="cl">🇨🇱 CL</button>
-                <button class="tab-btn" data-country="ar">🇦🇷 AR</button>
-                <button class="tab-btn" data-country="mx">🇲🇽 MX</button>
-                <button class="tab-btn" data-country="bo">🇧🇴 BO</button>
-                <button class="tab-btn" data-country="uy">🇺🇾 UY</button>
+            <input type="text" class="search-box" id="search" placeholder="🔍 Buscar producto...">
+
+            <div class="category-tabs">
+                <button class="tab-btn active" data-filter="todos">Todos</button>
+                <button class="tab-btn" data-filter="diseño">Diseño</button>
+                <button class="tab-btn" data-filter="servicio">Servicios</button>
+                <button class="tab-btn" data-filter="redes">Redes</button>
+                <button class="tab-btn" data-filter="diamantes">Diamantes</button>
             </div>
 
-            <div class="card">
-                <h2>💎 DIAMANTES</h2>
+            <!-- DIAMANTES -->
+            <div class="section-block" data-category="diamantes">
+                <div class="section-header">
+                    <div class="section-label">CATÁLOGO</div>
+                    <h2>💎 DIAMANTES</h2>
+                </div>
+                <div class="country-tabs">
+                    <button class="country-btn active" data-country="pe">🇵🇪 PE</button>
+                    <button class="country-btn" data-country="cl">🇨🇱 CL</button>
+                    <button class="country-btn" data-country="ar">🇦🇷 AR</button>
+                    <button class="country-btn" data-country="mx">🇲🇽 MX</button>
+                    <button class="country-btn" data-country="bo">🇧🇴 BO</button>
+                    <button class="country-btn" data-country="uy">🇺🇾 UY</button>
+                </div>
                 <div id="precios-container"></div>
             </div>
 
-            <h2 style="text-align:center; margin:30px 0; color:var(--orange)">🛍️ SERVICIOS</h2>
-            <div class="tienda-grid" id="tienda-grid"></div>
+            <!-- PRODUCTOS -->
+            <div id="tienda-grid"></div>
         </section>
     </div>
 
+    <!-- MODAL PRODUCTO -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <button class="close-modal" id="close-modal">✖</button>
-            <img id="modal-img" src="" alt="">
+            <div class="product-logo" id="modal-icon"></div>
             <h3 id="modal-title"></h3>
             <p id="modal-desc"></p>
             <p id="modal-price"></p>
-            <button class="cta-btn" id="btn-add-cart">AÑADIR AL CARRITO</button>
+            <button class="btn-add" id="btn-add-cart">AÑADIR AL CARRITO</button>
         </div>
     </div>
 
+    <!-- MODAL CARRITO -->
     <div class="modal" id="cart-modal">
         <div class="modal-content">
             <button class="close-modal" id="close-cart">✖</button>
             <h3>🧡 TU CARRITO</h3>
             <div id="cart-items"></div>
             <p id="cart-total"></p>
-            <a href="#" class="cta-btn" id="btn-checkout">PEDIR POR WHATSAPP</a>
+            <a href="#" class="btn-add" id="btn-checkout">PEDIR POR WHATSAPP</a>
         </div>
     </div>
 
-    <!-- ORDEN CORRECTO: DATOS PRIMERO -->
     <script src="productos.js"></script>
     <script src="monedas.js"></script>
     <script src="tienda.js"></script>
