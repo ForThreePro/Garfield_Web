@@ -1,20 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArcadiaCorps</title>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapito Bot - Tienda de Diamantes & Servicios</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-black">
-  <div id="root"></div>
+<body>
+    <div class="bg-grid"></div>
 
-  <script type="text/babel" src="moneda.js"></script>
-  <script type="text/babel" src="productos.js"></script>
-  <script type="text/babel" src="script.jsx"></script>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-brand">🐸 SAPITO BOT</div>
+        <div class="nav-links" id="nav-menu">
+            <a href="#" class="nav-link active" data-target="inicio">🏠 INICIO</a>
+            <a href="#" class="nav-link" data-target="tienda">🛒 TIENDA</a>
+            <a href="https://wa.me/51927174369" target="_blank" class="nav-link">💬 CONTACTO</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- SECCIÓN INICIO -->
+        <section class="main-section active" id="inicio">
+            <header>
+                <img src="img/logo.png" alt="Sapito Bot" class="logo-img">
+                <h1 class="logo">SAPITO BOT</h1>
+                <p class="subtitle">Diamantes & Servicios Premium 24/7</p>
+                <a href="https://wa.me/51927174369?text=Hola%20Sapito%20quiero%20recargar" class="cta-btn" target="_blank">💎 COMPRAR AHORA</a>
+            </header>
+
+            <!-- TABS DE PAÍSES -->
+            <div class="country-tabs">
+                <button class="tab-btn active" data-country="pe">🇵🇪 Perú</button>
+                <button class="tab-btn" data-country="cl">🇨🇱 Chile</button>
+                <button class="tab-btn" data-country="ar">🇦🇷 Argentina</button>
+                <button class="tab-btn" data-country="mx">🇲🇽 México</button>
+                <button class="tab-btn" data-country="bo">🇧🇴 Bolivia</button>
+                <button class="tab-btn" data-country="uy">🇺🇾 Uruguay</button>
+            </div>
+
+            <!-- PRECIOS -->
+            <div class="card">
+                <h2>💎 PRECIOS DE DIAMANTES</h2>
+                <div class="price-table active" id="pe">
+                    <h3 class="stock-title">✅ CON STOCK</h3>
+                    <div class="price-grid">
+                        <div class="price-item"><span>110💎</span><span>S/2.50</span></div>
+                        <div class="price-item"><span>341💎</span><span>S/7.00</span></div>
+                        <div class="price-item"><span>572💎</span><span>S/12.00</span></div>
+                        <div class="price-item"><span>1166💎</span><span>S/20.00</span></div>
+                        <div class="price-item"><span>2398💎</span><span>S/36.00</span></div>
+                        <div class="price-item"><span>6160💎</span><span>S/92.00</span></div>
+                    </div>
+                    <h3 class="stock-title">❌ SIN STOCK</h3>
+                    <div class="price-grid">
+                        <div class="price-item"><span>110💎</span><span>S/3.50</span></div>
+                        <div class="price-item"><span>341💎</span><span>S/10.00</span></div>
+                        <div class="price-item"><span>572💎</span><span>S/15.00</span></div>
+                        <div class="price-item"><span>1166💎</span><span>S/26.00</span></div>
+                        <div class="price-item"><span>2398💎</span><span>S/52.00</span></div>
+                        <div class="price-item"><span>6160💎</span><span>S/126.00</span></div>
+                    </div>
+                </div>
+                <!-- Agrega aquí CL, AR, MX, BO, UY -->
+            </div>
+        </section>
+
+        <!-- SECCIÓN TIENDA -->
+        <section class="main-section" id="tienda">
+            <header>
+                <h1 class="logo">🛒 TIENDA SAPITO</h1>
+                <p class="subtitle">Servicios Digitales Premium</p>
+            </header>
+
+            <div class="tienda-grid">
+                <!-- PRODUCTO 1 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x180/8b00ff/00ffff?text=LUU+DESIGN" alt="LuU Design">
+                    <h4>LUU DESIGN - Logo</h4>
+                    <p>Tex Logo, Caligráficos y Jerseys personalizados</p>
+                    <div class="precio">Desde S/3.00</div>
+                    <a href="https://wa.me/51927174369?text=Quiero%20un%20LOGO%20LUU" class="btn-comprar" target="_blank">Comprar</a>
+                </div>
+
+                <!-- PRODUCTO 2 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x180/00ffff/8b00ff?text=COMBO+DECANA" alt="Combo Decana">
+                    <h4>COMBO DECANA LUU</h4>
+                    <p>Busca vs, Reclutamiento y Spam para clanes</p>
+                    <div class="precio">S/15.00 Semana</div>
+                    <a href="https://wa.me/51927174369?text=Quiero%20COMBO%20DECANA" class="btn-comprar" target="_blank">Contratar</a>
+                </div>
+
+                <!-- PRODUCTO 3 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x180/8b00ff/00ffff?text=SPAM+3+DIAS" alt="Spam">
+                    <h4>SPAM 3 DÍAS</h4>
+                    <p>3 horas diarias de spam de reclutamiento</p>
+                    <div class="precio">S/5.50</div>
+                    <a href="https://wa.me/51927174369?text=Quiero%20SPAM%203%20DIAS" class="btn-comprar" target="_blank">Comprar</a>
+                </div>
+
+                <!-- PRODUCTO 4 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x180/00ffff/8b00ff?text=IG+SEGUIDORES" alt="Seguidores">
+                    <h4>1000 SEGUIDORES IG</h4>
+                    <p>Seguidores reales para tu cuenta de Instagram</p>
+                    <div class="precio">S/5.00</div>
+                    <a href="https://wa.me/51927174369?text=Quiero%201000%20SEGUIDORES" class="btn-comprar" target="_blank">Comprar</a>
+                </div>
+
+                <!-- PRODUCTO 5 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x180/8b00ff/00ffff?text=PLANTILLAS" alt="Plantillas">
+                    <h4>PLANTILLAS 2x1</h4>
+                    <p>Plantillas editables para clan y vs</p>
+                    <div class="precio">S/4.00</div>
+                    <a href="https://wa.me/51927174369?text=Quiero%20PLANTILLAS" class="btn-comprar" target="_blank">Comprar</a>
+                </div>
+
+                <!-- PRODUCTO 6 -->
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x180/00ffff/8b00ff?text=RECARGA+RAPIDA" alt="Recarga">
+                    <h4>RECARGA RÁPIDA</h4>
+                    <p>Entrega en menos de 5 minutos 24/7</p>
+                    <div class="precio">Sin recargo</div>
+                    <a href="https://wa.me/51927174369?text=Quiero%20RECARGA%20RAPIDA" class="btn-comprar" target="_blank">Pedir</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p style="color: var(--neon-cyan);">🐸 SAPITO BOT - RECARGAS PREMIUM 🐸</p>
+            <p>WhatsApp: +51 927 174 369 | IG: @whois.yallico</p>
+        </footer>
+    </div>
+
+    <a href="https://wa.me/51927174369" class="cta-btn cta-float" target="_blank">💎 COMPRAR</a>
+    <script src="script.js"></script>
 </body>
 </html>
