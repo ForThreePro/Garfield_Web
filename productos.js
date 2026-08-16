@@ -1,37 +1,15 @@
-const productos = [
-  // === DIAMANTES 💎 ===
-  { id: 501, cat: "Diamantes", name: "110 Diamantes", rating: 5.0 },
-  { id: 502, cat: "Diamantes", name: "341 Diamantes", rating: 5.0 },
-  { id: 503, cat: "Diamantes", name: "572 Diamantes", rating: 5.0 },
-  { id: 504, cat: "Diamantes", name: "1166 Diamantes", rating: 5.0 },
-  { id: 505, cat: "Diamantes", name: "2398 Diamantes", rating: 5.0 },
-  { id: 506, cat: "Diamantes", name: "6160 Diamantes", rating: 5.0 },
-
-  // === INSTAGRAM SEGUIDORES ===
-  { id: 101, cat: "Instagram", name: "250 Seguidores Instagram", rating: 4.9 },
-  { id: 102, cat: "Instagram", name: "500 Seguidores Instagram", rating: 4.9 },
-  { id: 103, cat: "Instagram", name: "1000 Seguidores Instagram", rating: 4.9, discount: 10 },
-  { id: 104, cat: "Instagram", name: "2000 Seguidores Instagram", rating: 5.0, discount: 15 },
-  { id: 105, cat: "Instagram", name: "5000 Seguidores Instagram", rating: 5.0, discount: 20 },
-
-  // === SPAM ===
-  { id: 201, cat: "Spam", name: "Spam 3 Días", desc: "3 horas al día", rating: 5.0 },
-  { id: 202, cat: "Spam", name: "Spam 5 Días", desc: "3 horas al día", rating: 5.0 },
-  { id: 203, cat: "Spam", name: "Spam 1 Semana", desc: "3 horas al día", rating: 5.0, discount: 5 },
-
-  // === LUU DESIGN 🩵 ===
-  { id: 301, cat: "Luu Design", name: "Text Logo y Logos", rating: 4.9 },
-  { id: 302, cat: "Luu Design", name: "Plantillas 2x1", rating: 4.9 },
-  { id: 303, cat: "Luu Design", name: "Caligráficos 2x1", rating: 4.9 },
-  { id: 304, cat: "Luu Design", name: "Jersey", rating: 5.0 },
-
-  // === COMBO DECANA LUU 🎀 ===
-  { id: 401, cat: "Combo", name: "Contrato Semanal Decana Luu", rating: 5.0, discount: 25,
-    desc: "Busca vs diario + Reclutamiento + Editar vs ganado + Spam de reclu" },
-
-  // === STREAMING ===
-  { id: 1, cat: "Streaming", name: "Netflix Premium 1 Pantalla", rating: 4.9, old: 20, discount: 25 },
-  { id: 4, cat: "Música", name: "Spotify Premium Individual", rating: 4.9, old: 14, discount: 29 },
+const PRODUCTOS_TIENDA = [
+    { id: 1, nombre: "Tex Logo y Logos", descripcion: "Diseño personalizado estilo Garfield. Entrega max 2 días", precio: "S/3.00 | $1050CL | $1560AR | $22.5MX | $22.5UY | $13.5BO", imagen: "img/logo-garfield.jpg", categoria: "diseño", whatsapp: "Quiero TEX LOGO" },
+    { id: 2, nombre: "Plantillas 2x1", descripcion: "Plantillas editables para clan y vs. Pack de 2", precio: "S/4.00 | $1050CL | $1560AR | $22.5MX | $22.5UY | $13.5BO", imagen: "img/plantillas.jpg", categoria: "diseño", whatsapp: "Quiero PLANTILLAS 2x1" },
+    { id: 3, nombre: "Caligráficos 2x1", descripcion: "Nombres caligráficos estilo Garfield. Pack de 2", precio: "S/3.00 | $1050CL | $1560AR | $22.5MX | $22.5UY | $13.5BO", imagen: "img/caligraficos.jpg", categoria: "diseño", whatsapp: "Quiero CALIGRAFICOS" },
+    { id: 4, nombre: "Jersey Garfield", descripcion: "Jersey personalizado para tu clan", precio: "S/5.00 | $1750CL | $2600AR | $37.5MX | $75UY | $22.5BO", imagen: "img/jersey.jpg", categoria: "diseño", whatsapp: "Quiero JERSEY" },
+    { id: 5, nombre: "COMBO DECANA GARFIELD", descripcion: "Busca vs + Reclutamiento + Edita vs + Spam", precio: "S/15.00 Semana | $7000AR | $5000CL | $55.5BO | $210UY | $114MX", imagen: "img/combo.jpg", categoria: "servicio", whatsapp: "Quiero COMBO DECANA" },
+    { id: 6, nombre: "SPAM 3 DÍAS", descripcion: "3 horas diarias de spam. Texto personalizado", precio: "S/5.50 | $1750CL | $2600AR | $37.5MX | $75UY | $22.5BO", imagen: "img/spam.jpg", categoria: "servicio", whatsapp: "Quiero SPAM 3 DIAS" },
+    { id: 7, nombre: "SPAM 5 DÍAS", descripcion: "3 horas diarias de spam. Texto personalizado", precio: "S/7.50 | $2450CL | $3640AR | $52.5MX | $105UY | $31.5BO", imagen: "img/spam.jpg", categoria: "servicio", whatsapp: "Quiero SPAM 5 DIAS" },
+    { id: 8, nombre: "SPAM 1 SEMANA", descripcion: "3 horas diarias de spam. Texto personalizado", precio: "S/9.50 | $3150CL | $4680AR | $67.5MX | $135UY | $40.5BO", imagen: "img/spam.jpg", categoria: "servicio", whatsapp: "Quiero SPAM 1 SEMANA" },
+    { id: 9, nombre: "250 SEGUIDORES IG", descripcion: "Seguidores reales. Entrega rápida", precio: "S/1.50 | $525CL | $520AR | $11.25MX | $22.5UY | $6.75BO", imagen: "img/seguidores.jpg", categoria: "redes", whatsapp: "Quiero 250 SEGUIDORES" },
+    { id: 10, nombre: "500 SEGUIDORES IG", descripcion: "Seguidores reales. Entrega rápida", precio: "S/2.50 | $875CL | $1040AR | $18.75MX | $37.5UY | $11.25BO", imagen: "img/seguidores.jpg", categoria: "redes", whatsapp: "Quiero 500 SEGUIDORES" },
+    { id: 11, nombre: "1000 SEGUIDORES IG", descripcion: "Seguidores reales. Entrega rápida", precio: "S/5.00 | $1750CL | $2080AR | $37.5MX | $75UY | $22.5BO", imagen: "img/seguidores.jpg", categoria: "redes", whatsapp: "Quiero 1000 SEGUIDORES" },
+    { id: 12, nombre: "2000 SEGUIDORES IG", descripcion: "Seguidores reales. Entrega rápida", precio: "S/10.00 | $3500CL | $4680AR | $75MX | $150UY | $45BO", imagen: "img/seguidores.jpg", categoria: "redes", whatsapp: "Quiero 2000 SEGUIDORES" },
+    { id: 13, nombre: "5000 SEGUIDORES IG", descripcion: "Seguidores reales. Entrega rápida", precio: "S/20.00 | $7000CL | $9360AR | $150MX | $300UY | $90BO", imagen: "img/seguidores.jpg", categoria: "redes", whatsapp: "Quiero 5000 SEGUIDORES" }
 ];
-
-const categorias = ["Todos","Diamantes","Instagram","Spam","Luu Design","Combo","Streaming","Música"];
