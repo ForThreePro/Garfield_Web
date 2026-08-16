@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garfield Store</title>
+    <title>Garfield Store - Diamantes & Servicios</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,18 +28,19 @@
     <div class="overlay" id="overlay"></div>
 
     <div class="container">
-        <!-- INICIO -->
+        <!-- INICIO CON LOGO CENTRADO -->
         <section class="main-section active" id="inicio">
-            <header class="hero">
-                <div class="hero-img">
-                    <img src="logo.png" alt="Garfield Store">
+            <div class="inicio-logo">
+                <img src="logo.png" alt="Garfield Store">
+                <h1 class="logo">GARFIELD STORE</h1>
+                <p class="subtitle">Diamantes & Servicios Premium 🍝</p>
+                <p class="version">⭐ +2000 RECARGAS | ODIO LOS LUNES</p>
+                <a href="#" class="cta-btn" data-target="tienda">🛒 IR A LA TIENDA</a>
+                <div class="info-box">
+                    <strong>Horario:</strong> Mañanas y Noches<br>
+                    <strong>Pago:</strong> Yape | Global66 | Prex
                 </div>
-                <div class="hero-text">
-                    <h1 class="logo">GARFIELD STORE</h1>
-                    <p class="subtitle">Diamantes & Servicios Premium 🍝</p>
-                    <a href="#" class="cta-btn" data-target="tienda">🛒 IR A LA TIENDA</a>
-                </div>
-            </header>
+            </div>
         </section>
 
         <!-- TIENDA -->
@@ -47,12 +48,12 @@
             <h1 class="logo">🛒 TIENDA</h1>
 
             <div class="country-tabs">
-                <button class="tab-btn active" data-country="pe">🇵🇪</button>
-                <button class="tab-btn" data-country="cl">🇨🇱</button>
-                <button class="tab-btn" data-country="ar">🇦🇷</button>
-                <button class="tab-btn" data-country="mx">🇲🇽</button>
-                <button class="tab-btn" data-country="bo">🇧🇴</button>
-                <button class="tab-btn" data-country="uy">🇺🇾</button>
+                <button class="tab-btn active" data-country="pe">🇵🇪 PE</button>
+                <button class="tab-btn" data-country="cl">🇨🇱 CL</button>
+                <button class="tab-btn" data-country="ar">🇦🇷 AR</button>
+                <button class="tab-btn" data-country="mx">🇲🇽 MX</button>
+                <button class="tab-btn" data-country="bo">🇧🇴 BO</button>
+                <button class="tab-btn" data-country="uy">🇺🇾 UY</button>
             </div>
 
             <div class="card">
@@ -60,7 +61,7 @@
                 <div id="precios-container"></div>
             </div>
 
-            <h2 style="text-align:center; margin:30px 0; color:var(--garfield-orange)">🛍️ SERVICIOS</h2>
+            <h2 style="text-align:center; margin:30px 0; color:var(--orange)">🛍️ SERVICIOS</h2>
             <div class="tienda-grid" id="tienda-grid"></div>
         </section>
     </div>
