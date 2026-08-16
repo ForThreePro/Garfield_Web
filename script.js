@@ -10,11 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('overlay').onclick = cerrarMenu;
     function cerrarMenu(){ document.getElementById('sidebar').classList.remove('active'); document.getElementById('overlay').classList.remove('active'); }
 
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.onclick = (e) => { e.preventDefault(); document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active')); document.getElementById(link.dataset.target).classList.add('active'); cerrarMenu(); if(link.dataset.target === 'tienda') cargarTienda(); }
+    document.querySelectorAll('.nav-link,.cta-btn').forEach(link => {
+        link.onclick = (e) => {
+            if(link.dataset.target){
+                e.preventDefault();
+                document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(link.dataset.target).classList.add('active');
+                cerrarMenu();
+                if(link.dataset.target === 'tienda') cargarTienda();
+            }
+        }
     });
 
-    document.querySelectorAll('.tab-btn').forEach(btn => { btn.onclick = () => cargarPrecios(btn.dataset.country); });
+    document.querySelectorAll('.country-btn').forEach(btn => { btn.onclick = () => cargarPrecios(btn.dataset.country); });
 
     document.getElementById('cart-btn').onclick = abrirCarrito;
     document.getElementById('ver-carrito').onclick = abrirCarrito;
@@ -26,18 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function cargarPrecios(pais) {
     const data = PRECIOS_DIAMANTES[pais];
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.tab-btn[data-country="${pais}"]`).classList.add('active');
+    document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.country-btn[data-country="${pais}"]`).classList.add('active');
     document.getElementById('precios-container').innerHTML = `
-        <h3 style="color:#00ff88">CON STOCK</h3>
+        <h3 style="color:#00ff88; margin:15px 0">CON STOCK</h3>
         <div class="price-grid">${data.conStock.map(i=>`<div class="price-item"><span>${i.diamantes}</span><span>${data.simbolo}${i.precio}</span></div>`).join('')}</div>
-        <h3 style="color:#ff4444">SIN STOCK</h3>
+        <h3 style="color:#ff4444; margin:15px 0">SIN STOCK</h3>
         <div class="price-grid">${data.sinStock.map(i=>`<div class="price-item"><span>${i.diamantes}</span><span>${data.simbolo}${i.precio}</span></div>`).join('')}</div>`;
 }
 
 function abrirProducto(prod) {
     PRODUCTO_ACTUAL = prod;
-    document.getElementById('modal-img').src = prod.imagen;
+    document.getElementById('modal-icon').innerText = prod.icono;
     document.getElementById('modal-title').innerText = prod.nombre;
     document.getElementById('modal-desc').innerText = prod.descripcion;
     document.getElementById('modal-price').innerText = prod.precio;
@@ -68,7 +76,7 @@ function abrirCarrito() {
     else { html = CARRITO.map(p => {
             const precioNum = parseFloat(p.precio.split('S/')[1]?.split(' ')[0] || 0);
             total += precioNum * p.cantidad;
-            return `<div class="cart-item"><img src="${p.imagen}" width="50"><div class="cart-info"><h4>${p.nombre}</h4><p>Cant: ${p.cantidad} x S/${precioNum.toFixed(2)}</p></div><button onclick="eliminarDelCarrito(${p.id})" class="btn-eliminar">🗑️</button></div>`;
+            return `<div class="cart-item"><div style="font-size:2rem">${p.icono}</div><div class="cart-info"><h4>${p.nombre}</h4><p>Cant: ${p.cantidad} x S/${precioNum.toFixed(2)}</p></div><button onclick="eliminarDelCarrito(${p.id})" class="btn-eliminar">🗑️</button></div>`;
         }).join(''); }
     document.getElementById('cart-items').innerHTML = html;
     document.getElementById('cart-total').innerText = `TOTAL APROX: S/${total.toFixed(2)}`;
