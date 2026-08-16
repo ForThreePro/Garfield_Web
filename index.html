@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garfield Store - Diamantes & Servicios</title>
+    <title>Garfield Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="bg-grid"></div>
 
-    <!-- NAVBAR MÓVIL -->
     <nav class="navbar">
         <button class="menu-btn" id="menu-btn">☰</button>
         <div class="nav-brand">🐱 GARFIELD</div>
         <button class="cart-btn" id="cart-btn">🛒<span id="cart-count">0</span></button>
     </nav>
 
-    <!-- MENÚ LATERAL -->
     <div class="sidebar" id="sidebar">
         <button class="close-btn" id="close-btn">✖</button>
         <h3>MENÚ</h3>
@@ -28,7 +26,6 @@
     <div class="overlay" id="overlay"></div>
 
     <div class="container">
-        <!-- INICIO CON LOGO CENTRADO -->
         <section class="main-section active" id="inicio">
             <div class="inicio-logo">
                 <img src="logo.png" alt="Garfield Store">
@@ -43,7 +40,6 @@
             </div>
         </section>
 
-        <!-- TIENDA -->
         <section class="main-section" id="tienda">
             <h1 class="logo">🛒 TIENDA</h1>
 
@@ -66,7 +62,6 @@
         </section>
     </div>
 
-    <!-- MODAL PRODUCTO -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <button class="close-modal" id="close-modal">✖</button>
@@ -78,7 +73,6 @@
         </div>
     </div>
 
-    <!-- MODAL CARRITO -->
     <div class="modal" id="cart-modal">
         <div class="modal-content">
             <button class="close-modal" id="close-cart">✖</button>
@@ -89,8 +83,9 @@
         </div>
     </div>
 
-    <script src="monedas.js"></script>
+    <!-- ORDEN CORRECTO: DATOS PRIMERO -->
     <script src="productos.js"></script>
+    <script src="monedas.js"></script>
     <script src="tienda.js"></script>
     <script src="script.js"></script>
 </body>
