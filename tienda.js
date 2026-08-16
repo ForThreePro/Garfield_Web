@@ -28,7 +28,7 @@ function cargarTienda() {
                 <div class="rating">★ 4.9</div>
                 <div class="price-row">
                     <span class="price">${prod.precio.split('|')[0]}</span>
-                    <span class="old-price">S/8.00</span>
+                    <span class="old-price">S/${(parseFloat(prod.precio.split('S/')[1]) + 2).toFixed(2)}</span>
                 </div>
                 <button class="btn-add" onclick='abrirProducto(${JSON.stringify(prod)})'>Añadir al carrito</button>
             </div>
@@ -46,7 +46,7 @@ function cargarTienda() {
             btn.classList.add('active');
             const filtro = btn.dataset.filter;
             document.querySelectorAll('.section-block').forEach(s => {
-                s.style.display = (filtro === 'todos' || s.dataset.category === filtro) ? 'block' : 'none';
+                s.style.display = (filtro === 'todos' || s.dataset.category === filtro)? 'block' : 'none';
             });
         }
     });
@@ -55,7 +55,7 @@ function cargarTienda() {
     document.getElementById('search').oninput = (e) => {
         const term = e.target.value.toLowerCase();
         document.querySelectorAll('.product-card').forEach(card => {
-            card.style.display = card.innerText.toLowerCase().includes(term) ? 'block' : 'none';
+            card.style.display = card.innerText.toLowerCase().includes(term)? 'block' : 'none';
         });
     }
 }
