@@ -35,15 +35,18 @@ function renderProductos(){
   const cont = document.getElementById('productos'); if(!cont) return;
   cont.innerHTML = '';
   const filtrados = currentCat === 'Todos'? productos : productos.filter(p => p.cat === currentCat);
+
   filtrados.forEach(p => {
     const precio = (p.prices[currentCurrency] * monedas[currentCurrency].rate).toFixed(2);
+    const badge = p.cat.includes('Con Stock')? '<div class="product-badge">STOCK</div>' : '';
     const div = document.createElement('div');
-    div.className = 'card-list';
+    div.className = 'product-card';
     div.innerHTML = `
-      <img src="https://placehold.co/120x120/FFD93D/000?text=${encodeURIComponent(p.name)}">
+      ${badge}
+      <img src="https://placehold.co/200x120/222/FFD93D?text=${encodeURIComponent(p.name)}">
       <h4>${p.name}</h4>
-      <div class="precio">${monedas[currentCurrency].symbol}${precio}</div>
-      <button class="btn-ver" onclick='verProducto("${p.name}")'>Ver</button>
+      <div class="product-price">${monedas[currentCurrency].symbol}${precio}</div>
+      <button class="btn-ver" onclick='verProducto("${p.name}")'>Ver Detalle</button>
     `;
     cont.appendChild(div);
   });
