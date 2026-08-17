@@ -1,6 +1,7 @@
 let currentCurrency = localStorage.getItem('currency') || 'PEN';
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentCat = null;
+let musicPlaying = localStorage.getItem('music') === 'true';
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCurrencyBtns();
@@ -8,8 +9,44 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProductos();
   updateCartCount();
   updateCartFull();
+  setupMusic(); // INICIAR MUSICA
 });
 
+// MUSICA DE FONDO CON TU LINK
+function setupMusic(){
+  const audio = document.createElement('audio');
+  audio.id = 'bgMusic';
+  audio.src = 'https://files.evogb.win/kBRUw0.mp3'; // TU MUSICA
+  audio.loop = true;
+  audio.volume = 0.3;
+  document.body.appendChild(audio);
+
+  const btn = document.createElement('button');
+  btn.className = 'music-btn';
+  btn.id = 'musicBtn';
+  btn.innerText = musicPlaying? '🔊' : '🔇';
+  btn.onclick = toggleMusic;
+  document.body.appendChild(btn);
+
+  if(musicPlaying) audio.play().catch(e=>console.log('Autoplay bloqueado - dale click a la web'));
+}
+
+function toggleMusic(){
+  const audio = document.getElementById('bgMusic');
+  const btn = document.getElementById('musicBtn');
+  if(audio.paused){
+    audio.play();
+    btn.innerText = '🔊';
+    musicPlaying = true;
+  } else {
+    audio.pause();
+    btn.innerText = '🔇';
+    musicPlaying = false;
+  }
+  localStorage.setItem('music', musicPlaying);
+}
+
+// MONEDAS
 function renderCurrencyBtns(){
   const cont = document.getElementById('currencyBtns'); if(!cont) return;
   cont.innerHTML = '';
@@ -22,19 +59,35 @@ function renderCurrencyBtns(){
   });
 }
 
+// CATEGORIAS CENTRADAS + BOTON LIMPIAR
 function renderCategories(){
   const cont = document.getElementById('categories'); if(!cont) return;
   const cats = [...new Set(productos.map(p => p.cat))];
   cont.innerHTML = '';
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'categories-wrapper';
+
   cats.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = 'cat-btn' + (cat === currentCat? ' active' : '');
     btn.innerText = cat;
     btn.onclick = () => {currentCat = cat; renderCategories(); renderProductos();};
-    cont.appendChild(btn);
+    wrapper.appendChild(btn);
   });
+
+  if(currentCat){
+    const clearBtn = document.createElement('button');
+    clearBtn.className = 'btn-clear';
+    clearBtn.innerText = 'X Limpiar';
+    clearBtn.onclick = () => {currentCat = null; renderCategories(); renderProductos();};
+    wrapper.appendChild(clearBtn);
+  }
+
+  cont.appendChild(wrapper);
 }
 
+// PRODUCTOS
 function renderProductos(){
   const cont = document.getElementById('productos'); if(!cont) return;
   cont.innerHTML = '';
@@ -56,6 +109,7 @@ function renderProductos(){
   });
 }
 
+// CARRITO
 function addToCart(name, price){cart.push({name, price}); localStorage.setItem('cart', JSON.stringify(cart)); updateCartCount(); alert(`${name} agregado ✅`);}
 function updateCartCount(){document.getElementById('cartCount') && (document.getElementById('cartCount').innerText = cart.length);}
 function updateCartFull(){
