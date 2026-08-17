@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tienda - Luu Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div class="header-top">
-    <img src="logo.png"><img src="logo.png" style="width:80px; height:80px"><img src="logo.png">
+  <div class="nav">
+    <div class="logo" onclick="window.location='index.html'" style="cursor:pointer"><img src="logo.png"><h1>LUU STORE</h1></div>
+    <div class="cart-icon" onclick="window.location='carrito.html'">🛒<span class="cart-badge" id="cartCount">0</span></div>
   </div>
-  <h1>Tienda</h1><p>Elige lo que necesites 😼</p>
 </header>
 
 <div class="container">
-  <div class="currency-section"><p>Elige tu moneda:</p><div class="currency-btns" id="currencyBtns"></div></div>
-  <div class="categories" id="categories"></div>
-  <div id="productos"></div>
+  <div class="currency-wrap">
+    <p>Elige tu moneda</p>
+    <div class="currency-grid" id="currencyBtns"></div>
+  </div>
+
+  <h3 class="section-title">Productos</h3>
+  <div class="filters" id="categories"></div>
+  <div class="grid" id="productos"></div>
 </div>
 
-<div class="cart-float" onclick="window.location='carrito.html'">🛒<span class="cart-count" id="cartCount">0</span></div>
-
-<script src="monedas.js"></script>
-<script src="productos.js"></script>
-<script src="script.js"></script>
+<script src="monedas.js"></script><script src="productos.js"></script><script src="script.js"></script>
 </body>
 </html>
