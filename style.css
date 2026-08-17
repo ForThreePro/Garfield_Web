@@ -23,7 +23,7 @@ body{
 
 .container{max-width: 500px; margin: auto; padding: 1rem; padding-top: 20px;}
 
-/* CARRITO FLOTANTE VERDE/NARANJA */
+/* CARRITO FLOTANTE */
 .cart-float{
   position: fixed; top: 15px; right: 15px;
   background: linear-gradient(135deg, var(--neon), #FFA500);
@@ -57,36 +57,30 @@ body{
 .header-center p{color: var(--neon); font-size:.95rem; text-shadow: 0 0 5px var(--neon);}
 .header-center .sub{font-size:.8rem;}
 
-/* BOTONES PASTILLA */
-.btn-group{display: flex; gap:.8rem; margin-bottom: 1rem; justify-content: center;}
-.btn{
+/* BOTONES PASTILLA + MUSICA AL LADO */
+.btn-group{
+  display: flex;
+  gap:.6rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn, .music-btn{
+  flex: 1;
+  min-width: 110px;
   background: linear-gradient(135deg, var(--neon), #FFA500);
   color: #000;
   border: none;
-  padding:.9rem 1.4rem;
+  padding:.9rem 1rem;
   border-radius: 50px;
   font-weight: 900;
   cursor: pointer;
   box-shadow: 0 0 20px var(--neon);
   transition:.3s;
-  font-size:.9rem;
+  font-size:.85rem;
+  text-align: center;
 }
-.btn:hover{transform: scale(1.05);}
-
-/* BOTON MUSICA */
-.music-btn{
-  background: linear-gradient(135deg, var(--neon), #FFA500);
-  color: #000;
-  border: none;
-  padding:.9rem 1.8rem;
-  border-radius: 50px;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 0 20px var(--neon);
-  font-size:.9rem;
-  display: flex; align-items: center; gap:.5rem;
-  margin: 0 auto 2rem auto;
-}
+.btn:hover, .music-btn:hover{transform: scale(1.05);}
 
 /* STATS */
 .stats{display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;}
@@ -131,6 +125,7 @@ body{
   cursor: pointer;
   white-space: nowrap;
   transition:.3s;
+  font-family: 'Orbitron', sans-serif;
 }
 .currency-btn.active,.cat-btn.active{background: var(--neon); color: #000; box-shadow: 0 0 15px var(--neon);}
 .btn-clear{border-style: dashed;}
@@ -177,6 +172,7 @@ body{
   font-size: 1rem;
   cursor: pointer;
   box-shadow: 0 0 15px var(--neon);
+  font-family: 'Orbitron', sans-serif;
 }
 .empty-msg{text-align: center; color: #666; font-size: 1.1rem; margin-top: 3rem;}
 
@@ -207,7 +203,13 @@ body{
   padding: 1rem;
   text-align: center;
 }
-.pay-box.icon{font-size: 2rem; margin-bottom:.5rem;}
+.pay-box .icon{font-size: 2rem; margin-bottom:.5rem;}
 .pay-box h4{color: var(--neon);}
 
 footer{text-align: center; padding: 2rem 1rem; color: var(--neon); text-shadow: 0 0 5px var(--neon);}
+
+/* RESPONSIVE */
+@media(max-width: 400px){
+  .btn-group{gap:.4rem;}
+  .btn, .music-btn{font-size:.75rem; padding:.8rem .5rem; min-width: 100px;}
+}
