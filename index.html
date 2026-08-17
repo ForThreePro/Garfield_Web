@@ -3,38 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luu Store 😼</title>
+<title>Luu Store 😼 Inicio</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="header-top">
     <img src="logo.png">
-    <img src="logo.png" style="width:80px; height:80px">
+    <img src="logo.png" style="width:90px; height:90px">
     <img src="logo.png">
   </div>
   <h1>Luu Store</h1>
-  <p>@luu_store | Diamantes, Design, Spam, Seguidores</p>
+  <p>@luu_store | La tienda #1 de Free Fire</p>
 </header>
 
 <div class="container">
-  <div class="currency-section">
-    <p>Elige tu moneda:</p>
-    <div class="currency-btns" id="currencyBtns"></div>
+  <div class="banner">
+    <h2>Bienvenid@ a Luu Store 😼</h2>
+    <p>Recargas, Designs, Spam y Seguidores al mejor precio</p>
+    <img src="https://placehold.co/400x200/FF8C00/000?text=Luu+Store" style="width:100%; border-radius:15px; margin-top:1rem">
   </div>
 
-  <div class="categories" id="categories"></div>
+  <div class="card-list" style="text-align:left">
+    <h3>¿Por qué elegirnos? 🔥</h3>
+    <p>✅ Entregas rápidas Mañanas y Noches<br>
+       ✅ 100% Seguro y Confiable<br>
+       ✅ Soporte por WhatsApp 24/7<br>
+       ✅ Aceptamos 8 monedas</p>
+  </div>
 
-  <div id="productos"></div>
+  <div class="card-list" style="text-align:left">
+    <h3>Horarios de Atención ⏰</h3>
+    <p><b>Diamantes:</b> Mañanas y Noches<br>
+       <b>Design/Spam:</b> Tardes y Noches<br>
+       <b>Seguidores:</b> 24-48h</p>
+  </div>
+
+  <button onclick="window.location='tienda.html'" class="btn-add" style="font-size:1.2rem; padding:1rem">
+    VER TIENDA 🛒
+  </button>
 </div>
 
 <div class="cart-float" onclick="window.location='carrito.html'">
   🛒<span class="cart-count" id="cartCount">0</span>
 </div>
 
-<footer>🐱 ¡Gracias por tu preferencia! 🐱<br><b>Luu Store</b> | Recargas: Mañanas y Noches</footer>
+<footer>🐱 ¡Gracias por tu preferencia! 🐱<br><b>Luu Store</b></footer>
 
-<!-- IMPORTANTE: ESTE ORDEN -->
 <script src="monedas.js"></script>
 <script src="productos.js"></script>
 <script src="script.js"></script>
