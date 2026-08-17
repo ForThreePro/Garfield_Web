@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMusic(); // INICIAR MUSICA
 });
 
-// MUSICA DE FONDO CON TU LINK
+// MUSICA DE FONDO - BOTON PASTILLA
 function setupMusic(){
   const audio = document.createElement('audio');
   audio.id = 'bgMusic';
@@ -21,12 +21,13 @@ function setupMusic(){
   audio.volume = 0.3;
   document.body.appendChild(audio);
 
+  const container = document.getElementById('musicBtnContainer');
   const btn = document.createElement('button');
   btn.className = 'music-btn';
   btn.id = 'musicBtn';
-  btn.innerText = musicPlaying? '🔊' : '🔇';
+  btn.innerHTML = musicPlaying? '🎵 Música ON' : '🔇 Música OFF';
   btn.onclick = toggleMusic;
-  document.body.appendChild(btn);
+  container.appendChild(btn);
 
   if(musicPlaying) audio.play().catch(e=>console.log('Autoplay bloqueado - dale click a la web'));
 }
@@ -36,11 +37,11 @@ function toggleMusic(){
   const btn = document.getElementById('musicBtn');
   if(audio.paused){
     audio.play();
-    btn.innerText = '🔊';
+    btn.innerHTML = '🎵 Música ON';
     musicPlaying = true;
   } else {
     audio.pause();
-    btn.innerText = '🔇';
+    btn.innerHTML = '🔇 Música OFF';
     musicPlaying = false;
   }
   localStorage.setItem('music', musicPlaying);
