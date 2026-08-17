@@ -1,103 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garfield Store</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luu Store x Garfield</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bg-gradient"></div>
-
-    <nav class="navbar">
-        <button class="menu-btn" id="menu-btn">☰</button>
-        <div class="nav-brand">🐱 GARFIELD <span>STORE</span></div>
-        <button class="cart-btn" id="cart-btn">🛒<span id="cart-count">0</span></button>
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="brand">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1>Luu Store</h1>
+    </div>
+    <nav id="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#tienda">Tienda</a>
     </nav>
-
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-btn">✖</button>
-        <h3>MENÚ</h3>
-        <a href="#" class="nav-link" data-target="inicio">🏠 INICIO</a>
-        <a href="#" class="nav-link active" data-target="tienda">🛒 TIENDA</a>
-        <a href="https://wa.me/51927174369" target="_blank">💬 WHATSAPP</a>
-        <a href="#" id="ver-carrito">🧡 CARRITO</a>
+    <div class="actions">
+      <button id="currencyBtn">🌍 <span id="currencyLabel">PEN</span></button>
+      <button id="themeBtn">🌙</button>
+      <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+      <button id="menuBtn">☰</button>
     </div>
-    <div class="overlay" id="overlay"></div>
+  </div>
+  <div id="mobileMenu" class="hidden">
+    <a href="#inicio">Inicio</a>
+    <a href="#tienda">Tienda</a>
+  </div>
+</header>
 
-    <div class="container">
-        <!-- INICIO SIMPLE -->
-        <section class="main-section" id="inicio">
-            <div class="hero-simple">
-                <img src="logo.png" alt="Garfield">
-                <h1>GARFIELD <span>STORE</span></h1>
-                <p>Diamantes y Servicios Premium</p>
-                <a href="#" class="btn-main" data-target="tienda">IR A LA TIENDA</a>
-            </div>
-        </section>
+<!-- INICIO -->
+<section id="inicio">
+  <img src="https://i.imgur.com/8KmN7bD.png" alt="Garfield" class="garfield-bg">
+  <h2>Bienvenido a Luu Store</h2>
+  <p>Diamantes, Design, Spam, Bots y más. Odio los lunes, amo los descuentos 😼</p>
+  <a href="#tienda" class="btn">Ir a la Tienda</a>
+</section>
 
-        <!-- TIENDA NUEVA 100% -->
-        <section class="main-section active" id="tienda">
-            <div class="tienda-top">
-                <h1>🛒 TIENDA</h1>
-                <input type="text" id="search" placeholder="🔍 Buscar producto...">
-            </div>
+<!-- TIENDA -->
+<section id="tienda" class="container grid"></section>
 
-            <!-- FILTROS STICKY -->
-            <div class="filters-sticky">
-                <div class="filter-group">
-                    <span>Categoría:</span>
-                    <div class="category-tabs">
-                        <button class="tab-btn active" data-filter="todos">Todos</button>
-                        <button class="tab-btn" data-filter="diamantes">💎 Diamantes</button>
-                        <button class="tab-btn" data-filter="diseño">🎨 Diseño</button>
-                        <button class="tab-btn" data-filter="servicio">⚡ Servicios</button>
-                        <button class="tab-btn" data-filter="redes">📱 Redes</button>
-                    </div>
-                </div>
-                <div class="filter-group">
-                    <span>País:</span>
-                    <div class="country-tabs">
-                        <button class="country-btn active" data-country="pe">🇵🇪 PE</button>
-                        <button class="country-btn" data-country="cl">🇨🇱 CL</button>
-                        <button class="country-btn" data-country="ar">🇦🇷 AR</button>
-                        <button class="country-btn" data-country="mx">🇲🇽 MX</button>
-                        <button class="country-btn" data-country="bo">🇧🇴 BO</button>
-                        <button class="country-btn" data-country="uy">🇺🇾 UY</button>
-                    </div>
-                </div>
-            </div>
+<!-- CARRITO -->
+<div id="cartPanel" class="cart hidden">
+  <h3>Carrito 🛒</h3>
+  <div id="cartItems"></div>
+  <p class="total">Total: <span id="cartTotal">0</span></p>
+  <button id="whatsappBtn" class="btn whatsapp">Pagar por WhatsApp</button>
+  <button id="closeCart" class="btn ghost">Cerrar</button>
+</div>
 
-            <div id="tienda-grid"></div>
-        </section>
-    </div>
+<!-- BOTON WHATSAPP FLOTANTE -->
+<a href="https://wa.me/51920726588" target="_blank" class="wa-float">💬</a>
 
-    <!-- MODAL PRODUCTO -->
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-modal">✖</button>
-            <div class="modal-icon" id="modal-icon"></div>
-            <h3 id="modal-title"></h3>
-            <p id="modal-desc"></p>
-            <div class="modal-price" id="modal-price"></div>
-            <button class="btn-main" id="btn-add-cart">AÑADIR AL CARRITO</button>
-        </div>
-    </div>
-
-    <!-- MODAL CARRITO -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <button class="close-modal" id="close-cart">✖</button>
-            <h3>🧡 TU CARRITO</h3>
-            <div id="cart-items"></div>
-            <div id="cart-total"></div>
-            <button class="btn-main" id="btn-checkout">PEDIR POR WHATSAPP</button>
-        </div>
-    </div>
-
-    <script src="productos.js"></script>
-    <script src="monedas.js"></script>
-    <script src="tienda.js"></script>
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
