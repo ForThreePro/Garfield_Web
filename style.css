@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
 :root{
-  --neon: #00FF88;
-  --neon-dark: #00CC6A;
+  --neon: #FF6B00; /* NARANJA */
+  --neon-dark: #E55F00;
   --bg: #000000;
-  --card: rgba(0,255,136,0.05);
-  --texto: #E0FFE0;
+  --card: rgba(255,107,0,0.05); /* NARANJA TRANSPARENTE */
+  --texto: #FFEAD0;
 }
 
 *{margin:0; padding:0; box-sizing:border-box}
@@ -14,8 +14,8 @@ body{
   color: var(--texto);
   font-family: 'Orbitron', sans-serif;
   background-image: 
-    linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px);
+    linear-gradient(rgba(255,107,0,0.1) 1px, transparent 1px), /* REJILLA NARANJA */
+    linear-gradient(90deg, rgba(255,107,0,0.1) 1px, transparent 1px);
   background-size: 40px 40px;
   min-height: 100vh;
 }
@@ -55,7 +55,6 @@ body{
   margin-bottom:.5rem;
 }
 .header-center p{color: var(--neon); font-size:.9rem; text-shadow: 0 0 5px var(--neon);}
-.header-center.sub{color: #aaa; font-size:.8rem;}
 
 /* BOTONES */
 .btn-group{display: flex; gap:.8rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center;}
@@ -81,7 +80,7 @@ body{
   border-radius: 15px;
   padding: 1.2rem;
   text-align: center;
-  box-shadow: 0 0 15px rgba(0,255,136,0.3);
+  box-shadow: 0 0 15px rgba(255,107,0,0.3);
 }
 .stat-number{
   font-size: 2.5rem; font-weight: 900;
@@ -100,18 +99,19 @@ body{
   margin: 2rem 0 1rem;
 }
 
-/* CATEGORIAS Y MONEDAS */
+/* CATEGORIAS Y MONEDAS - AHORA MÁS GRANDES */
 .currency-grid,.categories{display: flex; gap:.6rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;}
-.categories{overflow-x: auto; flex-wrap: nowrap; padding-bottom:.5rem;}
+.categories{overflow-x: auto; flex-wrap: nowrap; padding: .5rem; border-bottom: 1px solid var(--neon);}
 .currency-btn,.cat-btn{
   background: var(--card);
   border: 2px solid var(--neon);
   color: var(--neon);
-  padding:.6rem 1rem;
+  padding:.7rem 1.1rem;
   border-radius: 15px;
   font-weight: 900;
   cursor: pointer;
   white-space: nowrap;
+  transition:.3s;
 }
 .currency-btn.active,.cat-btn.active{background: var(--neon); color: var(--bg); box-shadow: 0 0 15px var(--neon);}
 
@@ -122,7 +122,7 @@ body{
   border-radius: 20px;
   padding: 1.5rem;
   margin-bottom: 1.2rem;
-  box-shadow: 0 0 20px rgba(0,255,136,0.2);
+  box-shadow: 0 0 20px rgba(255,107,0,0.2);
   position: relative;
 }
 .product-badge{
