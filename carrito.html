@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carrito - Luu Store</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="header-top">
-    <img src="logo.png"><img src="logo.png" style="width:80px; height:80px"><img src="logo.png">
-  </div>
-  <h1>Tu Carrito</h1>
-</header>
 
-<div class="container">
+<div class="container" style="padding-top:20px">
+  <h2 class="section-title">🛒 TU CARRITO</h2>
   <div id="cartItemsFull"></div>
-  <h2 class="precio" style="text-align:center">Total: <span id="cartTotalFull">0</span></h2>
-  <button id="whatsappBtnFull" class="btn-add" style="width:100%; font-size:1.1rem">Enviar pedido por WhatsApp 💬</button>
-  <a href="tienda.html" class="btn-add" style="width:100%; margin-top:.5rem; display:block; text-align:center; background:var(--gris-card); color:var(--texto)">Seguir comprando</a>
+  <h2 class="product-price" style="text-align:center">Total: <span id="cartTotalFull">S/ 0</span></h2>
+  <button id="whatsappBtnFull" class="btn-add-cart">Enviar pedido por WhatsApp 💬</button>
+  <button onclick="window.location='index.html'" class="btn btn-secondary" style="width:100%; margin-top:1rem">Seguir comprando</button>
 </div>
 
 <script src="monedas.js"></script>
