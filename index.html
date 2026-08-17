@@ -3,31 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luu Store x Garfield</title>
+<title>Luu Store 😼</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <div style="display:flex; align-items:center; gap:.5rem">
-    <img src="logo.png" class="logo" alt="Logo">
-    <h1>Luu Store</h1>
+  <div class="header-top">
+    <img src="logo.png" alt="">
+    <img src="logo.png" alt="" style="width:80px; height:80px">
+    <img src="logo.png" alt="">
   </div>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="tienda.html">Tienda</a>
-    <button id="themeBtn">🌙</button>
-    <button id="currencyBtn">🌍 <span id="currencyLabel">PEN</span></button>
-  </nav>
+  <h1>Luu Store</h1>
+  <p>@luu_store | Diamantes, Design, Spam, Seguidores</p>
 </header>
 
-<section class="container" style="text-align:center; padding-top:120px">
-  <h2 style="font-size:3rem; animation: bounce 2s infinite">Bienvenido 😼</h2>
-  <p>Diamantes, Design, Spam, Bots y Seguidores IG. Odio los lunes, amo los descuentos</p>
-  <a href="tienda.html" class="btn" style="font-size:1.2rem; margin-top:1rem; display:inline-block">Entrar a la Tienda</a>
-  <img src="https://i.imgur.com/8KmN7bD.png" style="width:250px; margin-top:2rem; animation: float 3s ease-in-out infinite" alt="Garfield">
-</section>
+<div class="container">
+  <div class="currency-section">
+    <p>Elige tu moneda:</p>
+    <div class="currency-btns" id="currencyBtns"></div>
+  </div>
 
-<a href="https://wa.me/51920726588" target="_blank" class="wa-float">💬</a>
+  <div class="categories" id="categories"></div>
+
+  <div id="productos"></div>
+</div>
+
+<div class="cart-float" onclick="window.location='carrito.html'">
+  🛒<span class="cart-count" id="cartCount">0</span>
+</div>
+
+<footer>
+  <p>🐱 ¡Gracias por tu preferencia! 🐱<br>
+  <b>Luu Store</b> | Estoy a tus servicios<br>
+  Recargas: Mañanas y Noches
+  </p>
+</footer>
 
 <script src="monedas.js"></script>
 <script src="productos.js"></script>
