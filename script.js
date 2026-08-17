@@ -2,27 +2,21 @@ let CARRITO = [];
 let PRODUCTO_ACTUAL = null;
 
 document.addEventListener('DOMContentLoaded', () => {
-    cargarTienda();
-    cargarPrecios('pe');
-
     document.getElementById('menu-btn').onclick = () => { document.getElementById('sidebar').classList.add('active'); document.getElementById('overlay').classList.add('active'); }
     document.getElementById('close-btn').onclick = cerrarMenu;
     document.getElementById('overlay').onclick = cerrarMenu;
     function cerrarMenu(){ document.getElementById('sidebar').classList.remove('active'); document.getElementById('overlay').classList.remove('active'); }
 
-    document.querySelectorAll('.nav-link,.cta-btn').forEach(link => {
+    document.querySelectorAll('.nav-link,.btn-main').forEach(link => {
         link.onclick = (e) => {
             if(link.dataset.target){
                 e.preventDefault();
                 document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
                 document.getElementById(link.dataset.target).classList.add('active');
                 cerrarMenu();
-                if(link.dataset.target === 'tienda') cargarTienda();
             }
         }
     });
-
-    document.querySelectorAll('.country-btn').forEach(btn => { btn.onclick = () => cargarPrecios(btn.dataset.country); });
 
     document.getElementById('cart-btn').onclick = abrirCarrito;
     document.getElementById('ver-carrito').onclick = abrirCarrito;
@@ -32,23 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btn-checkout').onclick = enviarWhatsApp;
 });
 
-function cargarPrecios(pais) {
-    const data = PRECIOS_DIAMANTES[pais];
-    document.querySelectorAll('.country-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector(`.country-btn[data-country="${pais}"]`).classList.add('active');
-    document.getElementById('precios-container').innerHTML = `
-        <h3 style="color:#00ff88; margin:15px 0">CON STOCK</h3>
-        <div class="price-grid">${data.conStock.map(i=>`<div class="price-item"><span>${i.diamantes}</span><span>${data.simbolo}${i.precio}</span></div>`).join('')}</div>
-        <h3 style="color:#ff4444; margin:15px 0">SIN STOCK</h3>
-        <div class="price-grid">${data.sinStock.map(i=>`<div class="price-item"><span>${i.diamantes}</span><span>${data.simbolo}${i.precio}</span></div>`).join('')}</div>`;
-}
-
 function abrirProducto(prod) {
     PRODUCTO_ACTUAL = prod;
     document.getElementById('modal-icon').innerText = prod.icono;
     document.getElementById('modal-title').innerText = prod.nombre;
     document.getElementById('modal-desc').innerText = prod.descripcion;
-    document.getElementById('modal-price').innerText = prod.precio;
+    document.getElementById('modal-price').innerText = prod.precios[PAIS_ACTUAL];
     document.getElementById('modal').classList.add('active');
 }
 
@@ -74,19 +57,19 @@ function abrirCarrito() {
     let html = ''; let total = 0;
     if(CARRITO.length === 0) { html = '<p style="text-align:center; padding:20px">Tu carrito está vacío 😿</p>'; }
     else { html = CARRITO.map(p => {
-            const precioNum = parseFloat(p.precio.split('S/')[1]?.split(' ')[0] || 0);
+            const precioNum = parseFloat(p.precios[PAIS_ACTUAL].replace(/[^0-9.]/g, ''));
             total += precioNum * p.cantidad;
-            return `<div class="cart-item"><div style="font-size:2rem">${p.icono}</div><div class="cart-info"><h4>${p.nombre}</h4><p>Cant: ${p.cantidad} x S/${precioNum.toFixed(2)}</p></div><button onclick="eliminarDelCarrito(${p.id})" class="btn-eliminar">🗑️</button></div>`;
+            return `<div class="cart-item"><div style="font-size:2rem">${p.icono}</div><div class="cart-info"><h4>${p.nombre}</h4><p>${p.cantidad} x ${p.precios[PAIS_ACTUAL]}</p></div><button onclick="eliminarDelCarrito(${p.id})" class="btn-delete">🗑️</button></div>`;
         }).join(''); }
     document.getElementById('cart-items').innerHTML = html;
-    document.getElementById('cart-total').innerText = `TOTAL APROX: S/${total.toFixed(2)}`;
+    document.getElementById('cart-total').innerText = `TOTAL: ${PRODUCTOS_TIENDA[0].precios[PAIS_ACTUAL].split(/[0-9.]/)[0]}${total.toFixed(2)}`;
     document.getElementById('cart-modal').classList.add('active');
 }
 
 function enviarWhatsApp() {
     if(CARRITO.length === 0) return alert('Carrito vacío');
     let texto = 'Hola Garfield Store 🐱 quiero comprar:\n\n';
-    CARRITO.forEach(p => { texto += `• ${p.nombre} x${p.cantidad}\n`; });
-    texto += `\nTotal aprox: S/${document.getElementById('cart-total').innerText.split('S/')[1]}`;
+    CARRITO.forEach(p => { texto += `• ${p.nombre} x${p.cantidad} - ${p.precios[PAIS_ACTUAL]}\n`; });
+    texto += `\nTotal: ${document.getElementById('cart-total').innerText}`;
     window.open(`https://wa.me/51927174369?text=${encodeURIComponent(texto)}`, '_blank');
 }
