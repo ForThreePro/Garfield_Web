@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrito - Luu Store</title><link rel="stylesheet" href="style.css"></head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito - Luu Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 <header>
   <div style="display:flex; align-items:center; gap:.5rem">
-    <img src="logo.png" class="logo"><h1>Tu Carrito</h1>
+    <img src="logo.png" class="logo" alt="Logo">
+    <h1>Tu Carrito</h1>
   </div>
   <nav>
     <a href="index.html">Inicio</a>
@@ -15,13 +20,17 @@
   </nav>
 </header>
 
-<section class="container">
+<section class="container" style="padding-top:100px">
   <div id="cartItemsFull" style="min-height:300px"></div>
   <h2 class="precio">Total: <span id="cartTotalFull">0</span></h2>
   <button id="whatsappBtnFull" class="btn" style="width:100%; font-size:1.2rem">Enviar pedido por WhatsApp 💬</button>
   <a href="tienda.html" class="btn ghost" style="width:100%; margin-top:1rem; display:block; text-align:center">Seguir comprando</a>
 </section>
 
-<a href="https://wa.me/51920726588" class="wa-float">💬</a>
+<a href="https://wa.me/51920726588" target="_blank" class="wa-float">💬</a>
+
+<script src="monedas.js"></script>
+<script src="productos.js"></script>
 <script src="script.js"></script>
-</body></html>
+</body>
+</html>
