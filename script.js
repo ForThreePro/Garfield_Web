@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMusic();
 });
 
+// MUSICA
 function setupMusic(){
   const audio = document.createElement('audio');
   audio.id = 'bgMusic';
@@ -46,6 +47,7 @@ function toggleMusic(){
   localStorage.setItem('music', musicPlaying);
 }
 
+// MONEDAS
 function renderCurrencyBtns(){
   const cont = document.getElementById('currencyBtns'); if(!cont) return;
   cont.innerHTML = '';
@@ -58,6 +60,7 @@ function renderCurrencyBtns(){
   });
 }
 
+// CATEGORIAS
 function renderCategories(){
   const cont = document.getElementById('categories'); if(!cont) return;
   const cats = [...new Set(productos.map(p => p.cat))];
@@ -81,6 +84,7 @@ function renderCategories(){
   cont.appendChild(wrapper);
 }
 
+// PRODUCTOS
 function renderProductos(){
   const cont = document.getElementById('productos'); if(!cont) return;
   cont.innerHTML = '';
@@ -102,6 +106,7 @@ function renderProductos(){
   });
 }
 
+// CARRITO
 function addToCart(name, price){cart.push({name, price}); localStorage.setItem('cart', JSON.stringify(cart)); updateCartCount(); alert(`${name} agregado ✅`);}
 function updateCartCount(){document.getElementById('cartCount') && (document.getElementById('cartCount').innerText = cart.length);}
 function updateCartFull(){
@@ -115,11 +120,21 @@ function updateCartFull(){
   document.getElementById('cartTotalFull') && (document.getElementById('cartTotalFull').innerText = monedas[currentCurrency].symbol + (total * monedas[currentCurrency].rate).toFixed(2));
 }
 function removeItem(idx){cart.splice(idx,1); localStorage.setItem('cart', JSON.stringify(cart)); updateCartCount(); updateCartFull();}
+
+// BOTON WHATSAPP CON TEXTO NUEVO
 document.getElementById('whatsappBtnFull')?.addEventListener('click', () => {
   if(cart.length === 0) return alert('Carrito vacío');
-  let msg = 'Hola Luu! Quiero pedir:%0A'; let total = 0;
-  cart.forEach(i => {total += i.price; msg += `- ${i.name}%0A`;});
-  msg += `%0ATotal: ${monedas[currentCurrency].symbol}${(total * monedas[currentCurrency].rate).toFixed(2)}`;
+  let msg = '🔥 *NUEVO PEDIDO - GARFIELD STORE* 🔥%0A%0A';
+  msg += '👤 *PAIS:* PE%0A';
+  msg += '🆔 *ID FREE FIRE:* Garfield%0A%0A';
+  msg += '🛒 *DETALLE:*%0A';
+  let total = 0;
+  cart.forEach(i => {
+    const precio = (i.price * monedas[currentCurrency].rate).toFixed(2);
+    msg += `- ${i.name} - ${monedas[currentCurrency].symbol}${precio}%0A`;
+    total += i.price;
+  });
+  msg += `%0A💬 *Espero confirmación* 🙏`;
   window.open(`https://wa.me/51920726588?text=${msg}`);
   cart = []; localStorage.setItem('cart', '[]'); updateCartCount(); updateCartFull();
 });
