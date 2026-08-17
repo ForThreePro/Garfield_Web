@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bg-grid"></div>
+    <div class="bg-gradient"></div>
 
     <nav class="navbar">
         <button class="menu-btn" id="menu-btn">☰</button>
-        <div class="nav-brand">🐱 GARFIELD STORE</div>
+        <div class="nav-brand">🐱 GARFIELD <span>STORE</span></div>
         <button class="cart-btn" id="cart-btn">🛒<span id="cart-count">0</span></button>
     </nav>
 
@@ -19,60 +19,55 @@
         <button class="close-btn" id="close-btn">✖</button>
         <h3>MENÚ</h3>
         <a href="#" class="nav-link" data-target="inicio">🏠 INICIO</a>
-        <a href="#" class="nav-link" data-target="tienda">🛒 TIENDA</a>
+        <a href="#" class="nav-link active" data-target="tienda">🛒 TIENDA</a>
         <a href="https://wa.me/51927174369" target="_blank">💬 WHATSAPP</a>
-        <a href="#" id="ver-carrito">🧡 VER CARRITO</a>
+        <a href="#" id="ver-carrito">🧡 CARRITO</a>
     </div>
     <div class="overlay" id="overlay"></div>
 
     <div class="container">
-        <!-- INICIO -->
-        <section class="main-section active" id="inicio">
-            <div class="inicio-logo">
-                <img src="logo.png" alt="Garfield Store">
-                <h1 class="logo">GARFIELD STORE</h1>
-                <p class="subtitle">Diamantes & Servicios Premium 🍝</p>
-                <p class="version">⭐ +2000 RECARGAS | ODIO LOS LUNES</p>
-                <a href="#" class="cta-btn" data-target="tienda">🛒 IR A LA TIENDA</a>
-                <div class="info-box">
-                    <strong>Horario:</strong> Mañanas y Noches<br>
-                    <strong>Pago:</strong> Yape | Global66 | Prex
-                </div>
+        <!-- INICIO SIMPLE -->
+        <section class="main-section" id="inicio">
+            <div class="hero-simple">
+                <img src="logo.png" alt="Garfield">
+                <h1>GARFIELD <span>STORE</span></h1>
+                <p>Diamantes y Servicios Premium</p>
+                <a href="#" class="btn-main" data-target="tienda">IR A LA TIENDA</a>
             </div>
         </section>
 
-        <!-- TIENDA ESTILO ARCADIA -->
-        <section class="main-section" id="tienda">
-            <h1 class="section-title">🛒 TIENDA</h1>
-
-            <input type="text" class="search-box" id="search" placeholder="🔍 Buscar producto...">
-
-            <div class="category-tabs">
-                <button class="tab-btn active" data-filter="todos">Todos</button>
-                <button class="tab-btn" data-filter="diseño">Diseño</button>
-                <button class="tab-btn" data-filter="servicio">Servicios</button>
-                <button class="tab-btn" data-filter="redes">Redes</button>
-                <button class="tab-btn" data-filter="diamantes">Diamantes</button>
+        <!-- TIENDA NUEVA 100% -->
+        <section class="main-section active" id="tienda">
+            <div class="tienda-top">
+                <h1>🛒 TIENDA</h1>
+                <input type="text" id="search" placeholder="🔍 Buscar producto...">
             </div>
 
-            <!-- DIAMANTES -->
-            <div class="section-block" data-category="diamantes">
-                <div class="section-header">
-                    <div class="section-label">CATÁLOGO</div>
-                    <h2>💎 DIAMANTES</h2>
+            <!-- FILTROS STICKY -->
+            <div class="filters-sticky">
+                <div class="filter-group">
+                    <span>Categoría:</span>
+                    <div class="category-tabs">
+                        <button class="tab-btn active" data-filter="todos">Todos</button>
+                        <button class="tab-btn" data-filter="diamantes">💎 Diamantes</button>
+                        <button class="tab-btn" data-filter="diseño">🎨 Diseño</button>
+                        <button class="tab-btn" data-filter="servicio">⚡ Servicios</button>
+                        <button class="tab-btn" data-filter="redes">📱 Redes</button>
+                    </div>
                 </div>
-                <div class="country-tabs">
-                    <button class="country-btn active" data-country="pe">🇵🇪 PE</button>
-                    <button class="country-btn" data-country="cl">🇨🇱 CL</button>
-                    <button class="country-btn" data-country="ar">🇦🇷 AR</button>
-                    <button class="country-btn" data-country="mx">🇲🇽 MX</button>
-                    <button class="country-btn" data-country="bo">🇧🇴 BO</button>
-                    <button class="country-btn" data-country="uy">🇺🇾 UY</button>
+                <div class="filter-group">
+                    <span>País:</span>
+                    <div class="country-tabs">
+                        <button class="country-btn active" data-country="pe">🇵🇪 PE</button>
+                        <button class="country-btn" data-country="cl">🇨🇱 CL</button>
+                        <button class="country-btn" data-country="ar">🇦🇷 AR</button>
+                        <button class="country-btn" data-country="mx">🇲🇽 MX</button>
+                        <button class="country-btn" data-country="bo">🇧🇴 BO</button>
+                        <button class="country-btn" data-country="uy">🇺🇾 UY</button>
+                    </div>
                 </div>
-                <div id="precios-container"></div>
             </div>
 
-            <!-- PRODUCTOS -->
             <div id="tienda-grid"></div>
         </section>
     </div>
@@ -81,11 +76,11 @@
     <div class="modal" id="modal">
         <div class="modal-content">
             <button class="close-modal" id="close-modal">✖</button>
-            <div class="product-logo" id="modal-icon"></div>
+            <div class="modal-icon" id="modal-icon"></div>
             <h3 id="modal-title"></h3>
             <p id="modal-desc"></p>
-            <p id="modal-price"></p>
-            <button class="btn-add" id="btn-add-cart">AÑADIR AL CARRITO</button>
+            <div class="modal-price" id="modal-price"></div>
+            <button class="btn-main" id="btn-add-cart">AÑADIR AL CARRITO</button>
         </div>
     </div>
 
@@ -95,8 +90,8 @@
             <button class="close-modal" id="close-cart">✖</button>
             <h3>🧡 TU CARRITO</h3>
             <div id="cart-items"></div>
-            <p id="cart-total"></p>
-            <a href="#" class="btn-add" id="btn-checkout">PEDIR POR WHATSAPP</a>
+            <div id="cart-total"></div>
+            <button class="btn-main" id="btn-checkout">PEDIR POR WHATSAPP</button>
         </div>
     </div>
 
