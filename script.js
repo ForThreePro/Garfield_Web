@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartFull();
 });
 
-// MONEDAS
 function renderCurrencyBtns(){
   const cont = document.getElementById('currencyBtns'); if(!cont) return;
   cont.innerHTML = '';
@@ -23,7 +22,6 @@ function renderCurrencyBtns(){
   });
 }
 
-// CATEGORIAS
 function renderCategories(){
   const cont = document.getElementById('categories'); if(!cont) return;
   const cats = [...new Set(productos.map(p => p.cat))];
@@ -37,7 +35,6 @@ function renderCategories(){
   });
 }
 
-// PRODUCTOS
 function renderProductos(){
   const cont = document.getElementById('productos'); if(!cont) return;
   cont.innerHTML = '';
@@ -59,7 +56,6 @@ function renderProductos(){
   });
 }
 
-// CARRITO
 function addToCart(name, price){cart.push({name, price}); localStorage.setItem('cart', JSON.stringify(cart)); updateCartCount(); alert(`${name} agregado ✅`);}
 function updateCartCount(){document.getElementById('cartCount') && (document.getElementById('cartCount').innerText = cart.length);}
 function updateCartFull(){
