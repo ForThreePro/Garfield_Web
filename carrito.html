@@ -1,41 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>CARRITO - GARFIELD STORE</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito - Luu Store</title><link rel="stylesheet" href="style.css"></head>
 <body>
 <header>
-  <div class="nav">
-    <div class="logo">GARFIELD<span>STORE</span></div>
-    <div class="nav-right">
-      <button id="btnMusica" onclick="toggleMusica()">🔊</button>
-      <button class="btn-menu" onclick="toggleMenu()">☰</button>
-    </div>
-    <nav class="menu" id="menu">
-      <a href="index.html">INICIO</a>
-      <a href="productos.html">TIENDA</a>
-      <a href="videos.html">MEDIA</a>
-      <a href="carrito.html">CARRITO <span id="menuTotal">0</span></a>
-    </nav>
+  <div style="display:flex; align-items:center; gap:.5rem">
+    <img src="logo.png" class="logo"><h1>Tu Carrito</h1>
   </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="tienda.html">Tienda</a>
+    <button id="themeBtn">🌙</button>
+    <button id="currencyBtn">🌍 <span id="currencyLabel">PEN</span></button>
+  </nav>
 </header>
 
-<section class="carrito">
-  <h2>TU PEDIDO <span id="totalItems">0</span></h2>
-  <div id="listaCarrito"></div>
-  <button onclick="abrirPopUpID()" class="btn-primario">FINALIZAR COMPRA</button>
+<section class="container">
+  <div id="cartItemsFull" style="min-height:300px"></div>
+  <h2 class="precio">Total: <span id="cartTotalFull">0</span></h2>
+  <button id="whatsappBtnFull" class="btn" style="width:100%; font-size:1.2rem">Enviar pedido por WhatsApp 💬</button>
+  <a href="tienda.html" class="btn ghost" style="width:100%; margin-top:1rem; display:block; text-align:center">Seguir comprando</a>
 </section>
 
-<section class="historial">
-  <h2>ÚLTIMO PEDIDO</h2>
-  <div id="ultimoPedido">No hay pedidos anteriores</div>
-</section>
-
-<div id="popupID" class="popup"><div class="popup-content"><h3>TU ID DE FREE FIRE</h3><input type="text" id="idFinal" placeholder="EJ: 123456789"><button onclick="enviarWhatsApp()" class="btn-primario">ENVIAR POR WHATSAPP</button><button onclick="cerrarPopUpID()" class="btn-sec">CANCELAR</button></div></div>
-<audio id="musicaFondo" loop><source src="garfield.mp3" type="audio/mpeg"></audio>
-<script src="app.js"></script>
-</body>
-</html>
+<a href="https://wa.me/51920726588" class="wa-float">💬</a>
+<script src="script.js"></script>
+</body></html>
