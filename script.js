@@ -1,55 +1,68 @@
 let currentCurrency = localStorage.getItem('currency') || 'PEN';
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let currentCat = 'Todos';
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('currencyLabel') && (document.getElementById('currencyLabel').innerText = currentCurrency);
-  renderTienda();
-  updateCart();
+  renderCurrencyBtns();
+  renderCategories();
+  renderProductos();
+  updateCartCount();
   updateCartFull();
 });
 
-// CAMBIAR MONEDA
-document.getElementById('currencyBtn')?.addEventListener('click', () => {
-  const keys = Object.keys(monedas);
-  let i = keys.indexOf(currentCurrency);
-  currentCurrency = keys[(i+1)%keys.length];
-  localStorage.setItem('currency', currentCurrency);
-  document.getElementById('currencyLabel').innerText = currentCurrency;
-  renderTienda(); updateCart(); updateCartFull();
-});
+// MONEDAS
+function renderCurrencyBtns(){
+  const cont = document.getElementById('currencyBtns');
+  if(!cont) return;
+  cont.innerHTML = '';
+  Object.keys(monedas).forEach(key => {
+    const btn = document.createElement('button');
+    btn.className = 'currency-btn' + (key === currentCurrency? ' active' : '');
+    btn.innerText = monedas[key].name;
+    btn.onclick = () => {
+      currentCurrency = key;
+      localStorage.setItem('currency', key);
+      renderCurrencyBtns(); renderProductos(); updateCartFull();
+    };
+    cont.appendChild(btn);
+  });
+}
 
-// TEMA
-document.getElementById('themeBtn')?.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-});
+// CATEGORIAS
+function renderCategories(){
+  const cont = document.getElementById('categories');
+  if(!cont) return;
+  const cats = ['Todos',...new Set(productos.map(p => p.cat))];
+  cont.innerHTML = '';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn' + (cat === currentCat? ' active' : '');
+    btn.innerText = cat;
+    btn.onclick = () => {
+      currentCat = cat;
+      renderCategories(); renderProductos();
+    };
+    cont.appendChild(btn);
+  });
+}
 
-// TIENDA
-function renderTienda(){
-  const tienda = document.getElementById('tienda');
-  if(!tienda) return;
-  tienda.innerHTML = '';
-  const categorias = [...new Set(productos.map(p => p.cat))];
-  categorias.forEach((cat, i) => {
-    const title = document.createElement('h3');
-    title.textContent = cat;
-    title.style.gridColumn = '1/-1';
-    title.style.animationDelay = `${i*0.1}s`;
-    tienda.appendChild(title);
+// PRODUCTOS
+function renderProductos(){
+  const cont = document.getElementById('productos');
+  if(!cont) return;
+  cont.innerHTML = '';
+  const filtrados = currentCat === 'Todos'? productos : productos.filter(p => p.cat === currentCat);
 
-    productos.filter(p => p.cat === cat).forEach((p, j) => {
-      const precio = (p.prices[currentCurrency] * monedas[currentCurrency].rate).toFixed(2);
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.style.animationDelay = `${(i+j)*0.05}s`;
-      card.innerHTML = `
-        <img src="https://placehold.co/300x160/FFD93D/2F2F2F?text=${encodeURIComponent(p.name)}">
-        <h4>${p.name}</h4>
-        <p class="precio">${monedas[currentCurrency].symbol}${precio}</p>
-        <p style="font-size:12px; opacity:.7">Recargas: mañanas y noches</p>
-        <button class="btn" onclick='addToCart("${p.name}", ${p.prices[currentCurrency]})'>Agregar 🛒</button>
-      `;
-      tienda.appendChild(card);
-    });
+  filtrados.forEach(p => {
+    const precio = (p.prices[currentCurrency] * monedas[currentCurrency].rate).toFixed(2);
+    const div = document.createElement('div');
+    div.className = 'card-list';
+    div.innerHTML = `
+      <h4>${p.name}</h4>
+      <div class="precio">${monedas[currentCurrency].symbol}${precio}</div>
+      <button class="btn-add" onclick='addToCart("${p.name}", ${p.prices[currentCurrency]})'>Añadir</button>
+    `;
+    cont.appendChild(div);
   });
 }
 
@@ -57,58 +70,40 @@ function renderTienda(){
 function addToCart(name, price){
   cart.push({name, price});
   localStorage.setItem('cart', JSON.stringify(cart));
-  updateCart();
-  alert(`${name} agregado al carrito 😼`);
+  updateCartCount();
+  alert(`${name} agregado 😼`);
 }
-function updateCart(){
+function updateCartCount(){
   document.getElementById('cartCount') && (document.getElementById('cartCount').innerText = cart.length);
-  const items = document.getElementById('cartItems');
-  if(!items) return;
-  items.innerHTML = '';
-  let total = 0;
-  cart.forEach((i, idx) => {
-    total += i.price;
-    items.innerHTML += `<div style="display:flex; justify-content:space-between; margin:.5rem 0">
-      ${i.name} - ${monedas[currentCurrency].symbol}${(i.price * monedas[currentCurrency].rate).toFixed(2)}
-      <button onclick="removeItem(${idx})">x</button></div>`;
-  });
-  document.getElementById('cartTotal').innerText = monedas[currentCurrency].symbol + (total * monedas[currentCurrency].rate).toFixed(2);
 }
 function updateCartFull(){
   const items = document.getElementById('cartItemsFull');
   if(!items) return;
   items.innerHTML = '';
   let total = 0;
-  if(cart.length === 0) items.innerHTML = '<p>Tu carrito está vacío 😿</p>';
+  if(cart.length === 0) items.innerHTML = '<p style="text-align:center">Tu carrito está vacío 😿</p>';
   cart.forEach((i, idx) => {
     total += i.price;
-    items.innerHTML += `<div class="card" style="margin-bottom:1rem; display:flex; justify-content:space-between">
-      <span>${i.name}</span>
-      <span>${monedas[currentCurrency].symbol}${(i.price * monedas[currentCurrency].rate).toFixed(2)}
-      <button onclick="removeItem(${idx})">x</button></span></div>`;
+    items.innerHTML += `<div class="card-list" style="display:flex; justify-content:space-between; align-items:center">
+      <div><h4>${i.name}</h4><div class="precio">${monedas[currentCurrency].symbol}${(i.price * monedas[currentCurrency].rate).toFixed(2)}</div></div>
+      <button onclick="removeItem(${idx})" style="background:red; color:white; border:none; border-radius:50%; width:30px; height:30px">x</button></div>`;
   });
-  document.getElementById('cartTotalFull').innerText = monedas[currentCurrency].symbol + (total * monedas[currentCurrency].rate).toFixed(2);
+  document.getElementById('cartTotalFull') && (document.getElementById('cartTotalFull').innerText = monedas[currentCurrency].symbol + (total * monedas[currentCurrency].rate).toFixed(2));
 }
 function removeItem(idx){
   cart.splice(idx,1);
   localStorage.setItem('cart', JSON.stringify(cart));
-  updateCart(); updateCartFull();
+  updateCartCount(); updateCartFull();
 }
 
 // WHATSAPP
-document.getElementById('whatsappBtn')?.addEventListener('click', sendWhatsApp);
-document.getElementById('whatsappBtnFull')?.addEventListener('click', sendWhatsApp);
-
-function sendWhatsApp(){
+document.getElementById('whatsappBtnFull')?.addEventListener('click', () => {
   if(cart.length === 0) return alert('Carrito vacío');
   let msg = 'Hola Luu! Quiero pedir:%0A';
   let total = 0;
-  cart.forEach(i => {
-    total += i.price;
-    msg += `- ${i.name}%0A`;
-  });
+  cart.forEach(i => {total += i.price; msg += `- ${i.name}%0A`;});
   msg += `%0ATotal: ${monedas[currentCurrency].symbol}${(total * monedas[currentCurrency].rate).toFixed(2)}`;
   window.open(`https://wa.me/51920726588?text=${msg}`);
   cart = []; localStorage.setItem('cart', '[]');
-  updateCart(); updateCartFull();
-}
+  updateCartCount(); updateCartFull();
+});
