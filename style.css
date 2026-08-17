@@ -52,23 +52,23 @@ body{
   font-size: 2.2rem; font-weight: 900;
   color: var(--neon);
   text-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
-  margin-bottom: .5rem;
+  margin-bottom:.5rem;
 }
-.header-center p{color: var(--neon); font-size: .9rem; text-shadow: 0 0 5px var(--neon);}
-.header-center .sub{color: #aaa; font-size: .8rem;}
+.header-center p{color: var(--neon); font-size:.9rem; text-shadow: 0 0 5px var(--neon);}
+.header-center.sub{color: #aaa; font-size:.8rem;}
 
 /* BOTONES */
-.btn-group{display: flex; gap: .8rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center;}
+.btn-group{display: flex; gap:.8rem; margin-bottom: 2rem; flex-wrap: wrap; justify-content: center;}
 .btn{
   background: var(--neon);
   color: var(--bg);
   border: none;
-  padding: .9rem 1.5rem;
+  padding:.9rem 1.5rem;
   border-radius: 50px;
   font-weight: 900;
   cursor: pointer;
   box-shadow: 0 0 15px var(--neon);
-  transition: .3s;
+  transition:.3s;
 }
 .btn:hover{transform: scale(1.05); box-shadow: 0 0 25px var(--neon);}
 .btn-secondary{background: transparent; border: 2px solid var(--neon); color: var(--neon);}
@@ -88,7 +88,7 @@ body{
   color: var(--neon);
   text-shadow: 0 0 10px var(--neon);
 }
-.stat-label{color: #aaa; font-size: .8rem;}
+.stat-label{color: #aaa; font-size:.8rem;}
 .stat-box.full{grid-column: 1 / 3;}
 
 /* TITULO SECCION */
@@ -99,6 +99,21 @@ body{
   text-shadow: 0 0 10px var(--neon);
   margin: 2rem 0 1rem;
 }
+
+/* CATEGORIAS Y MONEDAS */
+.currency-grid,.categories{display: flex; gap:.6rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;}
+.categories{overflow-x: auto; flex-wrap: nowrap; padding-bottom:.5rem;}
+.currency-btn,.cat-btn{
+  background: var(--card);
+  border: 2px solid var(--neon);
+  color: var(--neon);
+  padding:.6rem 1rem;
+  border-radius: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.currency-btn.active,.cat-btn.active{background: var(--neon); color: var(--bg); box-shadow: 0 0 15px var(--neon);}
 
 /* CARDS PRODUCTOS */
 .product-card{
@@ -113,15 +128,15 @@ body{
 .product-badge{
   position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
   background: var(--neon); color: var(--bg);
-  padding: .4rem 1rem; border-radius: 20px;
-  font-size: .7rem; font-weight: 900;
+  padding:.4rem 1rem; border-radius: 20px;
+  font-size:.7rem; font-weight: 900;
 }
 .product-card h3{
   text-align: center;
   color: var(--neon);
   font-size: 1.2rem;
   text-shadow: 0 0 8px var(--neon);
-  margin-bottom: .5rem;
+  margin-bottom:.5rem;
 }
 .product-price{
   text-align: center;
@@ -130,7 +145,7 @@ body{
   text-shadow: 0 0 15px var(--neon);
   margin: 1rem 0;
 }
-.product-desc{text-align: center; color: #aaa; font-size: .9rem; margin-bottom: 1rem;}
+.product-desc{text-align: center; color: #aaa; font-size:.9rem; margin-bottom: 1rem;}
 .btn-add-cart{
   width: 100%;
   background: var(--neon);
@@ -143,19 +158,7 @@ body{
   cursor: pointer;
   box-shadow: 0 0 15px var(--neon);
 }
-
-/* MONEDAS */
-.currency-grid{display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem;}
-.currency-btn{
-  background: var(--card);
-  border: 2px solid var(--neon);
-  color: var(--neon);
-  padding: .5rem 1rem;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.currency-btn.active{background: var(--neon); color: var(--bg);}
+.empty-msg{text-align: center; color: #666; font-size: 1.1rem; margin-top: 3rem;}
 
 /* METODOS PAGO */
 .pay-grid{display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;}
@@ -166,7 +169,7 @@ body{
   padding: 1rem;
   text-align: center;
 }
-.pay-box .icon{font-size: 2rem; margin-bottom: .5rem;}
+.pay-box.icon{font-size: 2rem; margin-bottom:.5rem;}
 .pay-box h4{color: var(--neon);}
 
 footer{text-align: center; padding: 2rem 1rem; color: var(--neon); text-shadow: 0 0 5px var(--neon);}
