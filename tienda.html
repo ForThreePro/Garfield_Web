@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda - Luu Store</title><link rel="stylesheet" href="style.css"></head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda - Luu Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 <header>
   <div style="display:flex; align-items:center; gap:.5rem">
-    <img src="logo.png" class="logo"><h1>Tienda</h1>
+    <img src="logo.png" class="logo" alt="Logo">
+    <h1>Tienda</h1>
   </div>
   <nav>
     <a href="index.html">Inicio</a>
     <a href="tienda.html">Tienda</a>
-    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+    <a href="carrito.html">🛒 <span id="cartCount">0</span></a>
     <button id="themeBtn">🌙</button>
     <button id="currencyBtn">🌍 <span id="currencyLabel">PEN</span></button>
   </nav>
 </header>
 
-<section id="tienda" class="container grid"></section>
+<section id="tienda" class="container grid" style="padding-top:100px"></section>
 
 <div id="cartPanel" class="cart">
-  <h3>Carrito 🛒</h3><div id="cartItems"></div>
+  <h3>Carrito 🛒</h3>
+  <div id="cartItems"></div>
   <p class="precio">Total: <span id="cartTotal">0</span></p>
   <button id="whatsappBtn" class="btn">Pagar por WhatsApp</button>
-  <button id="closeCart" class="btn">Cerrar</button>
+  <a href="carrito.html" class="btn ghost" style="display:block; text-align:center; margin-top:.5rem">Ver Carrito Completo</a>
+  <button id="closeCart" class="btn ghost" style="width:100%; margin-top:.5rem">Cerrar</button>
 </div>
 
-<a href="https://wa.me/51920726588" class="wa-float">💬</a>
+<a href="https://wa.me/51920726588" target="_blank" class="wa-float">💬</a>
+
+<script src="monedas.js"></script>
+<script src="productos.js"></script>
 <script src="script.js"></script>
-</body></html>
+<script>
+document.getElementById('cartBtn')?.addEventListener('click', () => {
+  document.getElementById('cartPanel').classList.add('open');
+});
+document.getElementById('closeCart')?.addEventListener('click', () => {
+  document.getElementById('cartPanel').classList.remove('open');
+});
+</script>
+</body>
+</html>
