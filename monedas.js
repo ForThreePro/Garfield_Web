@@ -1,20 +1,8 @@
 const PRECIOS_DIAMANTES = {
-    pe: { nombre: "Perú", simbolo: "S/",
-        conStock: [ {diamantes:"110💎",precio:"2.50"}, {diamantes:"341💎",precio:"7.00"}, {diamantes:"572💎",precio:"12.00"}, {diamantes:"1166💎",precio:"20.00"}, {diamantes:"2398💎",precio:"36.00"}, {diamantes:"6160💎",precio:"92.00"} ],
-        sinStock: [ {diamantes:"110💎",precio:"3.50"}, {diamantes:"341💎",precio:"10.00"}, {diamantes:"572💎",precio:"15.00"}, {diamantes:"1166💎",precio:"26.00"}, {diamantes:"2398💎",precio:"52.00"}, {diamantes:"6160💎",precio:"126.00"} ] },
-    cl: { nombre: "Chile", simbolo: "$",
-        conStock: [ {diamantes:"110💎",precio:"875"}, {diamantes:"341💎",precio:"2.450"}, {diamantes:"572💎",precio:"4.200"}, {diamantes:"1166💎",precio:"7.000"}, {diamantes:"2398💎",precio:"12.600"}, {diamantes:"6160💎",precio:"32.200"} ],
-        sinStock: [ {diamantes:"110💎",precio:"1.225"}, {diamantes:"341💎",precio:"3.500"}, {diamantes:"572💎",precio:"5.250"}, {diamantes:"1166💎",precio:"9.100"}, {diamantes:"2398💎",precio:"18.200"}, {diamantes:"6160💎",precio:"44.100"} ] },
-    ar: { nombre: "Argentina", simbolo: "$",
-        conStock: [ {diamantes:"110💎",precio:"1.300"}, {diamantes:"341💎",precio:"3.380"}, {diamantes:"572💎",precio:"5.720"}, {diamantes:"1166💎",precio:"9.880"}, {diamantes:"2398💎",precio:"18.200"}, {diamantes:"6160💎",precio:"46.800"} ],
-        sinStock: [ {diamantes:"110💎",precio:"1820"}, {diamantes:"341💎",precio:"4.680"}, {diamantes:"572💎",precio:"7.800"}, {diamantes:"1166💎",precio:"13.520"}, {diamantes:"2398💎",precio:"27.040"}, {diamantes:"6160💎",precio:"65.520"} ] },
-    mx: { nombre: "México", simbolo: "$",
-        conStock: [ {diamantes:"110💎",precio:"18.75"}, {diamantes:"341💎",precio:"52.50"}, {diamantes:"572💎",precio:"90"}, {diamantes:"1166💎",precio:"150"}, {diamantes:"2398💎",precio:"270"}, {diamantes:"6160💎",precio:"690"} ],
-        sinStock: [ {diamantes:"110💎",precio:"26.25"}, {diamantes:"341💎",precio:"75"}, {diamantes:"572💎",precio:"112.5"}, {diamantes:"1166💎",precio:"195"}, {diamantes:"2398💎",precio:"390"}, {diamantes:"6160💎",precio:"945"} ] },
-    bo: { nombre: "Bolivia", simbolo: "$",
-        conStock: [ {diamantes:"110💎",precio:"11.25"}, {diamantes:"341💎",precio:"31.5"}, {diamantes:"572💎",precio:"54"}, {diamantes:"1166💎",precio:"90"}, {diamantes:"2398💎",precio:"162"}, {diamantes:"6160💎",precio:"414"} ],
-        sinStock: [ {diamantes:"110💎",precio:"15.75"}, {diamantes:"341💎",precio:"45"}, {diamantes:"572💎",precio:"67.5"}, {diamantes:"1166💎",precio:"117"}, {diamantes:"2398💎",precio:"234"}, {diamantes:"6160💎",precio:"567"} ] },
-    uy: { nombre: "Uruguay", simbolo: "$",
-        conStock: [ {diamantes:"110💎",precio:"37.5"}, {diamantes:"341💎",precio:"105"}, {diamantes:"572💎",precio:"180"}, {diamantes:"1166💎",precio:"300"}, {diamantes:"2398💎",precio:"540"}, {diamantes:"6160💎",precio:"1.380"} ],
-        sinStock: [ {diamantes:"110💎",precio:"52.5"}, {diamantes:"341💎",precio:"150"}, {diamantes:"572💎",precio:"225"}, {diamantes:"1166💎",precio:"390"}, {diamantes:"2398💎",precio:"780"}, {diamantes:"6160💎",precio:"1.890"} ] }
+    pe: { simbolo: "S/", conStock: [ {d:"110💎",p:"2.50"}, {d:"341💎",p:"7.00"}, {d:"572💎",p:"12.00"}, {d:"1166💎",p:"20.00"}, {d:"2398💎",p:"36.00"}, {d:"6160💎",p:"92.00"} ], sinStock: [ {d:"110💎",p:"3.50"}, {d:"341💎",p:"10.00"}, {d:"572💎",p:"15.00"}, {d:"1166💎",p:"26.00"}, {d:"2398💎",p:"52.00"}, {d:"6160💎",p:"126.00"} ] },
+    cl: { simbolo: "$", conStock: [ {d:"110💎",p:"875"}, {d:"341💎",p:"2.450"}, {d:"572💎",p:"4.200"}, {d:"1166💎",p:"7.000"}, {d:"2398💎",p:"12.600"}, {d:"6160💎",p:"32.200"} ], sinStock: [ {d:"110💎",p:"1.225"}, {d:"341💎",p:"3.500"}, {d:"572💎",p:"5.250"}, {d:"1166💎",p:"9.100"}, {d:"2398💎",p:"18.200"}, {d:"6160💎",p:"44.100"} ] },
+    ar: { simbolo: "$", conStock: [ {d:"110💎",p:"1.300"}, {d:"341💎",p:"3.380"}, {d:"572💎",p:"5.720"}, {d:"1166💎",p:"9.880"}, {d:"2398💎",p:"18.200"}, {d:"6160💎",p:"46.800"} ], sinStock: [ {d:"110💎",p:"1820"}, {d:"341💎",p:"4.680"}, {d:"572💎",p:"7.800"}, {d:"1166💎",p:"13.520"}, {d:"2398💎",p:"27.040"}, {d:"6160💎",p:"65.520"} ] },
+    mx: { simbolo: "$", conStock: [ {d:"110💎",p:"18.75"}, {d:"341💎",p:"52.50"}, {d:"572💎",p:"90"}, {d:"1166💎",p:"150"}, {d:"2398💎",p:"270"}, {d:"6160💎",p:"690"} ], sinStock: [ {d:"110💎",p:"26.25"}, {d:"341💎",p:"75"}, {d:"572💎",p:"112.5"}, {d:"1166💎",p:"195"}, {d:"2398💎",p:"390"}, {d:"6160💎",p:"945"} ] },
+    bo: { simbolo: "$", conStock: [ {d:"110💎",p:"11.25"}, {d:"341💎",p:"31.5"}, {d:"572💎",p:"54"}, {d:"1166💎",p:"90"}, {d:"2398💎",p:"162"}, {d:"6160💎",p:"414"} ], sinStock: [ {d:"110💎",p:"15.75"}, {d:"341💎",p:"45"}, {d:"572💎",p:"67.5"}, {d:"1166💎",p:"117"}, {d:"2398💎",p:"234"}, {d:"6160💎",p:"567"} ] },
+    uy: { simbolo: "$", conStock: [ {d:"110💎",p:"37.5"}, {d:"341💎",p:"105"}, {d:"572💎",p:"180"}, {d:"1166💎",p:"300"}, {d:"2398💎",p:"540"}, {d:"6160💎",p:"1.380"} ], sinStock: [ {d:"110💎",p:"52.5"}, {d:"341💎",p:"150"}, {d:"572💎",p:"225"}, {d:"1166💎",p:"390"}, {d:"2398💎",p:"780"}, {d:"6160💎",p:"1.890"} ] }
 };
