@@ -1,59 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luu Store x Garfield</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luu Store</title><link rel="stylesheet" href="style.css"></head>
 <body>
-<!-- HEADER -->
 <header>
-  <div class="container">
-    <div class="brand">
-      <img src="logo.png" alt="Logo" class="logo">
-      <h1>Luu Store</h1>
-    </div>
-    <nav id="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#tienda">Tienda</a>
-    </nav>
-    <div class="actions">
-      <button id="currencyBtn">🌍 <span id="currencyLabel">PEN</span></button>
-      <button id="themeBtn">🌙</button>
-      <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
-      <button id="menuBtn">☰</button>
-    </div>
+  <div style="display:flex; align-items:center; gap:.5rem">
+    <img src="logo.png" class="logo"><h1>Luu Store</h1>
   </div>
-  <div id="mobileMenu" class="hidden">
-    <a href="#inicio">Inicio</a>
-    <a href="#tienda">Tienda</a>
-  </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="tienda.html">Tienda</a>
+    <button id="themeBtn">🌙</button>
+    <button id="currencyBtn">🌍 <span id="currencyLabel">PEN</span></button>
+  </nav>
 </header>
 
-<!-- INICIO -->
-<section id="inicio">
-  <img src="https://i.imgur.com/8KmN7bD.png" alt="Garfield" class="garfield-bg">
-  <h2>Bienvenido a Luu Store</h2>
-  <p>Diamantes, Design, Spam, Bots y más. Odio los lunes, amo los descuentos 😼</p>
-  <a href="#tienda" class="btn">Ir a la Tienda</a>
+<section class="container" style="text-align:center">
+  <h2 style="font-size:3rem; animation: bounce 2s infinite">Bienvenido 😼</h2>
+  <p>Diamantes, Design, Spam y más. Sin estrés los lunes</p>
+  <a href="tienda.html" class="btn" style="font-size:1.2rem">Entrar a la Tienda</a>
+  <img src="https://i.imgur.com/8KmN7bD.png" style="width:250px; margin-top:2rem; animation: float 3s ease-in-out infinite">
 </section>
-
-<!-- TIENDA -->
-<section id="tienda" class="container grid"></section>
-
-<!-- CARRITO -->
-<div id="cartPanel" class="cart hidden">
-  <h3>Carrito 🛒</h3>
-  <div id="cartItems"></div>
-  <p class="total">Total: <span id="cartTotal">0</span></p>
-  <button id="whatsappBtn" class="btn whatsapp">Pagar por WhatsApp</button>
-  <button id="closeCart" class="btn ghost">Cerrar</button>
-</div>
-
-<!-- BOTON WHATSAPP FLOTANTE -->
-<a href="https://wa.me/51920726588" target="_blank" class="wa-float">💬</a>
-
+<a href="https://wa.me/51920726588" class="wa-float">💬</a>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>
