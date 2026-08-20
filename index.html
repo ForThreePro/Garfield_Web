@@ -3,24 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Garfield Store - Bot Oficial</title>
+<title>GARFIELD STORE | PANEL GAMER</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-  body{background:#000;color:#fff}
-  header{height:280px;background:url('banner-garfield.jpg') center/cover;border-bottom:4px solid #FF6A00}
-  h1{text-align:center;color:#FF6A00;font-size:2.5rem;padding:15px;text-shadow:2px 2px #000}
- .selector-pais{text-align:center;padding:15px;background:#111;border-bottom:2px solid #FF6A00}
- .selector-pais button{margin:5px;padding:8px 12px;background:#222;border:1px solid #FF6A00;color:#FF6A00;border-radius:8px;cursor:pointer}
- .selector-pais button.active{background:#FF6A00;color:#000;font-weight:bold}
- .productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;padding:20px}
- .card{background:#111;border:2px solid #FF6A00;border-radius:12px;padding:15px;text-align:center}
- .card h3{color:#FF6A00;margin-bottom:8px}
- .card.precio{font-size:1.3rem;margin:8px 0}
- .card button{background:#FF6A00;border:none;color:#000;padding:8px 12px;border-radius:8px;margin:5px;cursor:pointer;font-weight:bold}
-  #carrito{position:fixed;right:-320px;top:0;background:#111;width:320px;height:100%;padding:15px;border-left:3px solid #FF6A00;transition:0.3s;overflow-y:auto;z-index:999}
+  :root{
+    --naranja: #FF4500;
+    --naranja-brillante: #FF6A00;
+    --negro: #0A0A0A;
+    --negro-claro: #111;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron', sans-serif}
+  body{background:var(--negro);color:#fff;overflow-x:hidden}
+  body::before{
+    content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+    background: linear-gradient(135deg, #FF4500 0%, transparent 70%);
+    opacity:0.08;z-index:-1;
+  }
+  header{
+    height:280px;
+    background: url('banner-garfield.jpg') center/cover, linear-gradient(90deg, var(--negro) 0%, var(--naranja) 50%, var(--negro) 100%);
+    border-bottom:4px solid var(--naranja);
+    box-shadow: 0 0 30px var(--naranja);
+    position:relative;
+  }
+  header::after{
+    content:'MANTENIMIENTO ACTIVO 24/7';
+    position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+    background:var(--naranja);color:#000;padding:5px 20px;border-radius:20px;
+    font-weight:900;font-size:12px;letter-spacing:2px;
+  }
+  h1{
+    text-align:center;color:var(--naranja-brillante);font-size:2.8rem;padding:20px;
+    text-shadow:0 0 10px var(--naranja), 0 0 20px var(--naranja);
+    font-weight:900;
+  }
+.selector-pais{text-align:center;padding:20px;background:var(--negro-claro);border-bottom:2px solid var(--naranja)}
+.selector-pais button{
+    margin:6px;padding:10px 16px;background:#000;border:2px solid var(--naranja);
+    color:var(--naranja);border-radius:8px;cursor:pointer;font-weight:700;
+    transition:0.2s;box-shadow:0 0 5px transparent;
+  }
+.selector-pais button:hover{background:var(--naranja);color:#000;box-shadow:0 0 15px var(--naranja)}
+.selector-pais button.active{background:var(--naranja);color:#000;box-shadow:0 0 20px var(--naranja)}
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:25px}
+.card{
+    background:linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%);
+    border:2px solid var(--naranja);border-radius:15px;padding:18px;text-align:center;
+    box-shadow:0 0 15px rgba(255,69,0,0.3);transition:0.3s;
+  }
+.card:hover{transform:translateY(-5px);box-shadow:0 0 30px var(--naranja)}
+.card h3{color:var(--naranja-brillante);margin-bottom:10px;font-weight:700}
+.card.nota{font-size:11px;color:#aaa;margin-bottom:8px}
+.card.precio{font-size:1.6rem;color:#fff;margin:10px 0;text-shadow:0 0 8px var(--naranja)}
+.card button{
+    background:var(--naranja);border:none;color:#000;padding:10px 15px;border-radius:8px;
+    margin:5px;cursor:pointer;font-weight:900;transition:0.2s;
+  }
+.card button:hover{background:var(--naranja-brillante);box-shadow:0 0 15px var(--naranja)}
+  #btn-carrito{
+    position:fixed;top:20px;right:20px;background:var(--naranja);color:#000;
+    padding:12px 18px;border:none;border-radius:50px;font-weight:900;cursor:pointer;
+    z-index:1000;box-shadow:0 0 20px var(--naranja);font-size:16px;
+  }
+  #carrito{
+    position:fixed;right:-350px;top:0;background:var(--negro-claro);width:350px;height:100%;
+    padding:20px;border-left:3px solid var(--naranja);transition:0.4s;overflow-y:auto;z-index:999;
+    box-shadow:-10px 0 30px rgba(255,69,0,0.5);
+  }
   #carrito.open{right:0}
-  #btn-carrito{position:fixed;top:20px;right:20px;background:#FF6A00;color:#000;padding:10px 15px;border:none;border-radius:50px;font-weight:bold;cursor:pointer;z-index:1000}
- .audio-btn{position:fixed;bottom:20px;left:20px;background:#FF6A00;color:#000;border:none;padding:10px;border-radius:50%;cursor:pointer}
+  #carrito h2{color:var(--naranja);text-shadow:0 0 10px var(--naranja)}
+ .audio-btn{
+    position:fixed;bottom:20px;left:20px;background:var(--naranja);color:#000;
+    border:none;padding:12px;border-radius:50%;cursor:pointer;box-shadow:0 0 15px var(--naranja)
+  }
 </style>
 </head>
 <body>
@@ -32,34 +87,33 @@
 <h1>GARFIELD STORE</h1>
 
 <div class="selector-pais">
-  <p style="margin-bottom:10px">Elige tu país:</p>
+  <p style="margin-bottom:12px;color:var(--naranja)">SELECCIONA TU REGIÓN</p>
   <div id="paises"></div>
 </div>
 
 <div class="productos" id="productos"></div>
 
 <div id="carrito">
-  <h2 style="color:#FF6A00">Tu Carrito</h2>
+  <h2>CARRITO GAMER</h2>
   <div id="items-carrito"></div>
-  <p style="margin-top:10px">Total: <span id="total">0</span></p>
+  <p style="margin-top:10px;font-size:1.2rem">TOTAL: <span id="total" style="color:var(--naranja)">0</span></p>
 
-  <h3 style="color:#FF6A00;margin-top:15px">Método de Pago</h3>
+  <h3 style="color:var(--naranja);margin-top:15px">MÉTODO DE PAGO</h3>
   <div id="metodos-pago"></div>
 
-  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:15px;background:#25D366;color:#fff;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer">Comprar por WhatsApp</button>
-  <button onclick="toggleCarrito()" style="width:100%;margin-top:8px;background:#555;color:#fff;padding:8px;border:none;border-radius:8px;cursor:pointer">Cerrar</button>
+  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:15px;background:#25D366;color:#fff;padding:14px;border:none;border-radius:8px;font-weight:900;cursor:pointer;box-shadow:0 0 15px #25D366">COMPRAR POR WHATSAPP</button>
+  <button onclick="toggleCarrito()" style="width:100%;margin-top:8px;background:#333;color:#fff;padding:10px;border:none;border-radius:8px;cursor:pointer">CERRAR</button>
 </div>
 
 <script>
 let data = {};
 let paisActual = "PE";
-let carrito = [];
+let carritoItems = {};
 let musicaOn = false;
 
-// Cargar data.json
 fetch('data.json')
- .then(res => res.json())
- .then(d => { data = d; renderPaises(); renderProductos(); renderMetodosPago(); });
+.then(res => res.json())
+.then(d => { data = d; renderPaises(); renderProductos(); renderMetodosPago(); });
 
 function renderPaises(){
   document.getElementById('paises').innerHTML = Object.keys(data.paises).map(p => `
@@ -83,16 +137,15 @@ function renderProductos(){
     return `
     <div class="card">
       <h3>${prod.nombre}</h3>
-      <p style="font-size:12px;color:#aaa">${prod.nota || ''}</p>
+      <p class="nota">${prod.nota || ''}</p>
       <p class="precio">${moneda}${precio}</p>
-      <button onclick="verProducto('${prod.nombre}')">Ver</button>
-      <button onclick="addCarrito('${prod.id}')">Añadir</button>
+      <button onclick="verProducto('${prod.nombre}')">VER INFO</button>
+      <button onclick="addCarrito('${prod.id}')">+ AÑADIR</button>
     </div>
     `
   }).join('');
 }
 
-let carritoItems = {};
 function addCarrito(id){
   carritoItems[id] = (carritoItems[id] || 0) + 1;
   renderCarrito();
@@ -101,10 +154,13 @@ function addCarrito(id){
 function renderCarrito(){
   let items = Object.keys(carritoItems).map(id => {
     let prod = data.productos.find(p=>p.id==id);
-    let precio = prod.precios[paisActual] * carritoItems[id];
-    return `<p>${prod.nombre} x${carritoItems[id]} <button onclick="carritoItems[${id}]--;renderCarrito()">-</button> <button onclick="carritoItems[${id}]++;renderCarrito()">+</button></p>`
+    return `<div style="border-bottom:1px solid #333;padding:8px 0">
+      ${prod.nombre} x${carritoItems[id]}
+      <button onclick="carritoItems[id]--;if(carritoItems[id]<=0)delete carritoItems[id];renderCarrito()">-</button>
+      <button onclick="carritoItems[id]++;renderCarrito()">+</button>
+    </div>`
   }).join('');
-  document.getElementById('items-carrito').innerHTML = items || 'Vacío';
+  document.getElementById('items-carrito').innerHTML = items || '<p style="color:#555">CARRITO VACÍO</p>';
   let total = Object.keys(carritoItems).reduce((t,id)=>{
     let prod = data.productos.find(p=>p.id==id);
     return t + prod.precios[paisActual] * carritoItems[id];
@@ -115,24 +171,26 @@ function renderCarrito(){
 
 function renderMetodosPago(){
   let pagos = data.paises[paisActual].pagos;
-  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label><input type="radio" name="pago" value="${p}"> ${p}</label><br>`).join('');
+  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`
+    <label style="display:block;margin:8px 0"><input type="radio" name="pago" value="${p}"> ${p}</label>
+  `).join('');
 }
 
 function comprarWhatsApp(){
   let pago = document.querySelector('input[name="pago"]:checked')?.value || 'No especificado';
-  let msg = `Hola Garfield Store!%0A País: ${data.paises[paisActual].nombre}%0A Método: ${pago}%0A%0AProductos:%0A`;
+  let msg = `Hola Garfield Store!%0A[PANEL GAMER]%0APaís: ${data.paises[paisActual].nombre}%0AMétodo: ${pago}%0A%0AProductos:%0A`;
   Object.keys(carritoItems).forEach(id=>{
     let prod = data.productos.find(p=>p.id==id);
     msg += `${carritoItems[id]}x ${prod.nombre}%0A`;
   });
-  msg += `%0ATotal: ${document.getElementById('total').innerText}`;
+  msg += `%0ATOTAL: ${document.getElementById('total').innerText}`;
   window.open(`https://wa.me/51920726588?text=${msg}`);
 }
 
 function toggleCarrito(){ document.getElementById('carrito').classList.toggle('open'); }
 document.getElementById('btn-carrito').onclick = toggleCarrito;
 function toggleMusica(){ let m=document.getElementById('musica'); musicaOn?!m.pause():m.play(); musicaOn=!musicaOn; }
-function verProducto(nombre){ alert('Info de: '+nombre); }
+function verProducto(nombre){ alert('INFO: '+nombre+'\n\nContáctanos para más detalles'); }
 </script>
 </body>
 </html>
