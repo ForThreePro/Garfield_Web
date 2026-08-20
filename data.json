@@ -12,156 +12,522 @@
   "productos": [
     {
       "id": "numeros_virtuales",
-      "nombre": "Números Virtuales",
-      "nota": "Dejar 24h sin grupos. Solo 1 código.",
+      "nombre": "NÚMEROS VIRTUALES",
+      "nota": "Dejar 24h sin grupos. Solo 1 código. Países: +57 +56 +269 +62 +27 +673 +297 +501 +1-268 +594 +245 +1-784 +1-868 +687 +266 +506 +675 +212",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 3, "CL": 1050, "AR": 1650, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
     },
     {
       "id": "seguidores_250",
-      "nombre": "Seguidores IG 250",
+      "nombre": "SEGUIDORES IG 250",
       "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
       "precios": {"PE": 1.5, "AR": 720, "CL": 525, "MX": 11.25, "UY": 22.5, "BO": 6.75}
     },
     {
       "id": "seguidores_500",
-      "nombre": "Seguidores IG 500",
+      "nombre": "SEGUIDORES IG 500",
       "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
       "precios": {"PE": 2.5, "AR": 1340, "CL": 875, "MX": 18.75, "UY": 37.5, "BO": 11.25}
     },
     {
       "id": "seguidores_1000",
-      "nombre": "Seguidores IG 1000",
+      "nombre": "SEGUIDORES IG 1000",
       "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
       "precios": {"PE": 5, "AR": 2750, "CL": 1750, "MX": 37.5, "UY": 75, "BO": 22.5}
     },
     {
       "id": "seguidores_2000",
-      "nombre": "Seguidores IG 2000",
+      "nombre": "SEGUIDORES IG 2000",
       "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
       "precios": {"PE": 10, "AR": 5500, "CL": 3500, "MX": 75, "UY": 150, "BO": 45}
     },
     {
       "id": "seguidores_5000",
-      "nombre": "Seguidores IG 5000",
+      "nombre": "SEGUIDORES IG 5000",
       "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
       "precios": {"PE": 20, "AR": 11000, "CL": 7000, "MX": 150, "UY": 300, "BO": 90}
     },
     {
       "id": "combo_decana",
-      "nombre": "Combo Decana Lu",
-      "nota": "Busca vs, reclutamiento, edita vs ganados",
+      "nombre": "COMBO DECANA LU",
+      "nota": "Busca VS diario, Reclutamiento, Edita VS ganados, Spam reclu. Activa 7am PE / 9am AR",
       "disponible_en": ["PE", "AR", "CL", "BO", "UY", "MX"],
       "precios": {"PE": 15, "AR": 7000, "CL": 5000, "BO": 55.5, "UY": 210, "MX": 114}
     },
     {
       "id": "design_logo",
-      "nombre": "Design Lu - Logo",
+      "nombre": "DESIGN LU - LOGO / TEX LOGO",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 3, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
     },
     {
       "id": "design_plantilla",
-      "nombre": "Design Lu - Plantilla 2x1",
+      "nombre": "DESIGN LU - PLANTILLA 2X1",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 4, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
     },
     {
+      "id": "design_caligrafico",
+      "nombre": "DESIGN LU - CALIGRAFICO 2X1",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 3, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
+    },
+    {
       "id": "design_jersey",
-      "nombre": "Design Lu - Jersey",
+      "nombre": "DESIGN LU - JERSEY",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 5, "CL": 1750, "AR": 2600, "MX": 37.5, "UY": 75, "BO": 22.5, "CO": 7500, "US": 2}
     },
     {
       "id": "spam_3d",
-      "nombre": "Spam 3 Días",
-      "nota": "3 horas al día",
+      "nombre": "SPAM 3 DÍAS",
+      "nota": "3 horas al día. Texto que tú mandes",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 5.5, "CL": 1750, "AR": 2750, "MX": 37.5, "UY": 75, "BO": 22.5, "CO": 7500, "US": 2}
     },
     {
       "id": "spam_5d",
-      "nombre": "Spam 5 Días",
+      "nombre": "SPAM 5 DÍAS",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 7.5, "CL": 2450, "AR": 3850, "MX": 52.5, "UY": 105, "BO": 31.5, "CO": 10500, "US": 3}
     },
     {
       "id": "spam_7d",
-      "nombre": "Spam 1 Semana",
+      "nombre": "SPAM 1 SEMANA",
       "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
       "precios": {"PE": 9.5, "CL": 3150, "AR": 4950, "MX": 67.5, "UY": 135, "BO": 40.5, "CO": 13500, "US": 4}
     },
     {
-      "id": "diamantes_stock_uy",
-      "nombre": "Diamantes Con Stock - UY",
+      "id": "diamantes_stock_uy_110",
+      "nombre": "DIAMANTES UY - 110 CON STOCK",
       "disponible_en": ["UY"],
       "precios": {"UY": 37.5}
     },
     {
-      "id": "diamantes_sinstock_uy",
-      "nombre": "Diamantes Sin Stock - UY",
+      "id": "diamantes_stock_uy_341",
+      "nombre": "DIAMANTES UY - 341 CON STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 105}
+    },
+    {
+      "id": "diamantes_stock_uy_572",
+      "nombre": "DIAMANTES UY - 572 CON STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 180}
+    },
+    {
+      "id": "diamantes_stock_uy_1166",
+      "nombre": "DIAMANTES UY - 1166 CON STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 300}
+    },
+    {
+      "id": "diamantes_stock_uy_2398",
+      "nombre": "DIAMANTES UY - 2398 CON STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 540}
+    },
+    {
+      "id": "diamantes_stock_uy_6160",
+      "nombre": "DIAMANTES UY - 6160 CON STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 1380}
+    },
+    {
+      "id": "diamantes_sinstock_uy_110",
+      "nombre": "DIAMANTES UY - 110 SIN STOCK",
       "disponible_en": ["UY"],
       "precios": {"UY": 52.5}
     },
     {
-      "id": "diamantes_stock_ar",
-      "nombre": "Diamantes Con Stock - AR",
+      "id": "diamantes_sinstock_uy_341",
+      "nombre": "DIAMANTES UY - 341 SIN STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 150}
+    },
+    {
+      "id": "diamantes_sinstock_uy_572",
+      "nombre": "DIAMANTES UY - 572 SIN STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 225}
+    },
+    {
+      "id": "diamantes_sinstock_uy_1166",
+      "nombre": "DIAMANTES UY - 1166 SIN STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 390}
+    },
+    {
+      "id": "diamantes_sinstock_uy_2398",
+      "nombre": "DIAMANTES UY - 2398 SIN STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 780}
+    },
+    {
+      "id": "diamantes_sinstock_uy_6160",
+      "nombre": "DIAMANTES UY - 6160 SIN STOCK",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 1890}
+    },
+    {
+      "id": "diamantes_stock_ar_110",
+      "nombre": "DIAMANTES AR - 110 CON STOCK",
       "disponible_en": ["AR"],
       "precios": {"AR": 1300}
     },
     {
-      "id": "diamantes_sinstock_ar",
-      "nombre": "Diamantes Sin Stock - AR",
+      "id": "diamantes_stock_ar_341",
+      "nombre": "DIAMANTES AR - 341 CON STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 3380}
+    },
+    {
+      "id": "diamantes_stock_ar_572",
+      "nombre": "DIAMANTES AR - 572 CON STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 5720}
+    },
+    {
+      "id": "diamantes_stock_ar_1166",
+      "nombre": "DIAMANTES AR - 1166 CON STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 9880}
+    },
+    {
+      "id": "diamantes_stock_ar_2398",
+      "nombre": "DIAMANTES AR - 2398 CON STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 18200}
+    },
+    {
+      "id": "diamantes_stock_ar_6160",
+      "nombre": "DIAMANTES AR - 6160 CON STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 46800}
+    },
+    {
+      "id": "diamantes_sinstock_ar_110",
+      "nombre": "DIAMANTES AR - 110 SIN STOCK",
       "disponible_en": ["AR"],
       "precios": {"AR": 1820}
     },
     {
-      "id": "diamantes_stock_mx",
-      "nombre": "Diamantes Con Stock - MX",
+      "id": "diamantes_sinstock_ar_341",
+      "nombre": "DIAMANTES AR - 341 SIN STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 4680}
+    },
+    {
+      "id": "diamantes_sinstock_ar_572",
+      "nombre": "DIAMANTES AR - 572 SIN STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 7800}
+    },
+    {
+      "id": "diamantes_sinstock_ar_1166",
+      "nombre": "DIAMANTES AR - 1166 SIN STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 13520}
+    },
+    {
+      "id": "diamantes_sinstock_ar_2398",
+      "nombre": "DIAMANTES AR - 2398 SIN STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 27040}
+    },
+    {
+      "id": "diamantes_sinstock_ar_6160",
+      "nombre": "DIAMANTES AR - 6160 SIN STOCK",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 65520}
+    },
+    {
+      "id": "diamantes_stock_mx_110",
+      "nombre": "DIAMANTES MX - 110 CON STOCK",
       "disponible_en": ["MX"],
       "precios": {"MX": 18.75}
     },
     {
-      "id": "diamantes_sinstock_mx",
-      "nombre": "Diamantes Sin Stock - MX",
+      "id": "diamantes_stock_mx_341",
+      "nombre": "DIAMANTES MX - 341 CON STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 52.5}
+    },
+    {
+      "id": "diamantes_stock_mx_572",
+      "nombre": "DIAMANTES MX - 572 CON STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 90}
+    },
+    {
+      "id": "diamantes_stock_mx_1166",
+      "nombre": "DIAMANTES MX - 1166 CON STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 150}
+    },
+    {
+      "id": "diamantes_stock_mx_2398",
+      "nombre": "DIAMANTES MX - 2398 CON STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 270}
+    },
+    {
+      "id": "diamantes_stock_mx_6160",
+      "nombre": "DIAMANTES MX - 6160 CON STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 690}
+    },
+    {
+      "id": "diamantes_sinstock_mx_110",
+      "nombre": "DIAMANTES MX - 110 SIN STOCK",
       "disponible_en": ["MX"],
       "precios": {"MX": 26.25}
     },
     {
-      "id": "diamantes_stock_bo",
-      "nombre": "Diamantes Con Stock - BO",
+      "id": "diamantes_sinstock_mx_341",
+      "nombre": "DIAMANTES MX - 341 SIN STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 75}
+    },
+    {
+      "id": "diamantes_sinstock_mx_572",
+      "nombre": "DIAMANTES MX - 572 SIN STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 112.5}
+    },
+    {
+      "id": "diamantes_sinstock_mx_1166",
+      "nombre": "DIAMANTES MX - 1166 SIN STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 195}
+    },
+    {
+      "id": "diamantes_sinstock_mx_2398",
+      "nombre": "DIAMANTES MX - 2398 SIN STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 390}
+    },
+    {
+      "id": "diamantes_sinstock_mx_6160",
+      "nombre": "DIAMANTES MX - 6160 SIN STOCK",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 945}
+    },
+    {
+      "id": "diamantes_stock_bo_110",
+      "nombre": "DIAMANTES BO - 110 CON STOCK",
       "disponible_en": ["BO"],
       "precios": {"BO": 11.25}
     },
     {
-      "id": "diamantes_sinstock_bo",
-      "nombre": "Diamantes Sin Stock - BO",
+      "id": "diamantes_stock_bo_341",
+      "nombre": "DIAMANTES BO - 341 CON STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 31.5}
+    },
+    {
+      "id": "diamantes_stock_bo_572",
+      "nombre": "DIAMANTES BO - 572 CON STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 54}
+    },
+    {
+      "id": "diamantes_stock_bo_1166",
+      "nombre": "DIAMANTES BO - 1166 CON STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 90}
+    },
+    {
+      "id": "diamantes_stock_bo_2398",
+      "nombre": "DIAMANTES BO - 2398 CON STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 162}
+    },
+    {
+      "id": "diamantes_stock_bo_6160",
+      "nombre": "DIAMANTES BO - 6160 CON STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 414}
+    },
+    {
+      "id": "diamantes_sinstock_bo_110",
+      "nombre": "DIAMANTES BO - 110 SIN STOCK",
       "disponible_en": ["BO"],
       "precios": {"BO": 15.75}
     },
     {
-      "id": "diamantes_stock_cl",
-      "nombre": "Diamantes Con Stock - CL",
+      "id": "diamantes_sinstock_bo_341",
+      "nombre": "DIAMANTES BO - 341 SIN STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 45}
+    },
+    {
+      "id": "diamantes_sinstock_bo_572",
+      "nombre": "DIAMANTES BO - 572 SIN STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 67.5}
+    },
+    {
+      "id": "diamantes_sinstock_bo_1166",
+      "nombre": "DIAMANTES BO - 1166 SIN STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 117}
+    },
+    {
+      "id": "diamantes_sinstock_bo_2398",
+      "nombre": "DIAMANTES BO - 2398 SIN STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 234}
+    },
+    {
+      "id": "diamantes_sinstock_bo_6160",
+      "nombre": "DIAMANTES BO - 6160 SIN STOCK",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 567}
+    },
+    {
+      "id": "diamantes_stock_cl_110",
+      "nombre": "DIAMANTES CL - 110 CON STOCK",
       "disponible_en": ["CL"],
       "precios": {"CL": 875}
     },
     {
-      "id": "diamantes_sinstock_cl",
-      "nombre": "Diamantes Sin Stock - CL",
+      "id": "diamantes_stock_cl_341",
+      "nombre": "DIAMANTES CL - 341 CON STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 2450}
+    },
+    {
+      "id": "diamantes_stock_cl_572",
+      "nombre": "DIAMANTES CL - 572 CON STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 4200}
+    },
+    {
+      "id": "diamantes_stock_cl_1166",
+      "nombre": "DIAMANTES CL - 1166 CON STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 7000}
+    },
+    {
+      "id": "diamantes_stock_cl_2398",
+      "nombre": "DIAMANTES CL - 2398 CON STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 12600}
+    },
+    {
+      "id": "diamantes_stock_cl_6160",
+      "nombre": "DIAMANTES CL - 6160 CON STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 32200}
+    },
+    {
+      "id": "diamantes_sinstock_cl_110",
+      "nombre": "DIAMANTES CL - 110 SIN STOCK",
       "disponible_en": ["CL"],
       "precios": {"CL": 1225}
     },
     {
-      "id": "diamantes_stock_pe",
-      "nombre": "Diamantes Con Stock - PE",
+      "id": "diamantes_sinstock_cl_341",
+      "nombre": "DIAMANTES CL - 341 SIN STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 3500}
+    },
+    {
+      "id": "diamantes_sinstock_cl_572",
+      "nombre": "DIAMANTES CL - 572 SIN STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 5250}
+    },
+    {
+      "id": "diamantes_sinstock_cl_1166",
+      "nombre": "DIAMANTES CL - 1166 SIN STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 9100}
+    },
+    {
+      "id": "diamantes_sinstock_cl_2398",
+      "nombre": "DIAMANTES CL - 2398 SIN STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 18200}
+    },
+    {
+      "id": "diamantes_sinstock_cl_6160",
+      "nombre": "DIAMANTES CL - 6160 SIN STOCK",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 44100}
+    },
+    {
+      "id": "diamantes_stock_pe_110",
+      "nombre": "DIAMANTES PE - 110 CON STOCK",
       "disponible_en": ["PE"],
       "precios": {"PE": 2.5}
     },
     {
-      "id": "diamantes_sinstock_pe",
-      "nombre": "Diamantes Sin Stock - PE",
+      "id": "diamantes_stock_pe_341",
+      "nombre": "DIAMANTES PE - 341 CON STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 7}
+    },
+    {
+      "id": "diamantes_stock_pe_572",
+      "nombre": "DIAMANTES PE - 572 CON STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 12}
+    },
+    {
+      "id": "diamantes_stock_pe_1166",
+      "nombre": "DIAMANTES PE - 1166 CON STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 20}
+    },
+    {
+      "id": "diamantes_stock_pe_2398",
+      "nombre": "DIAMANTES PE - 2398 CON STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 36}
+    },
+    {
+      "id": "diamantes_stock_pe_6160",
+      "nombre": "DIAMANTES PE - 6160 CON STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 92}
+    },
+    {
+      "id": "diamantes_sinstock_pe_110",
+      "nombre": "DIAMANTES PE - 110 SIN STOCK",
       "disponible_en": ["PE"],
       "precios": {"PE": 3.5}
+    },
+    {
+      "id": "diamantes_sinstock_pe_341",
+      "nombre": "DIAMANTES PE - 341 SIN STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 10}
+    },
+    {
+      "id": "diamantes_sinstock_pe_572",
+      "nombre": "DIAMANTES PE - 572 SIN STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 15}
+    },
+    {
+      "id": "diamantes_sinstock_pe_1166",
+      "nombre": "DIAMANTES PE - 1166 SIN STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 26}
+    },
+    {
+      "id": "diamantes_sinstock_pe_2398",
+      "nombre": "DIAMANTES PE - 2398 SIN STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 52}
+    },
+    {
+      "id": "diamantes_sinstock_pe_6160",
+      "nombre": "DIAMANTES PE - 6160 SIN STOCK",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 126}
     }
   ]
 }
