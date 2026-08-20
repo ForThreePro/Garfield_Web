@@ -134,4 +134,26 @@
       "id": "design_logo",
       "nombre": "Logo + Tex Logo",
       "nota": "Entrega máx 2 días. Sin devoluciones. Solo tardes y noches",
-      "precios": {"stock": {"PE": 3, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.
+      "precios": {"stock": {"PE": 3, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}},
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"]
+    },
+    {
+      "id": "design_plantilla",
+      "nombre": "Plantillas 2x1",
+      "precios": {"stock": {"PE": 4, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}},
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"]
+    },
+    {
+      "id": "design_caligrafico",
+      "nombre": "Caligráficos 2x1",
+      "precios": {"stock": {"PE": 3, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}},
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"]
+    },
+    {
+      "id": "design_jersey",
+      "nombre": "Jersey",
+      "precios": {"stock": {"PE": 5, "CL": 1750, "AR": 2600, "UY": 75, "BO": 22.5, "CO": 7500, "US": 2, "MX": 37.5}},
+      "disponible_en": ["PE", "CL", "AR", "UY", "BO", "CO", "US", "MX"]
+    }
+  ]
+}
