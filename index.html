@@ -9,99 +9,84 @@
   :root{
     --naranja: #FF4500;
     --naranja-brillante: #FF6A00;
-    --negro: #0A0A0A;
-    --negro-claro: #111;
+    --negro: #050505;
+    --negro-claro: #0F0F0F;
   }
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron', sans-serif}
-  body{background:var(--negro);color:#fff;overflow-x:hidden}
-  body::before{
-    content:'';position:fixed;top:0;left:0;width:100%;height:100%;
-    background: linear-gradient(135deg, #FF4500 0%, transparent 70%);
-    opacity:0.08;z-index:-1;
-  }
+  body{background:var(--negro);color:#fff;background-image:radial-gradient(circle at 50% 0%, rgba(255,69,0,0.1) 0%, transparent 50%)}
   header{
-    height:280px;
-    background: url('banner-garfield.jpg') center/cover, linear-gradient(90deg, var(--negro) 0%, var(--naranja) 50%, var(--negro) 100%);
+    height:300px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('banner-garfield.jpg') center/cover;
     border-bottom:4px solid var(--naranja);
-    box-shadow: 0 0 30px var(--naranja);
-    position:relative;
+    box-shadow: 0 0 40px var(--naranja);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
   }
-  header::after{
-    content:'MANTENIMIENTO ACTIVO 24/7';
-    position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
-    background:var(--naranja);color:#000;padding:5px 20px;border-radius:20px;
-    font-weight:900;font-size:12px;letter-spacing:2px;
+  h1{color:var(--naranja-brillante);font-size:3.2rem;text-shadow:0 0 15px var(--naranja), 0 0 30px var(--naranja);font-weight:900}
+  header span{color:#fff;margin-top:8px;letter-spacing:3px}
+
+ .selector-pais{text-align:center;padding:20px;background:var(--negro-claro);border-bottom:2px solid var(--naranja)}
+ .selector-pais button{margin:6px;padding:10px 16px;background:#000;border:2px solid var(--naranja);color:var(--naranja);border-radius:8px;cursor:pointer;font-weight:700;transition:0.2s}
+ .selector-pais button:hover,.selector-pais button.active{background:var(--naranja);color:#000;box-shadow:0 0 20px var(--naranja)}
+
+ .categoria{margin:40px 20px}
+ .titulo-categoria{
+    font-size:1.8rem;color:var(--naranja);border-left:5px solid var(--naranja);padding-left:15px;margin-bottom:20px;
+    text-shadow:0 0 10px var(--naranja);
   }
-  h1{
-    text-align:center;color:var(--naranja-brillante);font-size:2.8rem;padding:20px;
-    text-shadow:0 0 10px var(--naranja), 0 0 20px var(--naranja);
-    font-weight:900;
-  }
-.selector-pais{text-align:center;padding:20px;background:var(--negro-claro);border-bottom:2px solid var(--naranja)}
-.selector-pais button{
-    margin:6px;padding:10px 16px;background:#000;border:2px solid var(--naranja);
-    color:var(--naranja);border-radius:8px;cursor:pointer;font-weight:700;
-    transition:0.2s;box-shadow:0 0 5px transparent;
-  }
-.selector-pais button:hover{background:var(--naranja);color:#000;box-shadow:0 0 15px var(--naranja)}
-.selector-pais button.active{background:var(--naranja);color:#000;box-shadow:0 0 20px var(--naranja)}
-.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;padding:25px}
-.card{
+ .productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+ .card{
     background:linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%);
     border:2px solid var(--naranja);border-radius:15px;padding:18px;text-align:center;
-    box-shadow:0 0 15px rgba(255,69,0,0.3);transition:0.3s;
+    box-shadow:0 0 15px rgba(255,69,0,0.2);transition:0.3s;position:relative;overflow:hidden;
   }
-.card:hover{transform:translateY(-5px);box-shadow:0 0 30px var(--naranja)}
-.card h3{color:var(--naranja-brillante);margin-bottom:10px;font-weight:700}
-.card.nota{font-size:11px;color:#aaa;margin-bottom:8px}
-.card.precio{font-size:1.6rem;color:#fff;margin:10px 0;text-shadow:0 0 8px var(--naranja)}
-.card button{
-    background:var(--naranja);border:none;color:#000;padding:10px 15px;border-radius:8px;
-    margin:5px;cursor:pointer;font-weight:900;transition:0.2s;
-  }
-.card button:hover{background:var(--naranja-brillante);box-shadow:0 0 15px var(--naranja)}
-  #btn-carrito{
-    position:fixed;top:20px;right:20px;background:var(--naranja);color:#000;
-    padding:12px 18px;border:none;border-radius:50px;font-weight:900;cursor:pointer;
-    z-index:1000;box-shadow:0 0 20px var(--naranja);font-size:16px;
-  }
-  #carrito{
-    position:fixed;right:-350px;top:0;background:var(--negro-claro);width:350px;height:100%;
-    padding:20px;border-left:3px solid var(--naranja);transition:0.4s;overflow-y:auto;z-index:999;
-    box-shadow:-10px 0 30px rgba(255,69,0,0.5);
-  }
+ .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,69,0,0.1),transparent);transform:rotate(45deg);transition:0.5s}
+ .card:hover::before{left:100%}
+ .card:hover{transform:translateY(-8px);box-shadow:0 0 35px var(--naranja)}
+ .card h3{color:var(--naranja-brillante);margin-bottom:8px;font-weight:700}
+ .card.nota{font-size:11px;color:#aaa;margin-bottom:10px;min-height:30px}
+ .card.precio{font-size:1.7rem;color:#fff;margin:10px 0;text-shadow:0 0 8px var(--naranja)}
+ .card button{background:var(--naranja);border:none;color:#000;padding:10px 15px;border-radius:8px;margin:5px;cursor:pointer;font-weight:900;transition:0.2s}
+ .card button:hover{background:var(--naranja-brillante);box-shadow:0 0 15px var(--naranja)}
+
+  #btn-carrito{position:fixed;top:20px;right:20px;background:var(--naranja);color:#000;padding:12px 18px;border:none;border-radius:50px;font-weight:900;cursor:pointer;z-index:1000;box-shadow:0 0 20px var(--naranja);font-size:16px}
+  #carrito{position:fixed;right:-350px;top:0;background:var(--negro-claro);width:350px;height:100%;padding:20px;border-left:3px solid var(--naranja);transition:0.4s;overflow-y:auto;z-index:999;box-shadow:-10px 0 30px rgba(255,69,0,0.5)}
   #carrito.open{right:0}
-  #carrito h2{color:var(--naranja);text-shadow:0 0 10px var(--naranja)}
+
+  /* BOTON MUSICA NUEVO ESTILO CONSOLA */
  .audio-btn{
-    position:fixed;bottom:20px;left:20px;background:var(--naranja);color:#000;
-    border:none;padding:12px;border-radius:50%;cursor:pointer;box-shadow:0 0 15px var(--naranja)
+    position:fixed;bottom:25px;left:25px;width:60px;height:60px;background:radial-gradient(circle, var(--naranja-brillante) 0%, var(--naranja) 100%);
+    color:#000;border:none;border-radius:50%;cursor:pointer;box-shadow:0 0 25px var(--naranja);
+    display:flex;align-items:center;justify-content:center;font-size:24px;transition:0.3s;z-index:1001;
   }
+ .audio-btn:hover{transform:scale(1.1);box-shadow:0 0 40px var(--naranja)}
+ .audio-btn.playing{animation:pulse 1.5s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,69,0,0.7)} 70%{box-shadow:0 0 0 15px rgba(255,69,0,0)} 100%{box-shadow:0 0 0 0 rgba(255,69,0,0)}}
 </style>
 </head>
 <body>
-<header></header>
+<header>
+  <h1>GARFIELD STORE</h1>
+  <span>PANEL DE CONTROL GAMER</span>
+</header>
+
 <button id="btn-carrito">🛒 <span id="cant-carrito">0</span></button>
 <audio id="musica" src="garfield.mp3" loop></audio>
-<button class="audio-btn" onclick="toggleMusica()">🔊</button>
-
-<h1>GARFIELD STORE</h1>
+<button class="audio-btn" id="btnMusica" onclick="toggleMusica()">🔊</button>
 
 <div class="selector-pais">
   <p style="margin-bottom:12px;color:var(--naranja)">SELECCIONA TU REGIÓN</p>
   <div id="paises"></div>
 </div>
 
-<div class="productos" id="productos"></div>
+<div id="contenedor-categorias"></div>
 
 <div id="carrito">
-  <h2>CARRITO GAMER</h2>
+  <h2 style="color:var(--naranja)">CARRITO GAMER</h2>
   <div id="items-carrito"></div>
   <p style="margin-top:10px;font-size:1.2rem">TOTAL: <span id="total" style="color:var(--naranja)">0</span></p>
-
   <h3 style="color:var(--naranja);margin-top:15px">MÉTODO DE PAGO</h3>
   <div id="metodos-pago"></div>
-
-  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:15px;background:#25D366;color:#fff;padding:14px;border:none;border-radius:8px;font-weight:900;cursor:pointer;box-shadow:0 0 15px #25D366">COMPRAR POR WHATSAPP</button>
+  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:15px;background:#25D366;color:#fff;padding:14px;border:none;border-radius:8px;font-weight:900;cursor:pointer">COMPRAR POR WHATSAPP</button>
   <button onclick="toggleCarrito()" style="width:100%;margin-top:8px;background:#333;color:#fff;padding:10px;border:none;border-radius:8px;cursor:pointer">CERRAR</button>
 </div>
 
@@ -113,7 +98,7 @@ let musicaOn = false;
 
 fetch('data.json')
 .then(res => res.json())
-.then(d => { data = d; renderPaises(); renderProductos(); renderMetodosPago(); });
+.then(d => { data = d; renderPaises(); renderTodo(); });
 
 function renderPaises(){
   document.getElementById('paises').innerHTML = Object.keys(data.paises).map(p => `
@@ -124,26 +109,39 @@ function renderPaises(){
 function cambiarPais(p){
   paisActual = p;
   renderPaises();
-  renderProductos();
+  renderTodo();
   renderMetodosPago();
   renderCarrito();
 }
 
-function renderProductos(){
-  let productosFiltrados = data.productos.filter(prod => prod.disponible_en.includes(paisActual));
-  document.getElementById('productos').innerHTML = productosFiltrados.map(prod => {
-    let precio = prod.precios[paisActual];
-    let moneda = data.paises[paisActual].moneda;
-    return `
-    <div class="card">
-      <h3>${prod.nombre}</h3>
-      <p class="nota">${prod.nota || ''}</p>
-      <p class="precio">${moneda}${precio}</p>
-      <button onclick="verProducto('${prod.nombre}')">VER INFO</button>
-      <button onclick="addCarrito('${prod.id}')">+ AÑADIR</button>
-    </div>
-    `
-  }).join('');
+function renderTodo(){
+  let categorias = {
+    "DIAMANTES": data.productos.filter(p=>p.id.includes('diamantes')),
+    "SEGUIDORES": data.productos.filter(p=>p.id.includes('seguidores')),
+    "SERVICIOS": data.productos.filter(p=>['numeros_virtuales','combo_decana','spam_3d','spam_5d','spam_7d'].includes(p.id)),
+    "DESIGN": data.productos.filter(p=>p.id.includes('design'))
+  };
+
+  let html = '';
+  for(let cat in categorias){
+    let prods = categorias[cat].filter(prod => prod.disponible_en.includes(paisActual));
+    if(prods.length > 0){
+      html += `<div class="categoria"><h2 class="titulo-categoria">${cat}</h2><div class="productos">`;
+      html += prods.map(prod => {
+        let precio = prod.precios[paisActual];
+        let moneda = data.paises[paisActual].moneda;
+        return `
+        <div class="card">
+          <h3>${prod.nombre}</h3>
+          <p class="nota">${prod.nota || ''}</p>
+          <p class="precio">${moneda}${precio}</p>
+          <button onclick="addCarrito('${prod.id}')">+ AÑADIR</button>
+        </div>`;
+      }).join('');
+      html += `</div></div>`;
+    }
+  }
+  document.getElementById('contenedor-categorias').innerHTML = html;
 }
 
 function addCarrito(id){
@@ -154,11 +152,7 @@ function addCarrito(id){
 function renderCarrito(){
   let items = Object.keys(carritoItems).map(id => {
     let prod = data.productos.find(p=>p.id==id);
-    return `<div style="border-bottom:1px solid #333;padding:8px 0">
-      ${prod.nombre} x${carritoItems[id]}
-      <button onclick="carritoItems[id]--;if(carritoItems[id]<=0)delete carritoItems[id];renderCarrito()">-</button>
-      <button onclick="carritoItems[id]++;renderCarrito()">+</button>
-    </div>`
+    return `<div style="border-bottom:1px solid #333;padding:8px 0">${prod.nombre} x${carritoItems[id]}</div>`
   }).join('');
   document.getElementById('items-carrito').innerHTML = items || '<p style="color:#555">CARRITO VACÍO</p>';
   let total = Object.keys(carritoItems).reduce((t,id)=>{
@@ -171,26 +165,27 @@ function renderCarrito(){
 
 function renderMetodosPago(){
   let pagos = data.paises[paisActual].pagos;
-  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`
-    <label style="display:block;margin:8px 0"><input type="radio" name="pago" value="${p}"> ${p}</label>
-  `).join('');
+  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label style="display:block;margin:8px 0"><input type="radio" name="pago" value="${p}"> ${p}</label>`).join('');
 }
 
 function comprarWhatsApp(){
   let pago = document.querySelector('input[name="pago"]:checked')?.value || 'No especificado';
   let msg = `Hola Garfield Store!%0A[PANEL GAMER]%0APaís: ${data.paises[paisActual].nombre}%0AMétodo: ${pago}%0A%0AProductos:%0A`;
-  Object.keys(carritoItems).forEach(id=>{
-    let prod = data.productos.find(p=>p.id==id);
-    msg += `${carritoItems[id]}x ${prod.nombre}%0A`;
-  });
+  Object.keys(carritoItems).forEach(id=>{let prod = data.productos.find(p=>p.id==id);msg += `${carritoItems[id]}x ${prod.nombre}%0A`;});
   msg += `%0ATOTAL: ${document.getElementById('total').innerText}`;
   window.open(`https://wa.me/51920726588?text=${msg}`);
 }
 
 function toggleCarrito(){ document.getElementById('carrito').classList.toggle('open'); }
 document.getElementById('btn-carrito').onclick = toggleCarrito;
-function toggleMusica(){ let m=document.getElementById('musica'); musicaOn?!m.pause():m.play(); musicaOn=!musicaOn; }
-function verProducto(nombre){ alert('INFO: '+nombre+'\n\nContáctanos para más detalles'); }
+
+function toggleMusica(){
+  let m=document.getElementById('musica');
+  let btn=document.getElementById('btnMusica');
+  if(musicaOn){m.pause(); btn.classList.remove('playing'); btn.innerText='🔇'}
+  else{m.play(); btn.classList.add('playing'); btn.innerText='🔊'}
+  musicaOn=!musicaOn;
+}
 </script>
 </body>
 </html>
