@@ -1,77 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Garfield Store</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garfield Store - Bot Oficial</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+  body{background:#000;color:#fff}
+  header{height:280px;background:url('banner-garfield.jpg') center/cover;border-bottom:4px solid #FF6A00}
+  h1{text-align:center;color:#FF6A00;font-size:2.5rem;padding:15px;text-shadow:2px 2px #000}
+ .selector-pais{text-align:center;padding:15px;background:#111;border-bottom:2px solid #FF6A00}
+ .selector-pais button{margin:5px;padding:8px 12px;background:#222;border:1px solid #FF6A00;color:#FF6A00;border-radius:8px;cursor:pointer}
+ .selector-pais button.active{background:#FF6A00;color:#000;font-weight:bold}
+ .productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;padding:20px}
+ .card{background:#111;border:2px solid #FF6A00;border-radius:12px;padding:15px;text-align:center}
+ .card h3{color:#FF6A00;margin-bottom:8px}
+ .card.precio{font-size:1.3rem;margin:8px 0}
+ .card button{background:#FF6A00;border:none;color:#000;padding:8px 12px;border-radius:8px;margin:5px;cursor:pointer;font-weight:bold}
+  #carrito{position:fixed;right:-320px;top:0;background:#111;width:320px;height:100%;padding:15px;border-left:3px solid #FF6A00;transition:0.3s;overflow-y:auto;z-index:999}
+  #carrito.open{right:0}
+  #btn-carrito{position:fixed;top:20px;right:20px;background:#FF6A00;color:#000;padding:10px 15px;border:none;border-radius:50px;font-weight:bold;cursor:pointer;z-index:1000}
+ .audio-btn{position:fixed;bottom:20px;left:20px;background:#FF6A00;color:#000;border:none;padding:10px;border-radius:50%;cursor:pointer}
+</style>
 </head>
 <body>
+<header></header>
+<button id="btn-carrito">🛒 <span id="cant-carrito">0</span></button>
+<audio id="musica" src="garfield.mp3" loop></audio>
+<button class="audio-btn" onclick="toggleMusica()">🔊</button>
 
-<div class="cart-float" onclick="window.location='carrito.html'">🛒<span class="cart-count" id="cartCount">0</span></div>
+<h1>GARFIELD STORE</h1>
 
-<div class="container">
-  <div class="header-center">
-    <img src="logo.png">
-    <h1>GARFIELD STORE</h1>
-    <p>Tienda Free Fire - Nivel Pro</p>
-    <p class="sub">VERSION 1.0 | ESTADO: EN LÍNEA 24/7</p>
-  </div>
-
-  <!-- BOTONES + MUSICA -->
-  <div class="btn-group">
-    <button class="btn" onclick="window.open('https://wa.me/51920726588')">💬 CONTACTAR</button>
-    <button class="btn" onclick="window.open('https://instagram.com/luu_store')">📷 INSTAGRAM</button>
-    <div id="musicBtnContainer"></div>
-  </div>
-
-  <div class="stats">
-    <div class="stat-box">
-      <div class="stat-number">500+</div>
-      <div class="stat-label">Clientes</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-number">25</div>
-      <div class="stat-label">Productos</div>
-    </div>
-    <div class="stat-box full">
-      <div class="stat-number">24/7</div>
-      <div class="stat-label">Atención</div>
-    </div>
-  </div>
-
-  <h2 class="section-title">🛒 PRODUCTOS</h2>
-
-  <div class="currency-grid" id="currencyBtns"></div>
-  <div id="categories"></div>
-  <div id="productos"></div>
-
-  <h2 class="section-title">💰 MÉTODOS DE PAGO</h2>
-  <div class="pay-grid">
-    <div class="pay-box"><div class="icon">📱</div><h4>Yape</h4><p>920 726 588</p></div>
-    <div class="pay-box"><div class="icon">🌎</div><h4>Global66</h4><p>Disponible LATAM</p></div>
-    <div class="pay-box"><div class="icon">💳</div><h4>Prex</h4><p>Tarjeta virtual</p></div>
-  </div>
-  <p style="text-align:center; margin-top:1rem; color:var(--neon)">Escríbeme al WhatsApp para coordinar tu pago</p>
-
-  <!-- VIDEOS AL ULTIMO -->
-  <div class="video-section">
-    <h2 class="section-title">🎬 VIDEOS</h2>
-    <div class="video-grid">
-      <div class="video-box">
-        <video src="https://files.evogb.win/rRxKpG.mp4" controls></video>
-      </div>
-      <div class="video-box">
-        <video src="https://files.evogb.win/S4LvtE.mp4" controls></video>
-      </div>
-    </div>
-  </div>
-
+<div class="selector-pais">
+  <p style="margin-bottom:10px">Elige tu país:</p>
+  <div id="paises"></div>
 </div>
 
-<footer>🐱 GARFIELD STORE - Gracias por tu preferencia 🐱</footer>
+<div class="productos" id="productos"></div>
 
-<script src="monedas.js"></script>
-<script src="productos.js"></script>
-<script src="script.js"></script>
+<div id="carrito">
+  <h2 style="color:#FF6A00">Tu Carrito</h2>
+  <div id="items-carrito"></div>
+  <p style="margin-top:10px">Total: <span id="total">0</span></p>
+
+  <h3 style="color:#FF6A00;margin-top:15px">Método de Pago</h3>
+  <div id="metodos-pago"></div>
+
+  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:15px;background:#25D366;color:#fff;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer">Comprar por WhatsApp</button>
+  <button onclick="toggleCarrito()" style="width:100%;margin-top:8px;background:#555;color:#fff;padding:8px;border:none;border-radius:8px;cursor:pointer">Cerrar</button>
+</div>
+
+<script>
+let data = {};
+let paisActual = "PE";
+let carrito = [];
+let musicaOn = false;
+
+// Cargar data.json
+fetch('data.json')
+ .then(res => res.json())
+ .then(d => { data = d; renderPaises(); renderProductos(); renderMetodosPago(); });
+
+function renderPaises(){
+  document.getElementById('paises').innerHTML = Object.keys(data.paises).map(p => `
+    <button class="${paisActual==p?'active':''}" onclick="cambiarPais('${p}')">${data.paises[p].bandera} ${data.paises[p].nombre}</button>
+  `).join('');
+}
+
+function cambiarPais(p){
+  paisActual = p;
+  renderPaises();
+  renderProductos();
+  renderMetodosPago();
+  renderCarrito();
+}
+
+function renderProductos(){
+  let productosFiltrados = data.productos.filter(prod => prod.disponible_en.includes(paisActual));
+  document.getElementById('productos').innerHTML = productosFiltrados.map(prod => {
+    let precio = prod.precios[paisActual];
+    let moneda = data.paises[paisActual].moneda;
+    return `
+    <div class="card">
+      <h3>${prod.nombre}</h3>
+      <p style="font-size:12px;color:#aaa">${prod.nota || ''}</p>
+      <p class="precio">${moneda}${precio}</p>
+      <button onclick="verProducto('${prod.nombre}')">Ver</button>
+      <button onclick="addCarrito('${prod.id}')">Añadir</button>
+    </div>
+    `
+  }).join('');
+}
+
+let carritoItems = {};
+function addCarrito(id){
+  carritoItems[id] = (carritoItems[id] || 0) + 1;
+  renderCarrito();
+}
+
+function renderCarrito(){
+  let items = Object.keys(carritoItems).map(id => {
+    let prod = data.productos.find(p=>p.id==id);
+    let precio = prod.precios[paisActual] * carritoItems[id];
+    return `<p>${prod.nombre} x${carritoItems[id]} <button onclick="carritoItems[${id}]--;renderCarrito()">-</button> <button onclick="carritoItems[${id}]++;renderCarrito()">+</button></p>`
+  }).join('');
+  document.getElementById('items-carrito').innerHTML = items || 'Vacío';
+  let total = Object.keys(carritoItems).reduce((t,id)=>{
+    let prod = data.productos.find(p=>p.id==id);
+    return t + prod.precios[paisActual] * carritoItems[id];
+  },0);
+  document.getElementById('total').innerText = data.paises[paisActual].moneda + total;
+  document.getElementById('cant-carrito').innerText = Object.values(carritoItems).reduce((a,b)=>a+b,0);
+}
+
+function renderMetodosPago(){
+  let pagos = data.paises[paisActual].pagos;
+  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label><input type="radio" name="pago" value="${p}"> ${p}</label><br>`).join('');
+}
+
+function comprarWhatsApp(){
+  let pago = document.querySelector('input[name="pago"]:checked')?.value || 'No especificado';
+  let msg = `Hola Garfield Store!%0A País: ${data.paises[paisActual].nombre}%0A Método: ${pago}%0A%0AProductos:%0A`;
+  Object.keys(carritoItems).forEach(id=>{
+    let prod = data.productos.find(p=>p.id==id);
+    msg += `${carritoItems[id]}x ${prod.nombre}%0A`;
+  });
+  msg += `%0ATotal: ${document.getElementById('total').innerText}`;
+  window.open(`https://wa.me/51920726588?text=${msg}`);
+}
+
+function toggleCarrito(){ document.getElementById('carrito').classList.toggle('open'); }
+document.getElementById('btn-carrito').onclick = toggleCarrito;
+function toggleMusica(){ let m=document.getElementById('musica'); musicaOn?!m.pause():m.play(); musicaOn=!musicaOn; }
+function verProducto(nombre){ alert('Info de: '+nombre); }
+</script>
 </body>
 </html>
