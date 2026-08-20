@@ -9,7 +9,6 @@
   :root{
     --naranja: #FF5C00;
     --naranja-glow: #FF8A00;
-    --verde: #25D366;
     --negro: #040404;
     --negro-claro: #0D0D0D;
     --vidrio: rgba(15, 15, 15, 0.75);
@@ -66,12 +65,14 @@
 .audio-btn.playing::after{content:'';position:absolute;width:100%;height:100%;border:3px solid var(--naranja);border-radius:50%;animation:sonar 1.5s infinite}
   @keyframes sonar{0%{transform:scale(1);opacity:1} 100%{transform:scale(1.6);opacity:0}}
 
-  /* NUEVO: BOTONES FLOTANTES GRUPO Y CANAL */
 .social-flotante{position:fixed;bottom:110px;right:25px;display:flex;flex-direction:column;gap:12px;z-index:1000}
-.btn-social{padding:14px 20px;border-radius:50px;font-weight:900;font-size:15px;text-decoration:none;color:#fff;display:flex;align-items:center;gap:8px;transition:0.3s;box-shadow:0 0 20px rgba(0,0,0,0.5)}
-.btn-grupo{background:linear-gradient(90deg, var(--verde) 0%, #20BA5A 100%)}
-.btn-canal{background:linear-gradient(90deg, #0088cc 0%, #00AEEF 100%)}
-.btn-social:hover{transform:scale(1.08);box-shadow:0 0 30px currentColor}
+.btn-social{
+    padding:14px 20px;border-radius:50px;font-weight:900;font-size:15px;
+    text-decoration:none;color:#000;display:flex;align-items:center;gap:8px;
+    transition:0.4s;box-shadow:0 0 20px rgba(255,92,0,0.4);
+    background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);
+  }
+.btn-social:hover{transform:scale(1.1);box-shadow:0 0 35px var(--naranja)}
 
 footer{
     background:var(--negro-claro);border-top:3px solid var(--naranja);padding:40px 20px;text-align:center;margin-top:50px;
@@ -79,7 +80,13 @@ footer{
   }
 footer h3{color:var(--naranja);font-family:Orbitron;margin-bottom:15px;font-size:1.5rem}
 footer p{color:#aaa;margin:8px 0}
-.btn-footer{display:inline-block;margin:10px;padding:12px 25px;border-radius:12px;text-decoration:none;font-weight:900;transition:0.3s}
+.btn-footer{
+    display:inline-block;margin:10px;padding:12px 25px;border-radius:12px;
+    text-decoration:none;font-weight:900;transition:0.3s;color:#000;
+    background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);
+    box-shadow:0 0 20px rgba(255,92,0,0.4)
+  }
+.btn-footer:hover{transform:scale(1.05);box-shadow:0 0 30px var(--naranja)}
 </style>
 </head>
 <body>
@@ -93,10 +100,9 @@ footer p{color:#aaa;margin:8px 0}
 <audio id="musica" src="garfield.mp3" loop></audio>
 <button class="audio-btn" id="btnMusica" onclick="toggleMusica()">🔊</button>
 
-<!-- BOTONES FLOTANTES -->
 <div class="social-flotante">
-  <a href="https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk" target="_blank" class="btn-social btn-grupo">👥 GRUPO</a>
-  <a href="https://whatsapp.com/channel/0029VaisGFT3AzNMAqLVCJ2Z" target="_blank" class="btn-social btn-canal">📢 CANAL</a>
+  <a href="https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk" target="_blank" class="btn-social">👥 GRUPO</a>
+  <a href="https://whatsapp.com/channel/0029VaisGFT3AzNMAqLVCJ2Z" target="_blank" class="btn-social">📢 CANAL</a>
 </div>
 
 <div class="selector-pais">
@@ -107,13 +113,12 @@ footer p{color:#aaa;margin:8px 0}
 <div class="tabs-categorias" id="tabs"></div>
 <div id="contenedor-categorias"></div>
 
-<!-- FOOTER -->
 <footer>
   <h3>GARFIELD STORE</h3>
   <p>Atención: Tardes y Noches | Respondo lo más rápido posible</p>
   <p>Únete a nuestra comunidad para ofertas y soporte</p>
-  <a href="https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk" target="_blank" class="btn-footer btn-grupo">👥 UNIRSE AL GRUPO</a>
-  <a href="https://whatsapp.com/channel/0029VaisGFT3AzNMAqLVCJ2Z" target="_blank" class="btn-footer btn-canal">📢 SEGUIR CANAL</a>
+  <a href="https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk" target="_blank" class="btn-footer">👥 UNIRSE AL GRUPO</a>
+  <a href="https://whatsapp.com/channel/0029VaisGFT3AzNMAqLVCJ2Z" target="_blank" class="btn-footer">📢 SEGUIR CANAL</a>
   <p style="margin-top:20px;font-size:12px;color:#555">© 2025 GARFIELD STORE - Todos los derechos reservados</p>
 </footer>
 
