@@ -11,50 +11,54 @@
     --naranja-glow: #FF8A00;
     --negro: #040404;
     --negro-claro: #0D0D0D;
-    --vidrio: rgba(15, 15, 15, 0.7);
+    --vidrio: rgba(15, 15, 15, 0.75);
   }
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Rajdhani', sans-serif}
   body{background:var(--negro);color:#E0E0E0;background-image:radial-gradient(circle at 20% 20%, rgba(255,92,0,0.15) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(255,92,0,0.1) 0%, transparent 40%)}
 
   header{
-    height:320px;
-    background: linear-gradient(rgba(4,4,4,0.7), rgba(4,4,4,0.9)), url('banner-garfield.jpg') center/cover fixed;
+    height:350px;
+    background: linear-gradient(rgba(4,4,4,0.8), rgba(4,4,4,0.95)), url('https://files.evogb.win/2gepcp.jpg') center/cover no-repeat;
     border-bottom:3px solid var(--naranja);
-    box-shadow: 0 0 50px var(--naranja);
+    box-shadow: 0 0 60px var(--naranja);
     display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;
   }
-  h1{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);font-size:3.5rem;text-shadow:0 0 20px var(--naranja);font-weight:900;letter-spacing:2px}
-  header span{color:#ccc;margin-top:10px;font-size:1.1rem;letter-spacing:4px;font-weight:500}
+.logo{
+    width:140px;height:140px;border-radius:50%;border:4px solid var(--naranja);
+    box-shadow:0 0 30px var(--naranja), inset 0 0 20px rgba(255,92,0,0.3);
+    margin-bottom:15px;object-fit:cover;
+  }
+  h1{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);font-size:3rem;text-shadow:0 0 20px var(--naranja);font-weight:900;letter-spacing:3px}
+  header span{color:#ccc;margin-top:8px;font-size:1.1rem;letter-spacing:4px;font-weight:500}
 
-.selector-pais{text-align:center;padding:25px;background:var(--vidrio);backdrop-filter:blur(10px);border-bottom:2px solid var(--naranja)}
+.selector-pais{text-align:center;padding:25px;background:var(--vidrio);backdrop-filter:blur(12px);border-bottom:2px solid var(--naranja)}
 .selector-pais button{margin:6px;padding:11px 18px;background:rgba(0,0,0,0.5);border:2px solid var(--naranja);color:var(--naranja);border-radius:10px;cursor:pointer;font-weight:700;font-size:15px;transition:0.3s}
 .selector-pais button:hover,.selector-pais button.active{background:var(--naranja);color:#000;box-shadow:0 0 25px var(--naranja);transform:scale(1.05)}
 
-.tabs-categorias{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap}
-.tab-cat{padding:12px 25px;background:var(--vidrio);border:2px solid #333;color:#aaa;border-radius:12px;cursor:pointer;font-weight:700;font-size:16px;transition:0.3s}
-.tab-cat.active,.tab-cat:hover{border-color:var(--naranja);color:var(--naranja);box-shadow:0 0 15px var(--naranja);background:rgba(255,92,0,0.1)}
+.tabs-categorias{display:flex;justify-content:center;gap:15px;margin:35px 0 20px;flex-wrap:wrap}
+.tab-cat{padding:13px 28px;background:var(--vidrio);border:2px solid #333;color:#aaa;border-radius:12px;cursor:pointer;font-weight:700;font-size:16px;transition:0.3s;backdrop-filter:blur(5px)}
+.tab-cat.active,.tab-cat:hover{border-color:var(--naranja);color:var(--naranja);box-shadow:0 0 20px var(--naranja);background:rgba(255,92,0,0.1)}
 
-.categoria{padding:0 3%;display:none}
+.categoria{padding:0 4%;display:none}
 .categoria.active{display:block;animation:fadeIn 0.5s}
   @keyframes fadeIn{from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)}}
-.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:25px}
 .card{
-    background:var(--vidrio);backdrop-filter:blur(12px);
-    border:1px solid rgba(255,92,0,0.3);border-radius:18px;padding:20px;text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,0.5);transition:0.4s;position:relative;
+    background:var(--vidrio);backdrop-filter:blur(15px);
+    border:1px solid rgba(255,92,0,0.3);border-radius:20px;padding:22px;text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.6);transition:0.4s;position:relative;
   }
-.card:hover{transform:translateY(-10px);border-color:var(--naranja);box-shadow:0 0 30px var(--naranja)}
-.card h3{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);margin-bottom:8px;font-weight:700;font-size:1.1rem}
+.card:hover{transform:translateY(-10px) scale(1.02);border-color:var(--naranja);box-shadow:0 0 35px var(--naranja)}
+.card h3{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);margin-bottom:8px;font-weight:700;font-size:1.15rem}
 .card.nota{font-size:12px;color:#999;margin-bottom:12px;min-height:35px}
-.card.precio{font-family:'Orbitron', sans-serif;font-size:2rem;color:#fff;margin:12px 0;text-shadow:0 0 10px var(--naranja)}
-.card button{background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);border:none;color:#000;padding:11px 18px;border-radius:10px;margin:5px;cursor:pointer;font-weight:900;font-size:15px;transition:0.3s}
+.card.precio{font-family:'Orbitron', sans-serif;font-size:2.1rem;color:#fff;margin:12px 0;text-shadow:0 0 12px var(--naranja)}
+.card button{background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);border:none;color:#000;padding:12px 20px;border-radius:10px;margin:5px;cursor:pointer;font-weight:900;font-size:15px;transition:0.3s}
 .card button:hover{transform:scale(1.05);box-shadow:0 0 20px var(--naranja)}
 
   #btn-carrito{position:fixed;top:25px;right:25px;background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);color:#000;padding:14px 20px;border:none;border-radius:50px;font-weight:900;cursor:pointer;z-index:1000;box-shadow:0 0 25px var(--naranja);font-size:16px}
   #carrito{position:fixed;right:-380px;top:0;background:var(--negro-claro);width:380px;height:100%;padding:25px;border-left:3px solid var(--naranja);transition:0.5s;overflow-y:auto;z-index:999;backdrop-filter:blur(10px)}
   #carrito.open{right:0}
 
-  /* BOTON MUSICA V2 - CON BARRA */
 .audio-btn{
     position:fixed;bottom:25px;left:25px;width:65px;height:65px;background:radial-gradient(circle, var(--naranja-glow) 0%, var(--naranja) 100%);
     color:#000;border:none;border-radius:50%;cursor:pointer;box-shadow:0 0 30px var(--naranja);
@@ -67,6 +71,7 @@
 </head>
 <body>
 <header>
+  <img src="https://files.evogb.win/2gepcp.jpg" class="logo" alt="Garfield Store">
   <h1>GARFIELD STORE</h1>
   <span>SISTEMA DE VENTAS 24/7</span>
 </header>
@@ -180,7 +185,7 @@ function renderCarrito(){
 
 function renderMetodosPago(){
   let pagos = data.paises[paisActual].pagos;
-  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label style="display:block;margin:10px 0;background:#111;padding:8px;border-radius:8px"><input type="radio" name="pago" value="${p}"> ${p}</label>`).join('');
+  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label style="display:block;margin:10px 0;background:#111;padding:10px;border-radius:8px;border:1px solid #333"><input type="radio" name="pago" value="${p}"> ${p}</label>`).join('');
 }
 
 function comprarWhatsApp(){
