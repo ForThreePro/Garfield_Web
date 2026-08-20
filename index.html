@@ -3,70 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GARFIELD STORE | PANEL GAMER</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<title>GARFIELD STORE | PANEL PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --naranja: #FF4500;
-    --naranja-brillante: #FF6A00;
-    --negro: #050505;
-    --negro-claro: #0F0F0F;
+    --naranja: #FF5C00;
+    --naranja-glow: #FF8A00;
+    --negro: #040404;
+    --negro-claro: #0D0D0D;
+    --vidrio: rgba(15, 15, 15, 0.7);
   }
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron', sans-serif}
-  body{background:var(--negro);color:#fff;background-image:radial-gradient(circle at 50% 0%, rgba(255,69,0,0.1) 0%, transparent 50%)}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Rajdhani', sans-serif}
+  body{background:var(--negro);color:#E0E0E0;background-image:radial-gradient(circle at 20% 20%, rgba(255,92,0,0.15) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(255,92,0,0.1) 0%, transparent 40%)}
+
   header{
-    height:300px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('banner-garfield.jpg') center/cover;
-    border-bottom:4px solid var(--naranja);
-    box-shadow: 0 0 40px var(--naranja);
-    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    height:320px;
+    background: linear-gradient(rgba(4,4,4,0.7), rgba(4,4,4,0.9)), url('banner-garfield.jpg') center/cover fixed;
+    border-bottom:3px solid var(--naranja);
+    box-shadow: 0 0 50px var(--naranja);
+    display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;
   }
-  h1{color:var(--naranja-brillante);font-size:3.2rem;text-shadow:0 0 15px var(--naranja), 0 0 30px var(--naranja);font-weight:900}
-  header span{color:#fff;margin-top:8px;letter-spacing:3px}
+  h1{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);font-size:3.5rem;text-shadow:0 0 20px var(--naranja);font-weight:900;letter-spacing:2px}
+  header span{color:#ccc;margin-top:10px;font-size:1.1rem;letter-spacing:4px;font-weight:500}
 
- .selector-pais{text-align:center;padding:20px;background:var(--negro-claro);border-bottom:2px solid var(--naranja)}
- .selector-pais button{margin:6px;padding:10px 16px;background:#000;border:2px solid var(--naranja);color:var(--naranja);border-radius:8px;cursor:pointer;font-weight:700;transition:0.2s}
- .selector-pais button:hover,.selector-pais button.active{background:var(--naranja);color:#000;box-shadow:0 0 20px var(--naranja)}
+.selector-pais{text-align:center;padding:25px;background:var(--vidrio);backdrop-filter:blur(10px);border-bottom:2px solid var(--naranja)}
+.selector-pais button{margin:6px;padding:11px 18px;background:rgba(0,0,0,0.5);border:2px solid var(--naranja);color:var(--naranja);border-radius:10px;cursor:pointer;font-weight:700;font-size:15px;transition:0.3s}
+.selector-pais button:hover,.selector-pais button.active{background:var(--naranja);color:#000;box-shadow:0 0 25px var(--naranja);transform:scale(1.05)}
 
- .categoria{margin:40px 20px}
- .titulo-categoria{
-    font-size:1.8rem;color:var(--naranja);border-left:5px solid var(--naranja);padding-left:15px;margin-bottom:20px;
-    text-shadow:0 0 10px var(--naranja);
+.tabs-categorias{display:flex;justify-content:center;gap:15px;margin:30px 0;flex-wrap:wrap}
+.tab-cat{padding:12px 25px;background:var(--vidrio);border:2px solid #333;color:#aaa;border-radius:12px;cursor:pointer;font-weight:700;font-size:16px;transition:0.3s}
+.tab-cat.active,.tab-cat:hover{border-color:var(--naranja);color:var(--naranja);box-shadow:0 0 15px var(--naranja);background:rgba(255,92,0,0.1)}
+
+.categoria{padding:0 3%;display:none}
+.categoria.active{display:block;animation:fadeIn 0.5s}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)}}
+.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card{
+    background:var(--vidrio);backdrop-filter:blur(12px);
+    border:1px solid rgba(255,92,0,0.3);border-radius:18px;padding:20px;text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,0.5);transition:0.4s;position:relative;
   }
- .productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
- .card{
-    background:linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%);
-    border:2px solid var(--naranja);border-radius:15px;padding:18px;text-align:center;
-    box-shadow:0 0 15px rgba(255,69,0,0.2);transition:0.3s;position:relative;overflow:hidden;
-  }
- .card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent,rgba(255,69,0,0.1),transparent);transform:rotate(45deg);transition:0.5s}
- .card:hover::before{left:100%}
- .card:hover{transform:translateY(-8px);box-shadow:0 0 35px var(--naranja)}
- .card h3{color:var(--naranja-brillante);margin-bottom:8px;font-weight:700}
- .card.nota{font-size:11px;color:#aaa;margin-bottom:10px;min-height:30px}
- .card.precio{font-size:1.7rem;color:#fff;margin:10px 0;text-shadow:0 0 8px var(--naranja)}
- .card button{background:var(--naranja);border:none;color:#000;padding:10px 15px;border-radius:8px;margin:5px;cursor:pointer;font-weight:900;transition:0.2s}
- .card button:hover{background:var(--naranja-brillante);box-shadow:0 0 15px var(--naranja)}
+.card:hover{transform:translateY(-10px);border-color:var(--naranja);box-shadow:0 0 30px var(--naranja)}
+.card h3{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);margin-bottom:8px;font-weight:700;font-size:1.1rem}
+.card.nota{font-size:12px;color:#999;margin-bottom:12px;min-height:35px}
+.card.precio{font-family:'Orbitron', sans-serif;font-size:2rem;color:#fff;margin:12px 0;text-shadow:0 0 10px var(--naranja)}
+.card button{background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);border:none;color:#000;padding:11px 18px;border-radius:10px;margin:5px;cursor:pointer;font-weight:900;font-size:15px;transition:0.3s}
+.card button:hover{transform:scale(1.05);box-shadow:0 0 20px var(--naranja)}
 
-  #btn-carrito{position:fixed;top:20px;right:20px;background:var(--naranja);color:#000;padding:12px 18px;border:none;border-radius:50px;font-weight:900;cursor:pointer;z-index:1000;box-shadow:0 0 20px var(--naranja);font-size:16px}
-  #carrito{position:fixed;right:-350px;top:0;background:var(--negro-claro);width:350px;height:100%;padding:20px;border-left:3px solid var(--naranja);transition:0.4s;overflow-y:auto;z-index:999;box-shadow:-10px 0 30px rgba(255,69,0,0.5)}
+  #btn-carrito{position:fixed;top:25px;right:25px;background:linear-gradient(90deg, var(--naranja) 0%, var(--naranja-glow) 100%);color:#000;padding:14px 20px;border:none;border-radius:50px;font-weight:900;cursor:pointer;z-index:1000;box-shadow:0 0 25px var(--naranja);font-size:16px}
+  #carrito{position:fixed;right:-380px;top:0;background:var(--negro-claro);width:380px;height:100%;padding:25px;border-left:3px solid var(--naranja);transition:0.5s;overflow-y:auto;z-index:999;backdrop-filter:blur(10px)}
   #carrito.open{right:0}
 
-  /* BOTON MUSICA NUEVO ESTILO CONSOLA */
- .audio-btn{
-    position:fixed;bottom:25px;left:25px;width:60px;height:60px;background:radial-gradient(circle, var(--naranja-brillante) 0%, var(--naranja) 100%);
-    color:#000;border:none;border-radius:50%;cursor:pointer;box-shadow:0 0 25px var(--naranja);
-    display:flex;align-items:center;justify-content:center;font-size:24px;transition:0.3s;z-index:1001;
+  /* BOTON MUSICA V2 - CON BARRA */
+.audio-btn{
+    position:fixed;bottom:25px;left:25px;width:65px;height:65px;background:radial-gradient(circle, var(--naranja-glow) 0%, var(--naranja) 100%);
+    color:#000;border:none;border-radius:50%;cursor:pointer;box-shadow:0 0 30px var(--naranja);
+    display:flex;align-items:center;justify-content:center;font-size:26px;transition:0.3s;z-index:1001;
   }
- .audio-btn:hover{transform:scale(1.1);box-shadow:0 0 40px var(--naranja)}
- .audio-btn.playing{animation:pulse 1.5s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,69,0,0.7)} 70%{box-shadow:0 0 0 15px rgba(255,69,0,0)} 100%{box-shadow:0 0 0 0 rgba(255,69,0,0)}}
+.audio-btn:hover{transform:scale(1.15)}
+.audio-btn.playing::after{content:'';position:absolute;width:100%;height:100%;border:3px solid var(--naranja);border-radius:50%;animation:sonar 1.5s infinite}
+  @keyframes sonar{0%{transform:scale(1);opacity:1} 100%{transform:scale(1.6);opacity:0}}
 </style>
 </head>
 <body>
 <header>
   <h1>GARFIELD STORE</h1>
-  <span>PANEL DE CONTROL GAMER</span>
+  <span>SISTEMA DE VENTAS 24/7</span>
 </header>
 
 <button id="btn-carrito">🛒 <span id="cant-carrito">0</span></button>
@@ -74,20 +76,21 @@
 <button class="audio-btn" id="btnMusica" onclick="toggleMusica()">🔊</button>
 
 <div class="selector-pais">
-  <p style="margin-bottom:12px;color:var(--naranja)">SELECCIONA TU REGIÓN</p>
+  <p style="margin-bottom:15px;color:var(--naranja);font-size:18px;font-weight:700">SELECCIONA TU REGIÓN</p>
   <div id="paises"></div>
 </div>
 
+<div class="tabs-categorias" id="tabs"></div>
 <div id="contenedor-categorias"></div>
 
 <div id="carrito">
-  <h2 style="color:var(--naranja)">CARRITO GAMER</h2>
+  <h2 style="color:var(--naranja);font-family:Orbitron">CARRITO</h2>
   <div id="items-carrito"></div>
-  <p style="margin-top:10px;font-size:1.2rem">TOTAL: <span id="total" style="color:var(--naranja)">0</span></p>
-  <h3 style="color:var(--naranja);margin-top:15px">MÉTODO DE PAGO</h3>
+  <p style="margin-top:15px;font-size:1.4rem">TOTAL: <span id="total" style="color:var(--naranja);font-family:Orbitron">0</span></p>
+  <h3 style="color:var(--naranja);margin-top:20px">MÉTODO DE PAGO</h3>
   <div id="metodos-pago"></div>
-  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:15px;background:#25D366;color:#fff;padding:14px;border:none;border-radius:8px;font-weight:900;cursor:pointer">COMPRAR POR WHATSAPP</button>
-  <button onclick="toggleCarrito()" style="width:100%;margin-top:8px;background:#333;color:#fff;padding:10px;border:none;border-radius:8px;cursor:pointer">CERRAR</button>
+  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:20px;background:#25D366;color:#fff;padding:15px;border:none;border-radius:10px;font-weight:900;cursor:pointer;font-size:16px">ENVIAR PEDIDO A WHATSAPP</button>
+  <button onclick="toggleCarrito()" style="width:100%;margin-top:10px;background:#222;color:#fff;padding:12px;border:none;border-radius:10px;cursor:pointer">CERRAR</button>
 </div>
 
 <script>
@@ -95,10 +98,11 @@ let data = {};
 let paisActual = "PE";
 let carritoItems = {};
 let musicaOn = false;
+let categoriaActiva = "DIAMANTES";
 
 fetch('data.json')
 .then(res => res.json())
-.then(d => { data = d; renderPaises(); renderTodo(); });
+.then(d => { data = d; renderPaises(); renderTabs(); renderTodo(); });
 
 function renderPaises(){
   document.getElementById('paises').innerHTML = Object.keys(data.paises).map(p => `
@@ -114,6 +118,17 @@ function cambiarPais(p){
   renderCarrito();
 }
 
+function renderTabs(){
+  let tabs = ["DIAMANTES", "SEGUIDORES", "SERVICIOS", "DESIGN"];
+  document.getElementById('tabs').innerHTML = tabs.map(t=>`<div class="tab-cat ${categoriaActiva==t?'active':''}" onclick="cambiarTab('${t}')">${t}</div>`).join('');
+}
+
+function cambiarTab(tab){
+  categoriaActiva = tab;
+  renderTabs();
+  renderTodo();
+}
+
 function renderTodo(){
   let categorias = {
     "DIAMANTES": data.productos.filter(p=>p.id.includes('diamantes')),
@@ -126,7 +141,7 @@ function renderTodo(){
   for(let cat in categorias){
     let prods = categorias[cat].filter(prod => prod.disponible_en.includes(paisActual));
     if(prods.length > 0){
-      html += `<div class="categoria"><h2 class="titulo-categoria">${cat}</h2><div class="productos">`;
+      html += `<div class="categoria ${categoriaActiva==cat?'active':''}"><div class="productos">`;
       html += prods.map(prod => {
         let precio = prod.precios[paisActual];
         let moneda = data.paises[paisActual].moneda;
@@ -135,7 +150,7 @@ function renderTodo(){
           <h3>${prod.nombre}</h3>
           <p class="nota">${prod.nota || ''}</p>
           <p class="precio">${moneda}${precio}</p>
-          <button onclick="addCarrito('${prod.id}')">+ AÑADIR</button>
+          <button onclick="addCarrito('${prod.id}')">+ AÑADIR AL CARRITO</button>
         </div>`;
       }).join('');
       html += `</div></div>`;
@@ -152,9 +167,9 @@ function addCarrito(id){
 function renderCarrito(){
   let items = Object.keys(carritoItems).map(id => {
     let prod = data.productos.find(p=>p.id==id);
-    return `<div style="border-bottom:1px solid #333;padding:8px 0">${prod.nombre} x${carritoItems[id]}</div>`
+    return `<div style="border-bottom:1px solid #222;padding:10px 0;display:flex;justify-content:space-between">${prod.nombre} <b>x${carritoItems[id]}</b></div>`
   }).join('');
-  document.getElementById('items-carrito').innerHTML = items || '<p style="color:#555">CARRITO VACÍO</p>';
+  document.getElementById('items-carrito').innerHTML = items || '<p style="color:#555;text-align:center;margin-top:20px">CARRITO VACÍO</p>';
   let total = Object.keys(carritoItems).reduce((t,id)=>{
     let prod = data.productos.find(p=>p.id==id);
     return t + prod.precios[paisActual] * carritoItems[id];
@@ -165,12 +180,12 @@ function renderCarrito(){
 
 function renderMetodosPago(){
   let pagos = data.paises[paisActual].pagos;
-  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label style="display:block;margin:8px 0"><input type="radio" name="pago" value="${p}"> ${p}</label>`).join('');
+  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label style="display:block;margin:10px 0;background:#111;padding:8px;border-radius:8px"><input type="radio" name="pago" value="${p}"> ${p}</label>`).join('');
 }
 
 function comprarWhatsApp(){
   let pago = document.querySelector('input[name="pago"]:checked')?.value || 'No especificado';
-  let msg = `Hola Garfield Store!%0A[PANEL GAMER]%0APaís: ${data.paises[paisActual].nombre}%0AMétodo: ${pago}%0A%0AProductos:%0A`;
+  let msg = `Hola Garfield Store!%0A[PANEL PRO]%0APaís: ${data.paises[paisActual].nombre}%0AMétodo: ${pago}%0A%0AProductos:%0A`;
   Object.keys(carritoItems).forEach(id=>{let prod = data.productos.find(p=>p.id==id);msg += `${carritoItems[id]}x ${prod.nombre}%0A`;});
   msg += `%0ATOTAL: ${document.getElementById('total').innerText}`;
   window.open(`https://wa.me/51920726588?text=${msg}`);
