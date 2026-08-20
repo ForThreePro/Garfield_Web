@@ -1,0 +1,167 @@
+{
+  "paises": {
+    "PE": {"nombre": "Perú", "bandera": "🇵🇪", "moneda": "S/", "pagos": ["Yape", "Poupo"]},
+    "AR": {"nombre": "Argentina", "bandera": "🇦🇷", "moneda": "$ARS", "pagos": ["Mercado Pago", "Poupo"]},
+    "CL": {"nombre": "Chile", "bandera": "🇨🇱", "moneda": "$CLP", "pagos": ["Cuenta Rut", "Poupo"]},
+    "MX": {"nombre": "México", "bandera": "🇲🇽", "moneda": "$MXN", "pagos": ["Poupo"]},
+    "UY": {"nombre": "Uruguay", "bandera": "🇺🇾", "moneda": "$UYU", "pagos": ["Poupo"]},
+    "BO": {"nombre": "Bolivia", "bandera": "🇧🇴", "moneda": "Bs", "pagos": ["Poupo"]},
+    "CO": {"nombre": "Colombia", "bandera": "🇨🇴", "moneda": "$COP", "pagos": ["Poupo"]},
+    "US": {"nombre": "USA", "bandera": "🇺🇸", "moneda": "$", "pagos": ["Poupo"]}
+  },
+  "productos": [
+    {
+      "id": "numeros_virtuales",
+      "nombre": "Números Virtuales",
+      "nota": "Dejar 24h sin grupos. Solo 1 código.",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 3, "CL": 1050, "AR": 1650, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
+    },
+    {
+      "id": "seguidores_250",
+      "nombre": "Seguidores IG 250",
+      "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
+      "precios": {"PE": 1.5, "AR": 720, "CL": 525, "MX": 11.25, "UY": 22.5, "BO": 6.75}
+    },
+    {
+      "id": "seguidores_500",
+      "nombre": "Seguidores IG 500",
+      "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
+      "precios": {"PE": 2.5, "AR": 1340, "CL": 875, "MX": 18.75, "UY": 37.5, "BO": 11.25}
+    },
+    {
+      "id": "seguidores_1000",
+      "nombre": "Seguidores IG 1000",
+      "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
+      "precios": {"PE": 5, "AR": 2750, "CL": 1750, "MX": 37.5, "UY": 75, "BO": 22.5}
+    },
+    {
+      "id": "seguidores_2000",
+      "nombre": "Seguidores IG 2000",
+      "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
+      "precios": {"PE": 10, "AR": 5500, "CL": 3500, "MX": 75, "UY": 150, "BO": 45}
+    },
+    {
+      "id": "seguidores_5000",
+      "nombre": "Seguidores IG 5000",
+      "disponible_en": ["PE", "AR", "CL", "MX", "UY", "BO"],
+      "precios": {"PE": 20, "AR": 11000, "CL": 7000, "MX": 150, "UY": 300, "BO": 90}
+    },
+    {
+      "id": "combo_decana",
+      "nombre": "Combo Decana Lu",
+      "nota": "Busca vs, reclutamiento, edita vs ganados",
+      "disponible_en": ["PE", "AR", "CL", "BO", "UY", "MX"],
+      "precios": {"PE": 15, "AR": 7000, "CL": 5000, "BO": 55.5, "UY": 210, "MX": 114}
+    },
+    {
+      "id": "design_logo",
+      "nombre": "Design Lu - Logo",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 3, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
+    },
+    {
+      "id": "design_plantilla",
+      "nombre": "Design Lu - Plantilla 2x1",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 4, "CL": 1050, "AR": 1560, "MX": 22.5, "UY": 22.5, "BO": 13.5, "CO": 4500, "US": 2}
+    },
+    {
+      "id": "design_jersey",
+      "nombre": "Design Lu - Jersey",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 5, "CL": 1750, "AR": 2600, "MX": 37.5, "UY": 75, "BO": 22.5, "CO": 7500, "US": 2}
+    },
+    {
+      "id": "spam_3d",
+      "nombre": "Spam 3 Días",
+      "nota": "3 horas al día",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 5.5, "CL": 1750, "AR": 2750, "MX": 37.5, "UY": 75, "BO": 22.5, "CO": 7500, "US": 2}
+    },
+    {
+      "id": "spam_5d",
+      "nombre": "Spam 5 Días",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 7.5, "CL": 2450, "AR": 3850, "MX": 52.5, "UY": 105, "BO": 31.5, "CO": 10500, "US": 3}
+    },
+    {
+      "id": "spam_7d",
+      "nombre": "Spam 1 Semana",
+      "disponible_en": ["PE", "CL", "AR", "MX", "UY", "BO", "CO", "US"],
+      "precios": {"PE": 9.5, "CL": 3150, "AR": 4950, "MX": 67.5, "UY": 135, "BO": 40.5, "CO": 13500, "US": 4}
+    },
+    {
+      "id": "diamantes_stock_uy",
+      "nombre": "Diamantes Con Stock - UY",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 37.5}
+    },
+    {
+      "id": "diamantes_sinstock_uy",
+      "nombre": "Diamantes Sin Stock - UY",
+      "disponible_en": ["UY"],
+      "precios": {"UY": 52.5}
+    },
+    {
+      "id": "diamantes_stock_ar",
+      "nombre": "Diamantes Con Stock - AR",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 1300}
+    },
+    {
+      "id": "diamantes_sinstock_ar",
+      "nombre": "Diamantes Sin Stock - AR",
+      "disponible_en": ["AR"],
+      "precios": {"AR": 1820}
+    },
+    {
+      "id": "diamantes_stock_mx",
+      "nombre": "Diamantes Con Stock - MX",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 18.75}
+    },
+    {
+      "id": "diamantes_sinstock_mx",
+      "nombre": "Diamantes Sin Stock - MX",
+      "disponible_en": ["MX"],
+      "precios": {"MX": 26.25}
+    },
+    {
+      "id": "diamantes_stock_bo",
+      "nombre": "Diamantes Con Stock - BO",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 11.25}
+    },
+    {
+      "id": "diamantes_sinstock_bo",
+      "nombre": "Diamantes Sin Stock - BO",
+      "disponible_en": ["BO"],
+      "precios": {"BO": 15.75}
+    },
+    {
+      "id": "diamantes_stock_cl",
+      "nombre": "Diamantes Con Stock - CL",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 875}
+    },
+    {
+      "id": "diamantes_sinstock_cl",
+      "nombre": "Diamantes Sin Stock - CL",
+      "disponible_en": ["CL"],
+      "precios": {"CL": 1225}
+    },
+    {
+      "id": "diamantes_stock_pe",
+      "nombre": "Diamantes Con Stock - PE",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 2.5}
+    },
+    {
+      "id": "diamantes_sinstock_pe",
+      "nombre": "Diamantes Sin Stock - PE",
+      "disponible_en": ["PE"],
+      "precios": {"PE": 3.5}
+    }
+  ]
+}
