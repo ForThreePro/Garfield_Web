@@ -3,233 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GARFIELD STORE | PANEL PRO</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --naranja: #FF5C00;
-    --naranja-glow: #FF8A00;
-    --negro: #040404;
-    --negro-claro: #0D0D0D;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Rajdhani', sans-serif}
-  body{background:var(--negro);color:#E0E0E0;padding-bottom:120px}
-
-  header{
-    height:350px;
-    background: linear-gradient(rgba(4,4,4,0.8), rgba(4,4,4,0.95)), url('https://files.evogb.win/Q8pffG.jpg') center/cover no-repeat;
-    border-bottom:3px solid var(--naranja);
-    display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;
-  }
-.logo{width:140px;height:140px;border-radius:50%;border:4px solid var(--naranja);margin-bottom:15px;object-fit:cover;background:url('https://files.evogb.win/Q8pffG.jpg') center/cover no-repeat;}
-  h1{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);font-size:3rem;font-weight:900;letter-spacing:3px}
-  header span{color:#ccc;margin-top:8px;font-size:1.1rem;letter-spacing:4px;font-weight:500}
-
-.selector-pais{text-align:center;padding:25px;background:#0D0D0D;border-bottom:2px solid var(--naranja)}
-.selector-pais button{margin:6px;padding:11px 18px;background:#000;border:2px solid var(--naranja);color:var(--naranja);border-radius:10px;cursor:pointer;font-weight:700;font-size:15px;transition:0.2s}
-.selector-pais button:hover,.selector-pais button.active{background:var(--naranja);color:#000}
-
-.tabs-categorias{display:flex;justify-content:center;gap:15px;margin:35px 0 20px;flex-wrap:wrap}
-.tab-cat{padding:13px 28px;background:#0D0D0D;border:2px solid #333;color:#aaa;border-radius:12px;cursor:pointer;font-weight:700;font-size:16px;transition:0.2s}
-.tab-cat.active,.tab-cat:hover{border-color:var(--naranja);color:var(--naranja);background:rgba(255,92,0,0.1)}
-
-.categoria{padding:0 4%;display:none}
-.categoria.active{display:block;}
-.productos{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:25px}
-.card{
-    background:#0D0D0D;
-    border:1px solid #333;border-radius:20px;padding:22px;text-align:center;
-    transition:0.2s;
-  }
-.card:hover{transform:translateY(-5px);border-color:var(--naranja);}
-.card h3{font-family:'Orbitron', sans-serif;color:var(--naranja-glow);margin-bottom:8px;font-weight:700;font-size:1.15rem}
-.card.nota{font-size:12px;color:#999;margin-bottom:12px;min-height:35px}
-
-.stock-selector{display:flex;gap:8px;justify-content:center;margin:10px 0}
-.stock-btn{padding:6px 12px;background:#222;border:1px solid #444;color:#aaa;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700}
-.stock-btn.active{background:var(--naranja);color:#000;border-color:var(--naranja)}
-
-.card.precio{font-family:'Orbitron', sans-serif;font-size:2.1rem;color:#fff;margin:12px 0;}
-.card button{background:var(--naranja);border:none;color:#000;padding:12px 20px;border-radius:10px;margin:5px;cursor:pointer;font-weight:900;font-size:15px;transition:0.2s;width:90%}
-.card button:hover{transform:scale(1.03);}
-
-  #btn-carrito{position:fixed;top:25px;right:25px;background:var(--naranja);color:#000;padding:14px 20px;border:none;border-radius:50px;font-weight:900;cursor:pointer;z-index:1000;font-size:16px}
-  #carrito{position:fixed;right:-380px;top:0;background:var(--negro-claro);width:380px;height:100%;padding:25px;border-left:3px solid var(--naranja);transition:0.3s;overflow-y:auto;z-index:999;}
-  #carrito.open{right:0}
-
-.audio-btn{position:fixed;bottom:25px;left:25px;width:65px;height:65px;background:var(--naranja);color:#000;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;transition:0.3s;z-index:1001;}
-.audio-btn:hover{transform:scale(1.1)}
-
-.social-flotante{position:fixed;bottom:110px;right:25px;display:flex;flex-direction:column;gap:12px;z-index:1000}
-.btn-social{
-    padding:14px 20px;border-radius:50px;font-weight:900;font-size:15px;
-    text-decoration:none;color:#000;display:flex;align-items:center;gap:8px;
-    transition:0.2s;background:var(--naranja);
-  }
-.btn-social:hover{transform:scale(1.05);}
-
-footer{
-    background:var(--negro-claro);border-top:3px solid var(--naranja);padding:40px 20px;text-align:center;margin-top:50px;
-  }
-footer h3{color:var(--naranja);font-family:Orbitron;margin-bottom:15px;font-size:1.5rem}
-footer p{color:#aaa;margin:8px 0}
-.btn-footer{
-    display:inline-block;margin:10px;padding:12px 25px;border-radius:12px;
-    text-decoration:none;font-weight:900;transition:0.2s;color:#000;
-    background:var(--naranja);
-  }
-.btn-footer:hover{transform:scale(1.03);}
-.loading{text-align:center;padding:50px;color:var(--naranja);font-size:1.2rem}
-</style>
+<title>Garfiel Store 😼</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="logo"></div>
-  <h1>GARFIELD STORE</h1>
-  <span>SISTEMA DE VENTAS 24/7</span>
-</header>
 
-<button id="btn-carrito">🛒 <span id="cant-carrito">0</span></button>
-<audio id="musica" src="garfield.mp3" loop></audio>
-<button class="audio-btn" id="btnMusica" onclick="toggleMusica()">🔊</button>
+<button id="btn-musica">🎵 ON</button>
+<audio id="musica" loop><source src="garfield.mp3" type="audio/mpeg"></audio>
 
-<div class="social-flotante">
-  <a href="https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk" target="_blank" class="btn-social">👥 GRUPO</a>
-  <a href="https://whatsapp.com/channel/0029VaisGFT3AzNMAqLVCJ2Z" target="_blank" class="btn-social">📢 CANAL</a>
+<header><h1>😼 Garfiel Store</h1><p>Compra y vuelve a tu siesta 💤</p></header>
+
+<div class="container">
+
+  <div class="card"><h2>💎 Diamantes</h2>
+    <select id="pais-diamantes" onchange="cambiarPrecio('diamantes')">
+      <option value="PE">🇵🇪 Perú</option><option value="AR">🇦🇷 Argentina</option>
+      <option value="CL">🇨🇱 Chile</option><option value="BO">🇧🇴 Bolivia</option>
+      <option value="UY">🇺🇾 Uruguay</option><option value="MX">🇲🇽 México</option>
+    </select>
+    <h3>Con Stock</h3><div id="tabla-diamantes-con"></div>
+    <h3>Sin Stock</h3><div id="tabla-diamantes-sin"></div>
+  </div>
+
+  <div class="card"><h2>🩵 Spam</h2>
+    <select id="pais-spam" onchange="cambiarPrecio('spam')">
+      <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
+      <option value="AR">🇦🇷 Argentina</option><option value="UY">🇺🇾 Uruguay</option>
+      <option value="BO">🇧🇴 Bolivia</option><option value="CO">🇨🇴 Colombia</option>
+      <option value="US">🇺🇸 USA</option><option value="MX">🇲🇽 México</option>
+    </select><div id="tabla-spam"></div>
+  </div>
+
+  <div class="card"><h2>🖌️ Luu Design</h2>
+    <select id="pais-luu" onchange="cambiarPrecio('luu')">
+      <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
+      <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
+      <option value="UY">🇺🇾 Uruguay</option><option value="BO">🇧🇴 Bolivia</option>
+      <option value="CO">🇨🇴 Colombia</option><option value="US">🇺🇸 USA</option>
+    </select><div id="tabla-luu"></div>
+  </div>
+
+  <div class="card"><h2>🎀 Combo Decana Luu</h2>
+    <select id="pais-combo" onchange="cambiarPrecio('combo')">
+      <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
+      <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
+      <option value="US">🇺🇸 USA</option><option value="BR">🇧🇷 Brasil</option>
+    </select><div id="tabla-combo"></div>
+  </div>
+
+  <div class="card"><h2>📧 Seguidores IG</h2>
+    <select id="pais-seguidores" onchange="cambiarPrecio('seguidores')">
+      <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
+      <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
+      <option value="US">🇺🇸 USA</option><option value="BR">🇧🇷 Brasil</option>
+      <option value="CO">🇨🇴 Colombia</option>
+    </select><div id="tabla-seguidores"></div>
+  </div>
+
+  <div class="card"><h2>📱 Números Virtuales</h2>
+    <select id="moneda-numero">
+      <option>🇵🇪 S/ 3.00</option><option>🇨🇱 $1,050 CLP</option>
+      <option>🇦🇷 $1,650 ARS</option><option>🇲🇽 $22.50 MXN</option>
+      <option>🇺🇾 $45 UYU</option><option>🇧🇴 Bs 13.50</option>
+      <option>🇨🇴 $4,500 COP</option><option>🇺🇸 $2 USD</option>
+    </select><div id="tabla-numeros"></div>
+    <p class="nota">*24h sin grupos. Solo 1 código. Atiendo tardes y noches*</p>
+  </div>
+
+  <div class="card"><h2>🔥 Pase Élite</h2>
+    <select id="pais-pase" onchange="cambiarPrecio('pase')">
+      <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
+      <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
+      <option value="BR">🇧🇷 Brasil</option><option value="US">🇺🇸 USA</option>
+    </select><div id="tabla-pase"></div>
+  </div>
+
 </div>
 
-<div class="selector-pais">
-  <p style="margin-bottom:15px;color:var(--naranja);font-size:18px;font-weight:700">SELECCIONA TU REGIÓN</p>
-  <div id="paises">Cargando...</div>
-</div>
-
-<div class="tabs-categorias" id="tabs"></div>
-<div id="contenedor-categorias"><p class="loading">Cargando productos...</p></div>
-
-<footer>
-  <h3>GARFIELD STORE</h3>
-  <p>Atención: Tardes y Noches | Respondo lo más rápido posible</p>
-  <p>Únete a nuestra comunidad para ofertas y soporte</p>
-  <a href="https://chat.whatsapp.com/LjPhgjqCM934QEzYz3vrVk" target="_blank" class="btn-footer">👥 UNIRSE AL GRUPO</a>
-  <a href="https://whatsapp.com/channel/0029VaisGFT3AzNMAqLVCJ2Z" target="_blank" class="btn-footer">📢 SEGUIR CANAL</a>
-  <p style="margin-top:20px;font-size:12px;color:#555">© 2025 GARFIELD STORE - Todos los derechos reservados</p>
-</footer>
-
-<div id="carrito">
-  <h2 style="color:var(--naranja);font-family:Orbitron">CARRITO</h2>
-  <div id="items-carrito"></div>
-  <p style="margin-top:15px;font-size:1.4rem">TOTAL: <span id="total" style="color:var(--naranja);font-family:Orbitron">0</span></p>
-  <h3 style="color:var(--naranja);margin-top:20px">MÉTODO DE PAGO</h3>
-  <div id="metodos-pago"></div>
-  <button onclick="comprarWhatsApp()" style="width:100%;margin-top:20px;background:#25D366;color:#fff;padding:15px;border:none;border-radius:10px;font-weight:900;cursor:pointer;font-size:16px">ENVIAR PEDIDO A WHATSAPP</button>
-  <button onclick="toggleCarrito()" style="width:100%;margin-top:10px;background:#222;color:#fff;padding:12px;border:none;border-radius:10px;cursor:pointer">CERRAR</button>
-</div>
-
-<script>
-let data = {};
-let paisActual = "PE";
-let carritoItems = {};
-let musicaOn = false;
-let categoriaActiva = "DIAMANTES";
-let stockMode = {};
-
-// CARGAR DATA.JSON
-fetch('data.json')
-.then(res => {
-  if(!res.ok) throw new Error("No se encontró data.json");
-  return res.json();
-})
-.then(d => {
-  data = d;
-  renderPaises();
-  renderTabs();
-  renderTodo();
-})
-.catch(err => {
-  document.getElementById('contenedor-categorias').innerHTML = `<p style="color:red;text-align:center;padding:50px">Error: ${err.message}<br>Revisa que data.json esté en la misma carpeta</p>`
-});
-
-function renderPaises(){
-  document.getElementById('paises').innerHTML = Object.keys(data.paises).map(p => `
-    <button class="${paisActual==p?'active':''}" onclick="cambiarPais('${p}')">${data.paises[p].bandera} ${data.paises[p].nombre}</button>
-  `).join('');
-}
-function cambiarPais(p){ paisActual = p; renderPaises(); renderTodo(); renderMetodosPago(); renderCarrito(); }
-
-function renderTabs(){
-  let tabs = ["DIAMANTES", "SEGUIDORES", "SERVICIOS", "DESIGN"];
-  document.getElementById('tabs').innerHTML = tabs.map(t=>`<div class="tab-cat ${categoriaActiva==t?'active':''}" onclick="cambiarTab('${t}')">${t}</div>`).join('');
-}
-function cambiarTab(tab){ categoriaActiva = tab; renderTabs(); renderTodo(); }
-
-function toggleStock(id, tipo){ stockMode[id] = tipo; renderTodo(); }
-
-function renderTodo(){
-  let categorias = {
-    "DIAMANTES": data.productos.filter(p=>p.id.includes('diamantes')),
-    "SEGUIDORES": data.productos.filter(p=>p.id.includes('seguidores')),
-    "SERVICIOS": data.productos.filter(p=>['numeros_virtuales','combo_decana','spam_3d','spam_5d','spam_7d'].includes(p.id)),
-    "DESIGN": data.productos.filter(p=>p.id.includes('design'))
-  };
-
-  let html = '';
-  for(let cat in categorias){
-    let prods = categorias[cat].filter(prod => prod.disponible_en.includes(paisActual));
-    if(prods.length > 0){
-      html += `<div class="categoria ${categoriaActiva==cat?'active':''}"><div class="productos">`;
-      html += prods.map(prod => {
-        let tipo = stockMode[prod.id] || 'stock';
-        let precio = prod.precios[tipo][paisActual];
-        let moneda = data.paises[paisActual].moneda;
-        let stockHTML = '';
-        if(prod.precios.stock && prod.precios.nostock){
-          stockHTML = `<div class="stock-selector"><button class="stock-btn ${tipo=='stock'?'active':''}" onclick="toggleStock('${prod.id}','stock')">CON STOCK</button><button class="stock-btn ${tipo=='nostock'?'active':''}" onclick="toggleStock('${prod.id}','nostock')">SIN STOCK</button></div>`;
-        }
-        return `<div class="card"><h3>${prod.nombre}</h3><p class="nota">${prod.nota || ''}</p>${stockHTML}<p class="precio">${moneda}${precio}</p><button onclick="addCarrito('${prod.id}','${tipo}')">+ AÑADIR AL CARRITO</button></div>`;
-      }).join('');
-      html += `</div></div>`;
-    }
-  }
-  document.getElementById('contenedor-categorias').innerHTML = html || '<p style="text-align:center;padding:50px">No hay productos para este país</p>';
-}
-
-function addCarrito(id, tipo){
-  let key = tipo? `${id}_${tipo}` : id;
-  carritoItems[key] = (carritoItems[key] || 0) + 1;
-  renderCarrito();
-}
-function renderCarrito(){
-  let items = Object.keys(carritoItems).map(key => {
-    let [id, tipo] = key.split('_');
-    let prod = data.productos.find(p=>p.id==id);
-    let nombre = tipo? `${prod.nombre} ${tipo=='stock'?'CON STOCK':'SIN STOCK'}` : prod.nombre;
-    return `<div style="border-bottom:1px solid #222;padding:10px 0;display:flex;justify-content:space-between">${nombre} <b>x${carritoItems[key]}</b></div>`
-  }).join('');
-  document.getElementById('items-carrito').innerHTML = items || '<p style="color:#555;text-align:center;margin-top:20px">CARRITO VACÍO</p>';
-  let total = Object.keys(carritoItems).reduce((t,key)=>{ let [id, tipo] = key.split('_'); let prod = data.productos.find(p=>p.id==id); let precio = prod.precios[tipo || 'stock'][paisActual]; return t + precio * carritoItems[key]; },0);
-  document.getElementById('total').innerText = data.paises[paisActual].moneda + total;
-  document.getElementById('cant-carrito').innerText = Object.values(carritoItems).reduce((a,b)=>a+b,0);
-}
-function renderMetodosPago(){
-  let pagos = data.paises[paisActual].pagos;
-  document.getElementById('metodos-pago').innerHTML = pagos.map(p=>`<label style="display:block;margin:10px 0;background:#111;padding:10px;border-radius:8px;border:1px solid #333"><input type="radio" name="pago" value="${p}"> ${p}</label>`).join('');
-}
-function comprarWhatsApp(){
-  let pago = document.querySelector('input[name="pago"]:checked')?.value || 'No especificado';
-  let msg = `Hola Garfield Store!%0A[PANEL PRO]%0APaís: ${data.paises[paisActual].nombre}%0AMétodo: ${pago}%0A%0AProductos:%0A`;
-  Object.keys(carritoItems).forEach(key=>{ let [id, tipo] = key.split('_'); let prod = data.productos.find(p=>p.id==id); let nombre = tipo? `${prod.nombre} ${tipo=='stock'?'CON STOCK':'SIN STOCK'}` : prod.nombre; msg += `${carritoItems[key]}x ${nombre}%0A`; });
-  msg += `%0ATOTAL: ${document.getElementById('total').innerText}`;
-  window.open(`https://wa.me/51920726588?text=${msg}`);
-}
-function toggleCarrito(){ document.getElementById('carrito').classList.toggle('open'); }
-document.getElementById('btn-carrito').onclick = toggleCarrito;
-function toggleMusica(){
-  let m=document.getElementById('musica');
-  let btn=document.getElementById('btnMusica');
-  if(musicaOn){m.pause(); btn.innerText='🔇'}
-  else{m.play(); btn.innerText='🔊'}
-  musicaOn=!musicaOn;
-}
-</script>
+<a href="https://wa.me/51927174369" class="whatsapp" target="_blank">💬 Escríbeme</a>
+<footer>Garfiel Store © 2026</footer>
+<script src="script.js"></script>
 </body>
 </html>
