@@ -118,8 +118,15 @@ const precios = {
     UY:[['250','$22.5'],['500','$37.5'],['1000','$75'],['2000','$150'],['5000','$300']],
     BO:[['250','Bs 6.75'],['500','Bs 11.25'],['1000','Bs 22.5'],['2000','Bs 45'],['5000','Bs 90']]
   },
-  numeros: {
-    PE: '$2 USD', AR: '$2 USD', CL: '$2 USD', MX: '$2 USD', UY: '$2 USD', BO: '$2 USD', CO: '$2 USD', US: '$2 USD'
+  numeros: { // AQUI ESTABAN MAL, YA LOS PUSE BIEN
+    PE: 'S/3',
+    CL: '$1050',
+    AR: '$1650',
+    MX: '$22.5',
+    UY: '$45',
+    BO: 'Bs 13.5',
+    CO: '$4500',
+    US: '$2'
   },
   pase: {
     PE:[['Semanal','S/5']],
@@ -147,7 +154,7 @@ window.onload = () => {
 }
 
 function cargarNumeros(pais){
-  const precioNum = precios.numeros[pais] || '$2 USD';
+  const precioNum = precios.numeros[pais] || 'S/3';
   let html = '';
   listaNumeros.forEach(num => {
     html += `<table><tr><td>${num}</td><td>${precioNum}</td><td><button class="btn-add" onclick="añadirCarrito('Número ${num}','${precioNum}','${pais}')">Añadir</button></td></tr></table>`;
