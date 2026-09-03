@@ -27,10 +27,11 @@ function añadirCarrito(nombre, precio, pais){
   actualizarContador();
 }
 
-function quitarCarrito(index){
-  carrito[index].cantidad--;
+function cambiarCantidad(index, cambio){
+  carrito[index].cantidad += cambio;
   if(carrito[index].cantidad <= 0) carrito.splice(index, 1);
-  mostrarCarrito(); actualizarContador();
+  mostrarCarrito();
+  actualizarContador();
 }
 
 function actualizarContador(){
@@ -41,19 +42,20 @@ function mostrarCarrito(){
   let html = '';
   let total = 0;
   carrito.forEach((item, index) => {
-    const precioNum = parseFloat(item.precio.replace(/[^0-9.]/g, ''));
+    const precioNum = parseFloat(item.precio.replace(/[^0-9.]/g, '')) || 0;
     total += precioNum * item.cantidad;
     html += `<div style="display:flex;justify-content:space-between;margin:10px 0;padding:10px;background:#1a1a1a;border-radius:10px">
       <div><b>${item.nombre}</b><br><small>${item.precio} - ${item.pais}</small></div>
       <div class="controles">
-        <button class="btn-add" onclick="quitarCarrito(${index})">-</button>
+        <button class="btn-add" onclick="cambiarCantidad(${index}, -1)">-</button>
         <span class="btn-cant">${item.cantidad}</span>
-        <button class="btn-add" onclick="añadirCarrito('${item.nombre}','${item.precio}','${item.pais}')">+</button>
+        <button class="btn-add" onclick="cambiarCantidad(${index}, 1)">+</button>
       </div>
     </div>`;
   });
   document.getElementById('items-carrito').innerHTML = html || '<p>Tu carrito está vacío 💤</p>';
-  document.getElementById('total').innerText = `Total aprox: ${carrito[0]?.precio.charAt(0) || 'S/'}${total.toFixed(2)}`;
+  const simbolo = carrito[0]?.precio.match(/[^0-9.]/)?.[0] || 'S/';
+  document.getElementById('total').innerText = `Total aprox: ${simbolo}${total.toFixed(2)}`;
 }
 
 document.getElementById('btn-enviar-wp').onclick = () => {
@@ -116,7 +118,9 @@ const precios = {
     UY:[['250','$22.5'],['500','$37.5'],['1000','$75'],['2000','$150'],['5000','$300']],
     BO:[['250','Bs 6.75'],['500','Bs 11.25'],['1000','Bs 22.5'],['2000','Bs 45'],['5000','Bs 90']]
   },
-  numeros: ['🇨🇴 +57 Colombia','🇨🇱 +56 Chile','🇰🇲 +269 Comoras','🇮🇩 +62 Indonesia','🇿🇦 +27 Sudáfrica','🇧🇳 +673 Brunéi','🇦🇼 +297 Aruba','🇧🇿 +501 Belice','🇦🇬 +1-268 Antigua','🇫🇷 +594 Guayana','🇬🇼 +245 Guinea-Bissau','🇻🇨 +1-784 San Vicente','🇹 +1-868 Trinidad','🇫🇷 +687 Nueva Caledonia','🇱🇸 +266 Lesoto','🇨🇷 +506 Costa Rica','🇵🇬 +675 Papúa','🇻🇳 +212 Vietnam'],
+  numeros: {
+    PE: '$2 USD', AR: '$2 USD', CL: '$2 USD', MX: '$2 USD', UY: '$2 USD', BO: '$2 USD', CO: '$2 USD', US: '$2 USD'
+  },
   pase: {
     PE:[['Semanal','S/5']],
     AR:[['Semanal','$2750']],
@@ -135,15 +139,18 @@ const precios = {
   }
 }
 
+const listaNumeros = ['🇨🇴 +57 Colombia','🇨🇱 +56 Chile','🇰🇲 +269 Comoras','🇮🇩 +62 Indonesia','🇿🇦 +27 Sudáfrica','🇧🇳 +673 Brunéi','🇦🇼 +297 Aruba','🇧🇿 +501 Belice','🇦🇬 +1-268 Antigua','🇫🇷 +594 Guayana','🇬🇼 +245 Guinea-Bissau','🇻🇨 +1-784 San Vicente','🇹 +1-868 Trinidad','🇫🇷 +687 Nueva Caledonia','🇱🇸 +266 Lesoto','🇨🇷 +506 Costa Rica','🇵🇬 +675 Papúa','🇻🇳 +212 Vietnam'];
+
 window.onload = () => {
   ['diamantes','spam','luu','combo','seguidores','pase','membresia'].forEach(cambiarPrecio);
-  cargarNumeros();
+  cargarNumeros('PE');
 }
 
-function cargarNumeros(){
+function cargarNumeros(pais){
+  const precioNum = precios.numeros[pais] || '$2 USD';
   let html = '';
-  precios.numeros.forEach(pais => {
-    html += `<table><tr><td>${pais}</td><td><button class="btn-add" onclick="añadirCarrito('Número ${pais}','ver selector','${pais}')">Añadir</button></td></tr></table>`;
+  listaNumeros.forEach(num => {
+    html += `<table><tr><td>${num}</td><td>${precioNum}</td><td><button class="btn-add" onclick="añadirCarrito('Número ${num}','${precioNum}','${pais}')">Añadir</button></td></tr></table>`;
   });
   document.getElementById('tabla-numeros').innerHTML = html;
 }
@@ -166,7 +173,11 @@ function cambiarPrecio(tipo){
     });
     html += '</table>';
     document.getElementById('tabla-diamantes-sin').innerHTML = html;
-  } else {
+  }
+  else if(tipo === 'numeros'){
+    cargarNumeros(pais);
+  }
+  else {
     precios[tipo][pais].forEach(i => {
       html += `<table><tr><td>${i[0]}</td><td>${i[1]}</td><td><button class="btn-add" onclick="añadirCarrito('${i[0]}','${i[1]}','${pais}')">Añadir</button></td></tr></table>`;
     });
