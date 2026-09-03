@@ -66,11 +66,12 @@
   </div>
 
   <div class="card"><h2>📱 Números Virtuales</h2>
-    <select id="moneda-numero">
-      <option>🇵🇪 S/ 3.00</option><option>🇨🇱 $1,050 CLP</option>
-      <option>🇦🇷 $1,650 ARS</option><option>🇲🇽 $22.50 MXN</option>
-      <option>🇺🇾 $45 UYU</option><option>🇧🇴 Bs 13.50</option>
-      <option>🇨🇴 $4,500 COP</option><option>🇺🇸 $2 USD</option>
+    <p class="info">Dejar 24h sin grupos. Solo 1 código. Atiendo tardes y noches</p>
+    <select id="pais-numeros" onchange="cambiarPrecio('numeros')">
+      <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
+      <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
+      <option value="UY">🇺🇾 Uruguay</option><option value="BO">🇧🇴 Bolivia</option>
+      <option value="CO">🇨🇴 Colombia</option><option value="US">🇺🇸 USA</option>
     </select>
     <div id="tabla-numeros"></div>
   </div>
