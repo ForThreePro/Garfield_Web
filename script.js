@@ -10,75 +10,84 @@ btnMusica.onclick = () => {
   playing =!playing;
 }
 
-// COMPRAR
 function comprar(producto, precio, pais){
   const moneda = document.getElementById('moneda-numero')?.value || precio;
   const mensaje = `Hola Garfiel! Quiero comprar:%0AProducto: ${producto}%0APrecio: ${moneda}%0APaís: ${pais}`;
   window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
 }
 
-// PRECIOS COMPLETOS
 const precios = {
   diamantes: {
-    PE:{con:[['1166','S/20'],['2200','S/35'],['5000','S/75']], sin:[['1166','S/18'],['2200','S/32'],['5000','S/68']]},
-    AR:{con:[['1166','$5000'],['2200','$9000'],['5000','$20000']], sin:[['1166','$4500'],['2200','$8000'],['5000','$18000']]},
-    CL:{con:[['1166','$7000'],['2200','$13000'],['5000','$29000']], sin:[['1166','$6500'],['2200','$12000'],['5000','$27000']]},
-    BO:{con:[['1166','Bs 80'],['2200','Bs 140'],['5000','Bs 310']], sin:[['1166','Bs 70'],['2200','Bs 130'],['5000','Bs 290']]},
-    UY:{con:[['1166','$350'],['2200','$650'],['5000','$1450']], sin:[['1166','$320'],['2200','$600'],['5000','$1350']]},
-    MX:{con:[['1166','$200'],['2200','$380'],['5000','$850']], sin:[['1166','$180'],['2200','$350'],['5000','$780']]}
+    PE:{con:[['110','S/2.50'],['341','S/7.00'],['572','S/12.00'],['1166','S/20.00'],['2398','S/36.00'],['6160','S/92.00']],
+        sin:[['110','S/3.50'],['341','S/10.00'],['572','S/15.00'],['1166','S/26.00'],['2398','S/52.00'],['6160','S/126.00']]},
+    CL:{con:[['110','$875'],['341','$2450'],['572','$4200'],['1166','$7000'],['2398','$12600'],['6160','$32200']],
+        sin:[['110','$1225'],['341','$3500'],['572','$5250'],['1166','$9100'],['2398','$18200'],['6160','$44100']]},
+    AR:{con:[['110','$1300'],['341','$3380'],['572','$5720'],['1166','$9880'],['2398','$18200'],['6160','$46800']],
+        sin:[['110','$1820'],['341','$4680'],['572','$7800'],['1166','$13520'],['2398','$27040'],['6160','$65520']]},
+    MX:{con:[['110','$18.75'],['341','$52.50'],['572','$90'],['1166','$150'],['2398','$270'],['6160','$690']],
+        sin:[['110','$26.25'],['341','$75'],['572','$112.5'],['1166','$195'],['2398','$390'],['6160','$945']]},
+    BO:{con:[['110','$11.25'],['341','$31.5'],['572','$54'],['1166','$90'],['2398','$162'],['6160','$414']],
+        sin:[['110','$15.75'],['341','$45'],['572','$67.5'],['1166','$117'],['2398','$234'],['6160','$567']]},
+    UY:{con:[['110','$37.5'],['341','$105'],['572','$180'],['1166','$300'],['2398','$540'],['6160','$1380']],
+        sin:[['110','$52.5'],['341','$150'],['572','$225'],['1166','$390'],['2398','$780'],['6160','$1890']]}
   },
   spam: {
-    PE:[['3 días','S/15'],['5 días','S/25'],['1 semana','S/35']],
-    CL:[['3 días','$4500'],['5 días','$7500'],['1 semana','$10500']],
-    AR:[['3 días','$7000'],['5 días','$12000'],['1 semana','$16500']],
-    UY:[['3 días','$180'],['5 días','$300'],['1 semana','$420']],
-    BO:[['3 días','Bs 50'],['5 días','Bs 85'],['1 semana','Bs 120']],
-    CO:[['3 días','$15000'],['5 días','$25000'],['1 semana','$35000']],
-    US:[['3 días','$6'],['5 días','$10'],['1 semana','$14']],
-    MX:[['3 días','$100'],['5 días','$170'],['1 semana','$240']]
+    PE:[['3 días','S/5.50'],['5 días','S/7.50'],['1 semana','S/9.50']],
+    CL:[['3 días','$1750'],['5 días','$2450'],['1 semana','$3150']],
+    AR:[['3 días','$2750'],['5 días','$3850'],['1 semana','$4950']],
+    UY:[['3 días','$75'],['5 días','$105'],['1 semana','$135']],
+    BO:[['3 días','Bs 22.5'],['5 días','Bs 31.5'],['1 semana','Bs 40.5']],
+    CO:[['3 días','$7500'],['5 días','$10500'],['1 semana','$13500']],
+    US:[['3 días','$2'],['5 días','$3'],['1 semana','$4']],
+    MX:[['3 días','$37.5'],['5 días','$52.5'],['1 semana','$67.5']]
   },
   luu: {
-    PE:[['Tex Logo','S/10'],['Plantillas 2x1','S/20'],['Jersey','S/25'],['Banner','S/15']],
-    CL:[['Tex Logo','$3500'],['Plantillas 2x1','$7000'],['Jersey','$9000'],['Banner','$5000']],
-    AR:[['Tex Logo','$5500'],['Plantillas 2x1','$11000'],['Jersey','$14000'],['Banner','$8000']],
-    MX:[['Tex Logo','$120'],['Plantillas 2x1','$240'],['Jersey','$300'],['Banner','$180']],
-    UY:[['Tex Logo','$200'],['Plantillas 2x1','$400'],['Jersey','$500'],['Banner','$300']],
-    BO:[['Tex Logo','Bs 40'],['Plantillas 2x1','Bs 80'],['Jersey','Bs 100'],['Banner','Bs 60']],
-    CO:[['Tex Logo','$12000'],['Plantillas 2x1','$24000'],['Jersey','$30000'],['Banner','$18000']],
-    US:[['Tex Logo','$4'],['Plantillas 2x1','$8'],['Jersey','$10'],['Banner','$6']]
+    PE:[['Tex Logo','S/3'],['Plantillas 2x1','S/4'],['Caligráficos 2x1','S/3'],['Jersey','S/5']],
+    CL:[['Tex Logo','$1050'],['Plantillas 2x1','$1050'],['Caligráficos 2x1','$1050'],['Jersey','$1750']],
+    AR:[['Tex Logo','$1560'],['Plantillas 2x1','$1560'],['Caligráficos 2x1','$1560'],['Jersey','$2600']],
+    MX:[['Tex Logo','$22.5'],['Plantillas 2x1','$22.5'],['Caligráficos 2x1','$22.5'],['Jersey','$37.5']],
+    UY:[['Tex Logo','$22.5'],['Plantillas 2x1','$22.5'],['Caligráficos 2x1','$22.5'],['Jersey','$75']],
+    BO:[['Tex Logo','Bs 13.5'],['Plantillas 2x1','Bs 13.5'],['Caligráficos 2x1','Bs 13.5'],['Jersey','Bs 22.5']],
+    CO:[['Tex Logo','$4500'],['Plantillas 2x1','$4500'],['Caligráficos 2x1','$4500'],['Jersey','$7500']],
+    US:[['Tex Logo','$2'],['Plantillas 2x1','$2'],['Caligráficos 2x1','$2'],['Jersey','$2']]
   },
   combo: {
-    PE:[['VS Diario','S/30'],['Reclutamiento','S/40'],['Edición VS','S/50'],['Combo Completo','S/100']],
-    CL:[['VS Diario','$9000'],['Reclutamiento','$12000'],['Edición VS','$15000'],['Combo Completo','$30000']],
-    AR:[['VS Diario','$14000'],['Reclutamiento','$18000'],['Edición VS','$22000'],['Combo Completo','$45000']],
-    MX:[['VS Diario','$250'],['Reclutamiento','$350'],['Edición VS','$420'],['Combo Completo','$850']],
-    US:[['VS Diario','$8'],['Reclutamiento','$12'],['Edición VS','$15'],['Combo Completo','$30']],
-    BR:[['VS Diario','R$40'],['Reclutamiento','R$55'],['Edición VS','R$70'],['Combo Completo','R$140']]
+    PE:[['Contrato Semanal','S/15']],
+    AR:[['Contrato Semanal','$7000']],
+    CL:[['Contrato Semanal','$5000']],
+    BO:[['Contrato Semanal','Bs 55.5']],
+    UY:[['Contrato Semanal','$210']],
+    MX:[['Contrato Semanal','$114']]
   },
   seguidores: {
-    PE:[['250','S/3'],['500','S/5'],['1000','S/9'],['2500','S/20'],['5000','S/38']],
-    CL:[['250','$1000'],['500','$1700'],['1000','$3000'],['2500','$6500'],['5000','$12000']],
-    AR:[['250','$1500'],['500','$2500'],['1000','$4500'],['2500','$10000'],['5000','$18000']],
-    MX:[['250','$40'],['500','$70'],['1000','$130'],['2500','$280'],['5000','$520']],
-    US:[['250','$1.5'],['500','$2.5'],['1000','$4.5'],['2500','$10'],['5000','$18']],
-    BR:[['250','R$8'],['500','R$14'],['1000','R$25'],['2500','R$55'],['5000','R$100']],
-    CO:[['250','$5000'],['500','$8500'],['1000','$15000'],['2500','$32000'],['5000','$60000']]
+    PE:[['250','S/1.50'],['500','S/2.50'],['1000','S/5'],['2000','S/10'],['5000','S/20']],
+    AR:[['250','$720'],['500','$1340'],['1000','$2750'],['2000','$5500'],['5000','$11000']],
+    CL:[['250','$525'],['500','$875'],['1000','$1750'],['2000','$3500'],['5000','$7000']],
+    MX:[['250','$11.25'],['500','$18.75'],['1000','$37.5'],['2000','$75'],['5000','$150']],
+    UY:[['250','$22.5'],['500','$37.5'],['1000','$75'],['2000','$150'],['5000','$300']],
+    BO:[['250','Bs 6.75'],['500','Bs 11.25'],['1000','Bs 22.5'],['2000','Bs 45'],['5000','Bs 90']]
   },
   numeros: ['🇨🇴 +57 Colombia','🇨🇱 +56 Chile','🇰🇲 +269 Comoras','🇮🇩 +62 Indonesia','🇿🇦 +27 Sudáfrica','🇧🇳 +673 Brunéi','🇦🇼 +297 Aruba','🇧🇿 +501 Belice','🇦🇬 +1-268 Antigua','🇫🇷 +594 Guayana','🇬🇼 +245 Guinea-Bissau','🇻🇨 +1-784 San Vicente','🇹 +1-868 Trinidad','🇫🇷 +687 Nueva Caledonia','🇱🇸 +266 Lesoto','🇨🇷 +506 Costa Rica','🇵🇬 +675 Papúa','🇻🇳 +212 Vietnam'],
   pase: {
-    PE:[['Semanal','S/12'],['Mensual','S/40']],
-    CL:[['Semanal','$3500'],['Mensual','$12000']],
-    AR:[['Semanal','$5500'],['Mensual','$18000']],
-    MX:[['Semanal','$120'],['Mensual','$400']],
-    BR:[['Semanal','R$25'],['Mensual','R$80']],
-    US:[['Semanal','$3'],['Mensual','$10']]
+    PE:[['Semanal','S/5']],
+    AR:[['Semanal','$2750']],
+    CL:[['Semanal','$1750']],
+    MX:[['Semanal','$38']],
+    UY:[['Semanal','$75']],
+    BO:[['Semanal','Bs 23']]
+  },
+  membresia: {
+    PE:[['Semanal','S/7.50'],['Mensual','S/32']],
+    AR:[['Semanal','$3850'],['Mensual','$16500']],
+    CL:[['Semanal','$2450'],['Mensual','$10500']],
+    MX:[['Semanal','$52'],['Mensual','$240']],
+    UY:[['Semanal','$105'],['Mensual','$480']],
+    BO:[['Semanal','Bs 32'],['Mensual','Bs 135']]
   }
 }
 
-// CARGAR TODO
 window.onload = () => {
-  cambiarPrecio('diamantes'); cambiarPrecio('spam'); cambiarPrecio('luu');
-  cambiarPrecio('combo'); cambiarPrecio('seguidores'); cambiarPrecio('pase');
+  ['diamantes','spam','luu','combo','seguidores','pase','membresia'].forEach(cambiarPrecio);
   cargarNumeros();
 }
 
@@ -91,20 +100,20 @@ function cargarNumeros(){
 }
 
 function cambiarPrecio(tipo){
-  const pais = document.getElementById(`pais-${tipo}`).value;
+  const pais = document.getElementById(`pais-${tipo}`)?.value;
   let html = '';
 
   if(tipo === 'diamantes'){
     html = '<table>';
     precios.diamantes[pais].con.forEach(i => {
-      html += `<tr><td>${i[0]} Diamantes</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]} Diamantes Con Stock','${i[1]}','${pais}')">Comprar</button></td></tr>`;
+      html += `<tr><td>${i[0]}💎</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]} Diamantes Con Stock','${i[1]}','${pais}')">Comprar</button></td></tr>`;
     });
     html += '</table>';
     document.getElementById('tabla-diamantes-con').innerHTML = html;
 
     html = '<table>';
     precios.diamantes[pais].sin.forEach(i => {
-      html += `<tr><td>${i[0]} Diamantes</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]} Diamantes Sin Stock','${i[1]}','${pais}')">Comprar</button></td></tr>`;
+      html += `<tr><td>${i[0]}💎</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]} Diamantes Sin Stock','${i[1]}','${pais}')">Comprar</button></td></tr>`;
     });
     html += '</table>';
     document.getElementById('tabla-diamantes-sin').innerHTML = html;
