@@ -15,6 +15,7 @@
 <header>
   <h1>😼 Garfiel Store</h1>
   <p>Compra y vuelve a tu siesta 💤</p>
+  <button id="btn-carrito">🛒 Carrito <span id="contador">0</span></button>
 </header>
 
 <div class="container">
@@ -31,7 +32,6 @@
   </div>
 
   <div class="card"><h2>🩵 Spam x3 horas al día</h2>
-    <p class="info">Si pagas tarde/noche inicia al día siguiente. Spam de texto tal cual lo mandas</p>
     <select id="pais-spam" onchange="cambiarPrecio('spam')">
       <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
       <option value="AR">🇦🇷 Argentina</option><option value="UY">🇺🇾 Uruguay</option>
@@ -41,7 +41,6 @@
   </div>
 
   <div class="card"><h2>🖌️ Luu Design</h2>
-    <p class="info">Demora max 2 días. No hay devoluciones. Respondo tardes y noches</p>
     <select id="pais-luu" onchange="cambiarPrecio('luu')">
       <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
       <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
@@ -51,7 +50,6 @@
   </div>
 
   <div class="card"><h2>🎀 Combo Decana Luu</h2>
-    <p class="info">Activa 7am 🇵🇪 / 9am 🇦🇷. Busco VS, Recluto, Edito VS ganado, Spam reclu</p>
     <select id="pais-combo" onchange="cambiarPrecio('combo')">
       <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
       <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
@@ -60,7 +58,6 @@
   </div>
 
   <div class="card"><h2>📧 Seguidores Instagram</h2>
-    <p class="info">Solo respondo tardes y noches. Si hay demora te aviso</p>
     <select id="pais-seguidores" onchange="cambiarPrecio('seguidores')">
       <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
       <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
@@ -75,7 +72,6 @@
       <option>🇺🇾 $45 UYU</option><option>🇧🇴 Bs 13.50</option>
       <option>🇨🇴 $4,500 COP</option><option>🇺🇸 $2 USD</option>
     </select>
-    <p class="info">Dejar 24h sin grupos. Solo 1 código. Atiendo tardes y noches</p>
     <div id="tabla-numeros"></div>
   </div>
 
@@ -88,7 +84,6 @@
   </div>
 
   <div class="card"><h2>💳 Membresías FF</h2>
-    <p class="info">Llega al correo. Demora 10min/2h aprox. Atención solo en las tardes</p>
     <select id="pais-membresia" onchange="cambiarPrecio('membresia')">
       <option value="PE">🇵🇪 Perú</option><option value="CL">🇨🇱 Chile</option>
       <option value="AR">🇦🇷 Argentina</option><option value="MX">🇲🇽 México</option>
@@ -98,7 +93,17 @@
 
 </div>
 
-<a href="https://wa.me/51927174369" class="whatsapp" target="_blank">💬 Escríbeme</a>
+<!-- MODAL CARRITO -->
+<div id="modal-carrito" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+    <h2>🛒 Tu Carrito</h2>
+    <div id="items-carrito"></div>
+    <p id="total">Total: S/0.00</p>
+    <button id="btn-enviar-wp">Enviar pedido por WhatsApp</button>
+  </div>
+</div>
+
 <footer>Garfiel Store © 2026 - Hecho con amor y lasañas 🍊</footer>
 <script src="script.js"></script>
 </body>
