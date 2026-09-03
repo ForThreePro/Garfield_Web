@@ -1,19 +1,23 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Quicksand', sans-serif}
-body{background:#FFF8F0;color:#5a3a1a;padding-bottom:90px;background-image:radial-gradient(#FFD580 1px, transparent 1px);background-size:22px 22px}
-header{text-align:center;padding:30px 15px;background:linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);border-bottom:4px dashed #fff}
-header h1{font-size:32px;color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,0.2);font-weight:700}
-header p{color:#FFF8F0;margin-top:8px;font-size:15px}
+body{background:#1a1a1a;color:#fff;padding-bottom:90px;background-image:radial-gradient(#FF8C00 1px, transparent 1px);background-size:25px 25px}
+header{text-align:center;padding:30px 15px;background:linear-gradient(135deg, #FF4500 0%, #FF8C00 100%);border-bottom:4px solid #000;position:relative}
+header h1{font-size:32px;color:#fff;text-shadow:2px 2px 0 #000;font-weight:700}
+header p{color:#FFE4B5;margin-top:8px;font-size:15px}
+#btn-carrito{position:absolute;top:20px;right:20px;background:#000;color:#FF8C00;border:2px solid #FF8C00;padding:10px 15px;border-radius:25px;font-weight:700;cursor:pointer}
+#contador{background:#FF4500;color:#fff;padding:2px 8px;border-radius:50%;margin-left:5px}
 .container{max-width:680px;margin:auto;padding:20px}
-.card{background:#fff;border-radius:20px;padding:18px;margin:18px 0;box-shadow:0 6px 15px rgba(255,140,0,0.25);border:2px solid #FFE4B5}
+.card{background:#2a2a2a;border-radius:20px;padding:18px;margin:18px 0;box-shadow:0 6px 15px rgba(255,140,0,0.3);border:2px solid #FF8C00}
 .card h2{color:#FF8C00;margin-bottom:8px;font-size:22px;text-align:center}
 .card h3{font-size:15px;color:#FFA500;margin:12px 0 8px;text-align:center;font-weight:600}
-.info{font-size:12px;color:#a67c52;text-align:center;margin-bottom:10px;font-style:italic}
-select{width:100%;padding:10px;border:2px solid #FFA500;border-radius:12px;margin-bottom:12px;background:#FFF8F0;font-weight:600;color:#5a3a1a}
-table{width:100%;font-size:14px;background:#FFF8F0;border-radius:12px;overflow:hidden;margin-bottom:8px}
-table td{padding:8px;border-bottom:1px dashed #FFD580}
-.btn{width:100%;background:linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);color:#fff;border:none;padding:8px;border-radius:10px;font-weight:700;cursor:pointer;transition:0.3s}
-.btn:hover{transform:scale(1.03);box-shadow:0 3px 8px rgba(255,140,0,0.4)}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:700;box-shadow:0 4px 15px rgba(37,211,102,0.4);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-#btn-musica{position:fixed;top:20px;right:20px;background:#fff;border:2px solid #FF8C00;padding:8px 14px;border-radius:25px;color:#FF8C00;cursor:pointer;z-index:999;font-weight:700}
-footer{text-align:center;padding:25px;font-size:12px;color:#a67c52}
+.info{font-size:12px;color:#aaa;text-align:center;margin-bottom:10px}
+select{width:100%;padding:10px;border:2px solid #FF8C00;border-radius:12px;margin-bottom:12px;background:#1a1a1a;color:#fff;font-weight:600}
+table{width:100%;font-size:14px;background:#1a1a1a;border-radius:12px;overflow:hidden;margin-bottom:8px}
+table td{padding:8px;border-bottom:1px dashed #444}
+.controles{display:flex;gap:5px;align-items:center}
+.btn-add{background:#FF8C00;color:#000;border:none;padding:6px 12px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-cant{background:#333;color:#FF8C00;border:1px solid #FF8C00;padding:6px 10px;border-radius:8px;font-weight:700;min-width:35px;text-align:center}
+.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8)}
+.modal-contenido{background:#2a2a2a;margin:10% auto;padding:20px;border:3px solid #FF8C00;border-radius:20px;width:90%;max-width:500px;color:#fff}
+.cerrar{float:right;font-size:28px;font-weight:bold;color:#FF8C00;cursor:pointer}
+#btn-enviar-wp{width:100%;background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);color:#fff;border:none;padding:12px;border-radius:12px;font-weight:700;font-size:16px;margin-top:15px;cursor:pointer}
+footer{text-align:center;padding:25px;font-size:12px;color:#777}
