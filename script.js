@@ -1,4 +1,5 @@
 const numero = '51927174369';
+let carrito = [];
 
 // MUSICA
 const audio = document.getElementById('musica');
@@ -10,12 +11,60 @@ btnMusica.onclick = () => {
   playing =!playing;
 }
 
-function comprar(producto, precio, pais){
-  const moneda = document.getElementById('moneda-numero')?.value || precio;
-  const mensaje = `Hola Garfiel! Quiero comprar:%0AProducto: ${producto}%0APrecio: ${moneda}%0APaís: ${pais}`;
-  window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
+// CARRITO
+const modal = document.getElementById('modal-carrito');
+const btnCarrito = document.getElementById('btn-carrito');
+const cerrar = document.querySelector('.cerrar');
+
+btnCarrito.onclick = () => {modal.style.display = 'block'; mostrarCarrito();}
+cerrar.onclick = () => {modal.style.display = 'none';}
+window.onclick = (e) => {if(e.target == modal) modal.style.display = 'none';}
+
+function añadirCarrito(nombre, precio, pais){
+  const existente = carrito.find(i => i.nombre === nombre && i.precio === precio);
+  if(existente){existente.cantidad++;}
+  else{carrito.push({nombre, precio, pais, cantidad: 1});}
+  actualizarContador();
 }
 
+function quitarCarrito(index){
+  carrito[index].cantidad--;
+  if(carrito[index].cantidad <= 0) carrito.splice(index, 1);
+  mostrarCarrito(); actualizarContador();
+}
+
+function actualizarContador(){
+  document.getElementById('contador').innerText = carrito.reduce((t,i) => t + i.cantidad, 0);
+}
+
+function mostrarCarrito(){
+  let html = '';
+  let total = 0;
+  carrito.forEach((item, index) => {
+    const precioNum = parseFloat(item.precio.replace(/[^0-9.]/g, ''));
+    total += precioNum * item.cantidad;
+    html += `<div style="display:flex;justify-content:space-between;margin:10px 0;padding:10px;background:#1a1a1a;border-radius:10px">
+      <div><b>${item.nombre}</b><br><small>${item.precio} - ${item.pais}</small></div>
+      <div class="controles">
+        <button class="btn-add" onclick="quitarCarrito(${index})">-</button>
+        <span class="btn-cant">${item.cantidad}</span>
+        <button class="btn-add" onclick="añadirCarrito('${item.nombre}','${item.precio}','${item.pais}')">+</button>
+      </div>
+    </div>`;
+  });
+  document.getElementById('items-carrito').innerHTML = html || '<p>Tu carrito está vacío 💤</p>';
+  document.getElementById('total').innerText = `Total aprox: ${carrito[0]?.precio.charAt(0) || 'S/'}${total.toFixed(2)}`;
+}
+
+document.getElementById('btn-enviar-wp').onclick = () => {
+  if(carrito.length === 0) return alert('Tu carrito está vacío');
+  let mensaje = 'Hola Garfiel! Quiero hacer este pedido:%0A%0A';
+  carrito.forEach(i => {mensaje += `• ${i.cantidad}x ${i.nombre} - ${i.precio} (${i.pais})%0A`;});
+  window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
+  carrito = []; actualizarContador(); mostrarCarrito(); modal.style.display = 'none';
+}
+
+// PRECIOS
 const precios = {
   diamantes: {
     PE:{con:[['110','S/2.50'],['341','S/7.00'],['572','S/12.00'],['1166','S/20.00'],['2398','S/36.00'],['6160','S/92.00']],
@@ -94,7 +143,7 @@ window.onload = () => {
 function cargarNumeros(){
   let html = '';
   precios.numeros.forEach(pais => {
-    html += `<table><tr><td>${pais}</td><td><button class="btn" onclick="comprar('Número ${pais}','ver selector','${pais}')">Comprar</button></td></tr></table>`;
+    html += `<table><tr><td>${pais}</td><td><button class="btn-add" onclick="añadirCarrito('Número ${pais}','ver selector','${pais}')">Añadir</button></td></tr></table>`;
   });
   document.getElementById('tabla-numeros').innerHTML = html;
 }
@@ -106,20 +155,20 @@ function cambiarPrecio(tipo){
   if(tipo === 'diamantes'){
     html = '<table>';
     precios.diamantes[pais].con.forEach(i => {
-      html += `<tr><td>${i[0]}💎</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]} Diamantes Con Stock','${i[1]}','${pais}')">Comprar</button></td></tr>`;
+      html += `<tr><td>${i[0]}💎</td><td>${i[1]}</td><td><button class="btn-add" onclick="añadirCarrito('${i[0]} Diamantes Con Stock','${i[1]}','${pais}')">Añadir</button></td></tr>`;
     });
     html += '</table>';
     document.getElementById('tabla-diamantes-con').innerHTML = html;
 
     html = '<table>';
     precios.diamantes[pais].sin.forEach(i => {
-      html += `<tr><td>${i[0]}💎</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]} Diamantes Sin Stock','${i[1]}','${pais}')">Comprar</button></td></tr>`;
+      html += `<tr><td>${i[0]}💎</td><td>${i[1]}</td><td><button class="btn-add" onclick="añadirCarrito('${i[0]} Diamantes Sin Stock','${i[1]}','${pais}')">Añadir</button></td></tr>`;
     });
     html += '</table>';
     document.getElementById('tabla-diamantes-sin').innerHTML = html;
   } else {
     precios[tipo][pais].forEach(i => {
-      html += `<table><tr><td>${i[0]}</td><td>${i[1]}</td><td><button class="btn" onclick="comprar('${i[0]}','${i[1]}','${pais}')">Comprar</button></td></tr></table>`;
+      html += `<table><tr><td>${i[0]}</td><td>${i[1]}</td><td><button class="btn-add" onclick="añadirCarrito('${i[0]}','${i[1]}','${pais}')">Añadir</button></td></tr></table>`;
     });
     document.getElementById(`tabla-${tipo}`).innerHTML = html;
   }
