@@ -3,237 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Luz 🌻 De Cristhofer</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<title>Para Luz - De Cristhofer 💛</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#05010a;color:white;font-family:'Poppins',sans-serif;overflow-x:hidden}
-
-/* PORTADA */
-#portada{
-  height:100vh;width:100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  display:flex;justify-content:center;align-items:center;flex-direction:column;
-  text-align:center;position:fixed;z-index:100;transition:1.2s;
+body{background:#fff8d6;font-family:'Poppins',sans-serif;overflow-x:hidden}
+#cartas{
+  min-height:100vh;background: radial-gradient(circle at top, #fff9c4, #ffeb3b, #ffc107);
+  display:flex;justify-content:center;padding:25px 15px;
 }
-#portada.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
-.card-portada{
-  background:rgba(255,255,255,0.08);backdrop-filter:blur(15px);
-  border:1px solid rgba(255,255,255,0.15);padding:35px 25px;border-radius:30px;
-  width:90%;max-width:380px;box-shadow:0 0 40px rgba(255,235,59,.3)
+.carta{
+  width:100%;max-width:480px;background:white;border-radius:28px;padding:28px 22px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);text-align:center;animation:float 3s infinite
 }
-.card-portada h1{font-family:'Dancing Script';font-size:48px;color:#ffeb3b}
-.card-portada p{margin:10px 0;opacity:.8}
-.avatars{display:flex;justify-content:center;gap:15px;margin:20px 0}
-.avatars img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #ffeb3b;box-shadow:0 0 15px #ffeb3b}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.carta h1{font-family:'Dancing Script';font-size:48px;color:#d89d00}
+.sub{font-size:12px;letter-spacing:3px;font-weight:800;color:#b48700}
+.foto{width:100%;border-radius:20px;margin:15px 0;object-fit:cover;max-height:350px;border:3px solid #ffeb3b}
+.frase-foto{background:#fff59d;border-left:5px solid #ff9800;padding:10px;border-radius:12px;margin:10px 0;font-style:italic;font-weight:600;color:#5a4000;text-align:left}
+.texto-amor{text-align:left;line-height:1.8;color:#4a3800;font-size:15px;margin:18px 0}
+.music-box{display:flex;gap:12px;align-items:center;background:#111;color:white;border-radius:18px;padding:12px;text-align:left;margin-top:15px}
+.music-box img{width:60px;height:60px;border-radius:12px;object-fit:cover}
+.music-box b{color:#ffeb3b;font-size:14px}
+audio{width:100%;margin-top:8px}
 .btn-abrir{
-  background: linear-gradient(135deg,#ffeb3b,#ff9800);color:#3a2500;
-  border:none;padding:15px 35px;border-radius:50px;font-weight:800;font-size:18px;
-  cursor:pointer;margin-top:15px;box-shadow:0 10px 25px rgba(255,152,0,.5);transition:.3s
+  width:100%;margin-top:22px;background:linear-gradient(135deg,#000,#333);color:#ffeb3b;
+  border:2px solid #ffeb3b;padding:16px;border-radius:50px;font-weight:800;font-size:18px;cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.3)
 }
-.btn-abrir:active{transform:scale(.95)}
-
-/* UNIVERSO */
-#universo{display:none;min-height:100vh;background:#05010a;position:relative;overflow:hidden;padding-bottom:80px}
-#universo.active{display:block}
-
-/* AGUJERO NEGRO */
-.blackhole-wrap{
-  position:relative;width:100%;height:550px;display:flex;justify-content:center;align-items:center;
-  margin-top:20px;
-}
-.blackhole{
-  width:180px;height:180px;background:radial-gradient(circle at center, #000 40%, #111 60%, #000 100%);
-  border-radius:50%;box-shadow:0 0 0 8px #222, 0 0 30px 20px rgba(138,43,226,.6), 0 0 80px 40px rgba(255,235,59,.3);
-  position:relative;z-index:5;animation: pulseHole 3s infinite;
-}
-@keyframes pulseHole{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.btn-abrir:active{transform:scale(.97)}
+#universo{display:none;min-height:100vh;background:#05010a;position:relative;overflow:hidden}
+#universo.active{display:block;animation:fadeIn 1s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.blackhole-wrap{position:relative;width:100%;height:520px;display:flex;justify-content:center;align-items:center}
+.blackhole{width:160px;height:160px;background:radial-gradient(circle, #000 40%, #111 70%);border-radius:50%;box-shadow:0 0 0 10px #222, 0 0 40px 25px rgba(138,43,226,.7), 0 0 90px 50px rgba(255,235,59,.25);z-index:5;animation:pulse 3s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 .ring{position:absolute;border-radius:50%;border:2px solid rgba(255,235,59,.3);animation:spin linear infinite}
-.ring1{width:280px;height:280px;animation-duration:8s}
-.ring2{width:380px;height:380px;animation-duration:12s;border-color:rgba(255,152,0,.25)}
-.ring3{width:500px;height:500px;animation-duration:18s;border-style:dashed}
+.ring1{width:270px;height:270px;animation-duration:7s}.ring2{width:370px;height:370px;animation-duration:11s}.ring3{width:490px;height:490px;border-style:dashed;animation-duration:16s}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* GIRASOLES SALIENDO */
-.sunflower-out{
-  position:absolute;font-size:32px;animation: salir 4s linear infinite;z-index:4;
-}
-@keyframes salir{
-  0%{transform:translate(0,0) scale(0) rotate(0deg);opacity:1}
-  100%{transform:translate(var(--x), var(--y)) scale(1.5) rotate(720deg);opacity:0}
-}
-
-/* FOTOS ORBITANDO */
-.orbit{position:absolute;border-radius:50%;animation: orbit linear infinite;z-index:6}
-.orbit img{width:85px;height:85px;border-radius:18px;object-fit:cover;border:3px solid #ffeb3b;box-shadow:0 0 20px #ffeb3b}
-.orbit1{animation-duration:6s;top:50%;left:50%;margin:-42px;width:300px;height:300px}
-.orbit2{animation-duration:9s;top:50%;left:50%;margin:-42px;width:440px;height:440px}
-.orbit1 .inner{animation: counter 6s linear infinite}
-.orbit2 .inner{animation: counter 9s linear infinite}
-.inner{width:85px;height:85px}
-@keyframes orbit{from{transform:rotate(0deg) translateX(150px) rotate(0deg)}to{transform:rotate(360deg) translateX(150px) rotate(-360deg)}}
-.orbit2{--dist:220px}
-@keyframes counter{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-
-/* FRASES FLOTANDO */
-.frase{
-  position:absolute;white-space:nowrap;
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,235,59,.3);
-  padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;
-  animation: floatText linear infinite;color:#ffeb3b
-}
-@keyframes floatText{
-  0%{transform:translateY(100vh) translateX(0);opacity:0}
-  10%{opacity:1}
-  90%{opacity:1}
-  100%{transform:translateY(-20vh) translateX(50px);opacity:0}
-}
-
-/* CARTA */
-.carta-section{width:92%;max-width:500px;margin:20px auto;background:rgba(255,255,255,.95);color:#3a2a00;
-border-radius:28px;padding:28px 22px;position:relative;z-index:10;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.carta-section h2{font-family:'Dancing Script';font-size:38px;color:#c49000;text-align:center}
-.carta-section .foto-mini{width:100%;border-radius:18px;margin:14px 0;object-fit:cover;max-height:280px}
-.frase-amor{background:#fff176;border-left:5px solid #ffb300;padding:10px 12px;border-radius:12px;margin:12px 0;font-style:italic;font-weight:600}
-.music-player{display:flex;align-items:center;gap:12px;background:#111;border:1px solid #333;
-border-radius:18px;padding:12px;margin-top:18px}
-.music-player img{width:55px;height:55px;border-radius:12px;object-fit:cover}
-.music-player .info{flex:1}
-.music-player b{font-size:13px;color:#ffeb3b}
-.music-player p{font-size:11px;opacity:.7}
-audio{width:100%;margin-top:10px;filter: invert(1) hue-rotate(180deg)}
+.orbit{position:absolute;animation:orbit linear infinite}
+.orbit img{width:80px;height:80px;border-radius:16px;border:3px solid #ffeb3b;box-shadow:0 0 20px #ffeb3b;object-fit:cover}
+.orbit1{animation-duration:6s;top:50%;left:50%} .orbit2{animation-duration:9s;top:50%;left:50%}
+@keyframes orbit{from{transform:rotate(0deg) translateX(150px) rotate(0deg)}to{transform:rotate(360deg) translateX(220px) rotate(-360deg)}}
+.sun{position:absolute;font-size:34px;animation:salir 3.5s linear forwards}
+@keyframes salir{0%{transform:translate(0,0) scale(0) rotate(0deg);opacity:1}100%{transform:translate(var(--x), var(--y)) scale(1.6) rotate(720deg);opacity:0}}
+.frase-flot{position:absolute;white-space:nowrap;background:rgba(255,255,255,.12);border:1px solid rgba(255,235,59,.4);padding:7px 14px;border-radius:20px;font-size:12px;color:#ffeb3b;font-weight:600;animation:flotar linear forwards}
+@keyframes flotar{0%{transform:translateY(110vh);opacity:0}10%{opacity:1}100%{transform:translateY(-20vh);opacity:0}}
 </style>
 </head>
 <body>
 
-<!-- PORTADA -->
-<div id="portada">
-  <div class="card-portada">
-    <p>💛 PARA MI UNIVERSO ENTERO 💛</p>
-    <h1>Luz 🌻</h1>
-    <div class="avatars">
-      <img src="https://files.evogb.win/6E6Gyh.jpg">
-      <img src="https://files.evogb.win/8E1mm0.jpg">
-    </div>
-    <p>De: <b>Cristhofer</b><br>Hay un universo donde solo existes tú</p>
-    <button class="btn-abrir" onclick="abrirUniverso()">ABRIR 🔓 🌻</button>
-    <p style="font-size:11px;margin-top:12px;opacity:.6">RICKY PREM BOT ⚡💥 EDITION</p>
+<!-- CARTA DE AMOR -->
+<div id="cartas">
+<div class="carta">
+  <div class="sub">CARTA DE AMOR PARA</div>
+  <h1>Luz 💛</h1>
+  <p style="font-size:13px;opacity:.7">De: Cristhofer - 21 de Septiembre</p>
+
+  <img class="foto" src="https://files.evogb.win/6E6Gyh.jpg">
+  <div class="frase-foto">💛 "En tus ojos encontré el universo entero, Luz"</div>
+
+  <div class="texto-amor">
+    Mi Luz hermosa:<br><br>
+    No sé cómo empezar esta carta porque ninguna palabra es suficiente para ti. Desde que llegaste todo es más bonito.<br><br>
+    <b>Hay 3 cosas de ti que me tienen completamente enamorado:</b><br>
+    👁️ <b>Tus ojos:</b> Me encantan, de verdad. Cuando me miras siento que el mundo se detiene. Son mi lugar seguro.<br>
+    💇‍♀️ <b>Tu cabello:</b> Es perfecto, me encanta cómo te queda, cómo brilla, eres hermosa en cada detalle.<br>
+    😂 <b>Tu risa:</b> Es mi sonido favorito en el mundo. Si pudiera guardaría tu risa en una cajita y la escucharía todo el día.<br><br>
+    Eres una niña increíble, dulce, linda, con un corazón enorme. Te mereces todo lo bonito, todo el amor del mundo, y yo quiero dártelo.<br><br>
+    Gracias por existir, por ser tú, por hacerme sonreír con tan solo pensar en ti.<br><br>
+    Te amo, mi Luz.<br><br>
+    <span style="font-family:'Dancing Script';font-size:30px;color:#d89d00">Siempre tuyo, Cristhofer 💛</span>
   </div>
+
+  <img class="foto" src="https://files.evogb.win/8E1mm0.jpg">
+  <div class="frase-foto">🌻 "Tu risa es mi canción favorita y tu cabello mi atardecer favorito"</div>
+
+  <div class="music-box">
+    <img src="https://files.evogb.win/i1hl4C.jpg">
+    <div style="flex:1">
+      <b>Nena - Gonzalo Genek</b><br>
+      <span style="font-size:11px;opacity:.7">Nuestra canción 💛</span>
+      <audio controls loop id="audioGenek">
+        <source src="https://files.evogb.win/BQ9gfb.mp3" type="audio/mpeg">
+      </audio>
+      <a href="https://files.evogb.win/BQ9gfb.mp3" target="_blank" style="font-size:10px;color:#ffeb3b">🔗 Link canción</a>
+    </div>
+  </div>
+
+  <button class="btn-abrir" onclick="abrir()">ABRIR MI UNIVERSO 🔓 🌻</button>
+  <p style="font-size:10px;opacity:.5;margin-top:10px">RICKY PREM BOT ⚡💥 EDITION</p>
+</div>
 </div>
 
 <!-- UNIVERSO -->
 <div id="universo">
-  
-  <div class="blackhole-wrap" id="holeWrap">
-    <div class="ring ring1"></div>
-    <div class="ring ring2"></div>
-    <div class="ring ring3"></div>
+  <h2 style="font-family:'Dancing Script';text-align:center;padding-top:30px;font-size:40px;color:#ffeb3b">Mi Universo Eres Tú 🌻</h2>
+  <p style="text-align:center;color:white;opacity:.7;font-size:13px">Mira lo que sale de mi corazón por ti Luz...</p>
+
+  <div class="blackhole-wrap" id="wrap">
+    <div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div>
     <div class="blackhole"></div>
-    
-    <!-- Fotos orbitando -->
-    <div class="orbit orbit1"><div class="inner"><img src="https://files.evogb.win/6E6Gyh.jpg"></div></div>
-    <div class="orbit orbit2"><div class="inner"><img src="https://files.evogb.win/8E1mm0.jpg"></div></div>
+    <div class="orbit orbit1"><img src="https://files.evogb.win/6E6Gyh.jpg"></div>
+    <div class="orbit orbit2"><img src="https://files.evogb.win/8E1mm0.jpg"></div>
   </div>
 
-  <div class="carta-section">
-    <h2>Mi Luz 🌻</h2>
-    <p style="text-align:center;font-size:13px;letter-spacing:2px;margin:5px 0">21 DE SEPTIEMBRE - FLORES AMARILLAS</p>
-    
-    <img class="foto-mini" src="https://files.evogb.win/6E6Gyh.jpg">
-    <div class="frase-amor">💛 Foto 1: "En tus ojos encontré mi lugar favorito en el mundo"</div>
-
-    <p style="line-height:1.7;margin-top:10px;font-size:15px">
-      Luz, amor mío:<br><br>
-      Si pudiera regalarte el universo entero lo haría, pero hoy te regalo girasoles que salen hasta de un agujero negro, porque así de grande es lo que siento por ti.<br><br>
-      <b>Me encantas por 3 razones que me tienen loco:</b><br>
-      ✨ <b>Tus ojos:</b> son mi amanecer, cada vez que me miras se me olvida todo lo malo.<br>
-      ✨ <b>Tu cabello:</b> es perfecto, me encanta ver cómo te queda, eres hermosa en cada detalle.<br>
-      ✨ <b>Tu risa:</b> es mi sonido favorito, si pudiera la guardaría en una canción para escucharla siempre.<br><br>
-      Eres mi flor amarilla eterna, la que nunca se marchita. Gracias por existir, por ser tú, por hacerme feliz con tan solo una sonrisa.<br><br>
-      Te amo más que a las lasañas que Garfield, más que al infinito de este agujero negro.<br><br>
-      Siempre tuyo,<br>
-      <span style="font-family:'Dancing Script';font-size:28px">Cristhofer 💛</span>
-    </p>
-
-    <img class="foto-mini" src="https://files.evogb.win/8E1mm0.jpg">
-    <div class="frase-amor">🌻 Foto 2: "Tu risa es mi canción favorita, y tu cabello mi atardecer"</div>
-
-    <div class="music-player">
-      <img src="https://files.evogb.win/i1hl4C.jpg">
-      <div class="info">
-        <b>Nena Gonzalo Genek</b>
-        <p>Nuestra canción 💛</p>
-        <audio controls autoplay loop id="mainAudio">
-          <source src="https://files.evogb.win/BQ9gfb.mp3" type="audio/mpeg">
+  <div style="width:90%;max-width:400px;margin:0 auto;text-align:center;position:relative;z-index:10">
+    <div class="music-box">
+      <div style="flex:1">
+        <b>🌌 Sonando en el universo</b><br>
+        <audio controls autoplay loop id="audioUni">
+          <source src="https://files.evogb.win/6cwrNy.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
-
-    <div class="music-player" style="margin-top:12px">
-      <div class="info" style="width:100%">
-        <b>🎵 Música del Abrir 🔓</b>
-        <audio controls loop>
-          <source src="https://files.evogb.win/BQ9fb.mp3" type="audio/mpeg">
-        </audio>
-        <a href="https://files.evogb.win/6cwrNy.mp3" target="_blank" style="font-size:11px;color:#a67c00">🔗 Link de la canción</a>
-      </div>
-    </div>
-
-    <p style="text-align:center;margin-top:20px;font-size:11px;opacity:.6">Hecho con todo mi amor - Cristhofer x Luz 🌻 RICKY PREM BOT ⚡</p>
+    <p style="color:white;margin-top:20px;font-size:12px;opacity:.6">Cristhofer x Luz - Para siempre 💛</p>
   </div>
-
 </div>
 
 <script>
-function abrirUniverso(){
-  document.getElementById('portada').classList.add('hide');
-  let uni = document.getElementById('universo');
-  uni.classList.add('active');
-  uni.style.display='block';
-  document.getElementById('mainAudio').play().catch(()=>{});
-  lanzarGirasoles();
-  lanzarFrases();
-  if(navigator.vibrate) navigator.vibrate([100,50,100]);
+function abrir(){
+  document.getElementById('cartas').style.display='none';
+  let u = document.getElementById('universo');
+  u.classList.add('active'); u.style.display='block';
+  document.getElementById('audioGenek').pause();
+  let a = document.getElementById('audioUni');
+  a.play().catch(()=>{});
+  setInterval(crearGirasol,150);
+  setInterval(crearFrase,500);
 }
-
-function lanzarGirasoles(){
-  setInterval(()=>{
-    let s = document.createElement('div');
-    s.className='sunflower-out';
-    s.innerHTML='🌻';
-    let angle = Math.random()*360;
-    let dist = 200+Math.random()*300;
-    let x = Math.cos(angle*Math.PI/180)*dist;
-    let y = Math.sin(angle*Math.PI/180)*dist;
-    s.style.setProperty('--x', x+'px');
-    s.style.setProperty('--y', y+'px');
-    s.style.left='50%'; s.style.top='270px';
-    s.style.animationDuration=(2+Math.random()*2)+'s';
-    document.getElementById('holeWrap').appendChild(s);
-    setTimeout(()=>s.remove(),4000);
-  },180);
+function crearGirasol(){
+  let s=document.createElement('div'); s.className='sun'; s.innerHTML='🌻';
+  let ang=Math.random()*360; let dist=250+Math.random()*350;
+  let x=Math.cos(ang*Math.PI/180)*dist; let y=Math.sin(ang*Math.PI/180)*dist;
+  s.style.setProperty('--x',x+'px'); s.style.setProperty('--y',y+'px');
+  s.style.left='50%'; s.style.top='260px';
+  document.getElementById('wrap').appendChild(s);
+  setTimeout(()=>s.remove(),3500);
 }
-
-const frases = [
-  "Tus ojos son mi universo 💛",
-  "Amo tu risa Luz 😍",
-  "Tu cabello es perfecto ✨",
-  "Eres mi flor amarilla eterna 🌻",
-  "Cristhofer ama a Luz 💛",
-  "Tu sonrisa ilumina todo 🌞",
-  "Nunca dejes de reír 💫",
-  "Eres mi todo Luz ✨"
-];
-function lanzarFrases(){
-  setInterval(()=>{
-    let f = document.createElement('div');
-    f.className='frase';
-    f.innerText=frases[Math.floor(Math.random()*frases.length)];
-    f.style.left=Math.random()*70+'vw';
-    f.style.animationDuration=(5+Math.random()*5)+'s';
-    document.getElementById('universo').appendChild(f);
-    setTimeout(()=>f.remove(),8000);
-  },600);
+const frases=["Tus ojos son mi vida 💛","Amo tu cabello Luz ✨","Tu risa me enamora 😍","Eres mi flor amarilla 🌻","Cristhofer ama a Luz 💛","Tu mirada me mata 😍","Nunca dejes de sonreír ✨","Eres mi todo 💫","Me encantas Luz 🌻","Tu eres mi universo 🌌"];
+function crearFrase(){
+  let f=document.createElement('div'); f.className='frase-flot';
+  f.innerText=frases[Math.floor(Math.random()*frases.length)];
+  f.style.left=Math.random()*70+'vw'; f.style.animationDuration=(4+Math.random()*4)+'s';
+  document.getElementById('universo').appendChild(f);
+  setTimeout(()=>f.remove(),7000);
 }
 </script>
 </body>
