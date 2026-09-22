@@ -7,147 +7,152 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#fff8d6;font-family:'Poppins',sans-serif;overflow-x:hidden}
-#cartas{
-  min-height:100vh;background: radial-gradient(circle at top, #fff9c4, #ffeb3b, #ffc107);
-  display:flex;justify-content:center;padding:25px 15px;
-}
-.carta{
-  width:100%;max-width:480px;background:white;border-radius:28px;padding:28px 22px;
-  box-shadow:0 15px 40px rgba(0,0,0,.15);text-align:center;animation:float 3s infinite
-}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.carta h1{font-family:'Dancing Script';font-size:48px;color:#d89d00}
-.sub{font-size:12px;letter-spacing:3px;font-weight:800;color:#b48700}
-.foto{width:100%;border-radius:20px;margin:15px 0;object-fit:cover;max-height:350px;border:3px solid #ffeb3b}
+body{font-family:'Poppins',sans-serif;overflow-x:hidden;background:#fff8d6}
+
+/* CARTA */
+#cartas{min-height:100vh;background:radial-gradient(circle at top,#fff9c4,#ffeb3b,#ffc107);display:flex;justify-content:center;padding:25px 15px}
+.carta{width:100%;max-width:480px;background:white;border-radius:28px;padding:28px 22px;box-shadow:0 15px 40px rgba(0,0,0,.15);text-align:center}
+.carta h1{font-family:'Dancing Script';font-size:52px;color:#d89d00}
+.foto{width:100%;border-radius:20px;margin:15px 0;object-fit:cover;max-height:360px;border:3px solid #ffeb3b}
 .frase-foto{background:#fff59d;border-left:5px solid #ff9800;padding:10px;border-radius:12px;margin:10px 0;font-style:italic;font-weight:600;color:#5a4000;text-align:left}
 .texto-amor{text-align:left;line-height:1.8;color:#4a3800;font-size:15px;margin:18px 0}
 .music-box{display:flex;gap:12px;align-items:center;background:#111;color:white;border-radius:18px;padding:12px;text-align:left;margin-top:15px}
 .music-box img{width:60px;height:60px;border-radius:12px;object-fit:cover}
-.music-box b{color:#ffeb3b;font-size:14px}
-audio{width:100%;margin-top:8px}
-.btn-abrir{
-  width:100%;margin-top:22px;background:linear-gradient(135deg,#000,#333);color:#ffeb3b;
-  border:2px solid #ffeb3b;padding:16px;border-radius:50px;font-weight:800;font-size:18px;cursor:pointer;
-  box-shadow:0 10px 25px rgba(0,0,0,.3)
+.btn-abrir{width:100%;margin-top:22px;background:#000;color:#ffeb3b;border:2px solid #ffeb3b;padding:16px;border-radius:50px;font-weight:800;font-size:18px;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.3)}
+
+/* UNIVERSO 360 */
+#universo{display:none;position:fixed;inset:0;background:#02010a;overflow:hidden;perspective:1000px}
+#universo.active{display:block}
+#stars{position:absolute;inset:0;z-index:1}
+.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;animation:twinkle 2s infinite alternate}
+@keyframes twinkle{0%{opacity:.2}100%{opacity:1}}
+
+.universe-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) translateZ(0);
+  width:100%;height:100%;display:flex;justify-content:center;align-items:center;
+  transform-style:preserve-3d;animation:rotateUniverse 60s linear infinite
 }
-.btn-abrir:active{transform:scale(.97)}
-#universo{display:none;min-height:100vh;background:#05010a;position:relative;overflow:hidden}
-#universo.active{display:block;animation:fadeIn 1s}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.blackhole-wrap{position:relative;width:100%;height:520px;display:flex;justify-content:center;align-items:center}
-.blackhole{width:160px;height:160px;background:radial-gradient(circle, #000 40%, #111 70%);border-radius:50%;box-shadow:0 0 0 10px #222, 0 0 40px 25px rgba(138,43,226,.7), 0 0 90px 50px rgba(255,235,59,.25);z-index:5;animation:pulse 3s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-.ring{position:absolute;border-radius:50%;border:2px solid rgba(255,235,59,.3);animation:spin linear infinite}
-.ring1{width:270px;height:270px;animation-duration:7s}.ring2{width:370px;height:370px;animation-duration:11s}.ring3{width:490px;height:490px;border-style:dashed;animation-duration:16s}
-@keyframes spin{to{transform:rotate(360deg)}}
-.orbit{position:absolute;animation:orbit linear infinite}
-.orbit img{width:80px;height:80px;border-radius:16px;border:3px solid #ffeb3b;box-shadow:0 0 20px #ffeb3b;object-fit:cover}
-.orbit1{animation-duration:6s;top:50%;left:50%} .orbit2{animation-duration:9s;top:50%;left:50%}
-@keyframes orbit{from{transform:rotate(0deg) translateX(150px) rotate(0deg)}to{transform:rotate(360deg) translateX(220px) rotate(-360deg)}}
-.sun{position:absolute;font-size:34px;animation:salir 3.5s linear forwards}
-@keyframes salir{0%{transform:translate(0,0) scale(0) rotate(0deg);opacity:1}100%{transform:translate(var(--x), var(--y)) scale(1.6) rotate(720deg);opacity:0}}
-.frase-flot{position:absolute;white-space:nowrap;background:rgba(255,255,255,.12);border:1px solid rgba(255,235,59,.4);padding:7px 14px;border-radius:20px;font-size:12px;color:#ffeb3b;font-weight:600;animation:flotar linear forwards}
-@keyframes flotar{0%{transform:translateY(110vh);opacity:0}10%{opacity:1}100%{transform:translateY(-20vh);opacity:0}}
+@keyframes rotateUniverse{from{transform:translate(-50%,-50%) rotateY(0deg)}to{transform:translate(-50%,-50%) rotateY(360deg)}}
+
+.blackhole-wrap{position:relative;width:600px;height:600px;display:flex;justify-content:center;align-items:center;transform-style:preserve-3d}
+.blackhole{
+  width:150px;height:150px;background:radial-gradient(circle at 30% 30%, #222, #000 60%);
+  border-radius:50%;box-shadow:0 0 20px 10px #000, 0 0 60px 30px rgba(120,0,255,.8), 0 0 120px 60px rgba(255,235,59,.25);
+  z-index:10;animation:holePulse 3s infinite
+}
+@keyframes holePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(255,235,59,.25);transform-style:preserve-3d}
+.ring1{width:260px;height:260px;transform:rotateX(75deg);animation:spin 6s linear infinite}
+.ring2{width:360px;height:360px;transform:rotateX(75deg) rotateY(20deg);animation:spin 10s linear reverse infinite}
+.ring3{width:480px;height:480px;transform:rotateX(75deg) rotateY(-15deg);border-style:dashed;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotateX(75deg) rotateZ(360deg)}}
+
+/* PLANETAS FOTOS 360 */
+.planet{position:absolute;transform-style:preserve-3d}
+.planet img{width:90px;height:90px;border-radius:18px;border:3px solid #ffeb3b;box-shadow:0 0 25px #ffeb3b;object-fit:cover}
+.p1{animation:orbit1 8s linear infinite}
+.p2{animation:orbit2 12s linear infinite}
+@keyframes orbit1{from{transform:rotateY(0deg) translateZ(200px) rotateY(0deg)}to{transform:rotateY(360deg) translateZ(200px) rotateY(-360deg)}}
+@keyframes orbit2{from{transform:rotateY(180deg) translateZ(280px) rotateY(0deg)}to{transform:rotateY(540deg) translateZ(280px) rotateY(-360deg)}}
+
+/* GIRASOLES 360 */
+.sun360{position:absolute;left:50%;top:50%;font-size:30px;pointer-events:none;z-index:20;transform-style:preserve-3d}
+
+/* FRASES 360 CON ZOOM */
+.frase360{
+  position:absolute;left:50%;top:50%;white-space:nowrap;
+  background:rgba(255,235,59,.15);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,235,59,.5);padding:8px 16px;border-radius:25px;
+  color:#ffeb3b;font-weight:700;font-size:14px;pointer-events:none;
+  text-shadow:0 0 10px #ffeb3b;z-index:15;transform-style:preserve-3d;
+  animation:fraseZoom linear forwards
+}
+@keyframes fraseZoom{
+  0%{transform:translate3d(var(--x), var(--y), -500px) scale(0.2);opacity:0}
+  20%{opacity:1}
+  50%{transform:translate3d(var(--x), var(--y), 0px) scale(1.6);opacity:1}
+  100%{transform:translate3d(var(--x), var(--y), 500px) scale(0.2);opacity:0}
+}
+
+.title-uni{position:absolute;top:30px;width:100%;text-align:center;z-index:30;pointer-events:none}
+.title-uni h2{font-family:'Dancing Script';font-size:42px;color:#ffeb3b;text-shadow:0 0 20px #ff9800}
+.title-uni p{color:white;opacity:.7;font-size:12px}
+.hidden-audio{display:none}
 </style>
 </head>
 <body>
 
-<!-- CARTA DE AMOR -->
 <div id="cartas">
 <div class="carta">
-  <div class="sub">CARTA DE AMOR PARA</div>
+  <div style="font-size:11px;letter-spacing:3px;font-weight:800;color:#b48700">CARTA DE AMOR PARA</div>
   <h1>Luz 💛</h1>
-  <p style="font-size:13px;opacity:.7">De: Cristhofer - 21 de Septiembre</p>
-
+  <p style="font-size:13px;opacity:.7">De: Cristhofer</p>
   <img class="foto" src="https://files.evogb.win/6E6Gyh.jpg">
-  <div class="frase-foto">💛 "En tus ojos encontré el universo entero, Luz"</div>
-
+  <div class="frase-foto">💛 "En tus ojos encontré el universo entero"</div>
   <div class="texto-amor">
     Mi Luz hermosa:<br><br>
-    No sé cómo empezar esta carta porque ninguna palabra es suficiente para ti. Desde que llegaste todo es más bonito.<br><br>
-    <b>Hay 3 cosas de ti que me tienen completamente enamorado:</b><br>
-    👁️ <b>Tus ojos:</b> Me encantan, de verdad. Cuando me miras siento que el mundo se detiene. Son mi lugar seguro.<br>
-    💇‍♀️ <b>Tu cabello:</b> Es perfecto, me encanta cómo te queda, cómo brilla, eres hermosa en cada detalle.<br>
-    😂 <b>Tu risa:</b> Es mi sonido favorito en el mundo. Si pudiera guardaría tu risa en una cajita y la escucharía todo el día.<br><br>
-    Eres una niña increíble, dulce, linda, con un corazón enorme. Te mereces todo lo bonito, todo el amor del mundo, y yo quiero dártelo.<br><br>
-    Gracias por existir, por ser tú, por hacerme sonreír con tan solo pensar en ti.<br><br>
-    Te amo, mi Luz.<br><br>
+    <b>Tus ojos, tu cabello y tu risa</b> me tienen loco. Tus ojos son mi amanecer, tu cabello es perfecto y tu risa es mi canción favorita.<br><br>
+    Te amo más que a todo mi universo. Gracias por existir.<br><br>
     <span style="font-family:'Dancing Script';font-size:30px;color:#d89d00">Siempre tuyo, Cristhofer 💛</span>
   </div>
-
   <img class="foto" src="https://files.evogb.win/8E1mm0.jpg">
-  <div class="frase-foto">🌻 "Tu risa es mi canción favorita y tu cabello mi atardecer favorito"</div>
-
+  <div class="frase-foto">🌻 "Tu risa es mi lugar favorito"</div>
   <div class="music-box">
     <img src="https://files.evogb.win/i1hl4C.jpg">
-    <div style="flex:1">
-      <b>Nena - Gonzalo Genek</b><br>
-      <span style="font-size:11px;opacity:.7">Nuestra canción 💛</span>
-      <audio controls loop id="audioGenek">
-        <source src="https://files.evogb.win/BQ9gfb.mp3" type="audio/mpeg">
-      </audio>
-      <a href="https://files.evogb.win/BQ9gfb.mp3" target="_blank" style="font-size:10px;color:#ffeb3b">🔗 Link canción</a>
+    <div style="flex:1"><b>Nena - Gonzalo Genek</b><br><span style="font-size:11px;opacity:.7">Nuestra canción</span>
+      <audio controls loop><source src="https://files.evogb.win/BQ9gfb.mp3"></audio>
     </div>
   </div>
-
-  <button class="btn-abrir" onclick="abrir()">ABRIR MI UNIVERSO 🔓 🌻</button>
-  <p style="font-size:10px;opacity:.5;margin-top:10px">RICKY PREM BOT ⚡💥 EDITION</p>
+  <button class="btn-abrir" onclick="abrir()">ABRIR MI UNIVERSO 🔓 🌌</button>
 </div>
 </div>
 
-<!-- UNIVERSO -->
 <div id="universo">
-  <h2 style="font-family:'Dancing Script';text-align:center;padding-top:30px;font-size:40px;color:#ffeb3b">Mi Universo Eres Tú 🌻</h2>
-  <p style="text-align:center;color:white;opacity:.7;font-size:13px">Mira lo que sale de mi corazón por ti Luz...</p>
-
-  <div class="blackhole-wrap" id="wrap">
-    <div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div>
-    <div class="blackhole"></div>
-    <div class="orbit orbit1"><img src="https://files.evogb.win/6E6Gyh.jpg"></div>
-    <div class="orbit orbit2"><img src="https://files.evogb.win/8E1mm0.jpg"></div>
-  </div>
-
-  <div style="width:90%;max-width:400px;margin:0 auto;text-align:center;position:relative;z-index:10">
-    <div class="music-box">
-      <div style="flex:1">
-        <b>🌌 Sonando en el universo</b><br>
-        <audio controls autoplay loop id="audioUni">
-          <source src="https://files.evogb.win/6cwrNy.mp3" type="audio/mpeg">
-        </audio>
-      </div>
+  <div id="stars"></div>
+  <div class="title-uni"><h2>Mi Universo Eres Tú Luz 🌻</h2><p>Cristhofer x Luz - 360° de amor 💛</p></div>
+  <div class="universe-center" id="center">
+    <div class="blackhole-wrap">
+      <div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div>
+      <div class="blackhole"></div>
+      <div class="planet p1"><img src="https://files.evogb.win/6E6Gyh.jpg"></div>
+      <div class="planet p2"><img src="https://files.evogb.win/8E1mm0.jpg"></div>
     </div>
-    <p style="color:white;margin-top:20px;font-size:12px;opacity:.6">Cristhofer x Luz - Para siempre 💛</p>
   </div>
+  <!-- AUDIOS OCULTOS -->
+  <audio id="audioUni" class="hidden-audio" loop><source src="https://files.evogb.win/6cwrNy.mp3"></audio>
 </div>
 
 <script>
+// Estrellas
+for(let i=0;i<200;i++){let s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=Math.random()*2+'s';document.getElementById('stars').appendChild(s)}
+
 function abrir(){
   document.getElementById('cartas').style.display='none';
-  let u = document.getElementById('universo');
-  u.classList.add('active'); u.style.display='block';
-  document.getElementById('audioGenek').pause();
-  let a = document.getElementById('audioUni');
-  a.play().catch(()=>{});
-  setInterval(crearGirasol,150);
-  setInterval(crearFrase,500);
+  let u=document.getElementById('universo');u.style.display='block';u.classList.add('active');
+  let a=document.getElementById('audioUni');a.volume=0.9;a.play().catch(()=>{document.addEventListener('click',()=>a.play(),{once:true})});
+  setInterval(crearSun360,120);
+  setInterval(crearFrase360,350);
 }
-function crearGirasol(){
-  let s=document.createElement('div'); s.className='sun'; s.innerHTML='🌻';
-  let ang=Math.random()*360; let dist=250+Math.random()*350;
-  let x=Math.cos(ang*Math.PI/180)*dist; let y=Math.sin(ang*Math.PI/180)*dist;
-  s.style.setProperty('--x',x+'px'); s.style.setProperty('--y',y+'px');
-  s.style.left='50%'; s.style.top='260px';
-  document.getElementById('wrap').appendChild(s);
-  setTimeout(()=>s.remove(),3500);
+
+function crearSun360(){
+  let e=document.createElement('div');e.className='sun360';e.innerHTML='🌻';
+  let ang1=Math.random()*360, ang2=Math.random()*360;
+  let r=300+Math.random()*500;
+  let x=Math.cos(ang1*Math.PI/180)*r, y=Math.sin(ang1*Math.PI/180)*r, z=Math.cos(ang2*Math.PI/180)*r;
+  e.animate([{transform:`translate3d(${x}px,${y}px,${z}px) scale(0)`,opacity:1},{transform:`translate3d(${x*0.1}px,${y*0.1}px,${z*0.1}px) scale(1.5)`,opacity:0}],{duration:3000+Math.random()*2000,easing:'linear'});
+  document.getElementById('center').appendChild(e);
+  setTimeout(()=>e.remove(),3500);
 }
-const frases=["Tus ojos son mi vida 💛","Amo tu cabello Luz ✨","Tu risa me enamora 😍","Eres mi flor amarilla 🌻","Cristhofer ama a Luz 💛","Tu mirada me mata 😍","Nunca dejes de sonreír ✨","Eres mi todo 💫","Me encantas Luz 🌻","Tu eres mi universo 🌌"];
-function crearFrase(){
-  let f=document.createElement('div'); f.className='frase-flot';
+
+const frases=["TUS OJOS 💛","TU CABELLO PERFECTO ✨","TU RISA 😍","LUZ ERES MI TODO 🌻","CRISTHOFER AMA A LUZ 💛","MI FLOR AMARILLA 🌻","ME ENCANTAS LUZ ✨","TU SONRISA 🌞","MI UNIVERSO 🌌","TE AMO LUZ 💫"];
+function crearFrase360(){
+  let f=document.createElement('div');f.className='frase360';
   f.innerText=frases[Math.floor(Math.random()*frases.length)];
-  f.style.left=Math.random()*70+'vw'; f.style.animationDuration=(4+Math.random()*4)+'s';
-  document.getElementById('universo').appendChild(f);
-  setTimeout(()=>f.remove(),7000);
+  let x=(Math.random()-0.5)*600, y=(Math.random()-0.5)*600;
+  f.style.setProperty('--x',x+'px'); f.style.setProperty('--y',y+'px');
+  f.animate([{transform:`translate3d(${x}px,${y}px,-800px) scale(0.3)`,opacity:0},{transform:`translate3d(${x}px,${y}px,200px) scale(${1+Math.random()})`,opacity:1,offset:.5},{transform:`translate3d(${x}px,${y}px,800px) scale(0.2)`,opacity:0}],{duration:4000+Math.random()*2000});
+  document.getElementById('center').appendChild(f);
+  setTimeout(()=>f.remove(),6000);
 }
 </script>
 </body>
